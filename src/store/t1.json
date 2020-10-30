@@ -1,0 +1,21 @@
+[
+  { "Cargos_Anteriores": "ALCADE(SA) DE CENTRO POBLADO", "NumCandidatos": 14 },
+  { "Cargos_Anteriores": "ALCALDE DISTRITAL", "NumCandidatos": 63 },
+  { "Cargos_Anteriores": "ALCALDE PROVINCIAL", "NumCandidatos": 26 },
+  { "Cargos_Anteriores": "CONGRESISTA DE LA REPÚBLICA", "NumCandidatos": 48 },
+  { "Cargos_Anteriores": "CONSEJERO REGIONAL", "NumCandidatos": 40 },
+  { "Cargos_Anteriores": "DIPUTADO", "NumCandidatos": 10 },
+  { "Cargos_Anteriores": "GOBERNADOR REGIONAL", "NumCandidatos": 8 },
+  {
+    "Cargos_Anteriores": "PRIMER VICEPRESIDENTE DE LA REPÚBLICA",
+    "NumCandidatos": 1
+  },
+  { "Cargos_Anteriores": "REGIDOR DISTRITAL", "NumCandidatos": 129 },
+  { "Cargos_Anteriores": "REGIDOR PROVINCIAL", "NumCandidatos": 120 },
+  {
+    "Cargos_Anteriores": "REPRESENTANTE ANTE EL PARLAMENTO ANDINO",
+    "NumCandidatos": 6
+  },
+  { "Cargos_Anteriores": "SENADOR", "NumCandidatos": 1 },
+  { "Cargos_Anteriores": "VICEGOBERNADOR REGIONAL", "NumCandidatos": 6 }
+]

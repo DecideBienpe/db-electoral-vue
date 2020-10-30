@@ -1,0 +1,264 @@
+[
+  { "strDelitoPenal": "ABUSO DE AUTORIDAD", "Delitos_Penales": 11 },
+  { "strDelitoPenal": "DIFAMACION", "Delitos_Penales": 9 },
+  { "strDelitoPenal": "PECULADO DOLOSO", "Delitos_Penales": 7 },
+  { "strDelitoPenal": "DIFAMACIÓN", "Delitos_Penales": 4 },
+  {
+    "strDelitoPenal": "INCUMPLIMIENTO DE DEBERES FUNCIONALES",
+    "Delitos_Penales": 3
+  },
+  { "strDelitoPenal": "LESIONES", "Delitos_Penales": 3 },
+  { "strDelitoPenal": "LESIONES LEVES", "Delitos_Penales": 3 },
+  { "strDelitoPenal": "OMISION A ASISTENCIA FAMILIAR", "Delitos_Penales": 3 },
+  {
+    "strDelitoPenal": "OMISION A LA ASISTENCIA FAMILIAR",
+    "Delitos_Penales": 3
+  },
+  { "strDelitoPenal": "OMISIÓN ASISTENCIA FAMILIAR", "Delitos_Penales": 3 },
+  { "strDelitoPenal": "PECULADO", "Delitos_Penales": 3 },
+  { "strDelitoPenal": "RESISTENCIA A LA AUTORIDAD", "Delitos_Penales": 3 },
+  { "strDelitoPenal": "USURPACION", "Delitos_Penales": 3 },
+  { "strDelitoPenal": "USURPACIÓN DE FUNCIONES", "Delitos_Penales": 3 },
+  { "strDelitoPenal": "CALUMNIA", "Delitos_Penales": 2 },
+  { "strDelitoPenal": "COLUSIÓN", "Delitos_Penales": 2 },
+  {
+    "strDelitoPenal": "DESOBEDIENCIA O RESISTENCIA A LA AUTORIDAD",
+    "Delitos_Penales": 2
+  },
+  {
+    "strDelitoPenal": "DESOBEDIENCIA Y RESISTENCIA A LA AUTORIDAD",
+    "Delitos_Penales": 2
+  },
+  { "strDelitoPenal": "DIFAMACIÓN AGRAVADA", "Delitos_Penales": 2 },
+  { "strDelitoPenal": "ESTAFA GENERICA", "Delitos_Penales": 2 },
+  { "strDelitoPenal": "FALSA DECLARACION", "Delitos_Penales": 2 },
+  { "strDelitoPenal": "FALSEDAD GENERICA", "Delitos_Penales": 2 },
+  { "strDelitoPenal": "FALSEDAD IDEOLOGICA", "Delitos_Penales": 2 },
+  { "strDelitoPenal": "FALSEDAD IDEOLÓGICA", "Delitos_Penales": 2 },
+  { "strDelitoPenal": "FE PUBLICA", "Delitos_Penales": 2 },
+  { "strDelitoPenal": "HOMICIDIO CULPOSO", "Delitos_Penales": 2 },
+  { "strDelitoPenal": "PELIGRO COMÚN", "Delitos_Penales": 2 },
+  { "strDelitoPenal": "RECEPTACIÓN", "Delitos_Penales": 2 },
+  { "strDelitoPenal": "USURPACION DE FUNCIONES", "Delitos_Penales": 2 },
+  {
+    "strDelitoPenal": "VIOLENCIA Y RESISTENCIA DE AUTORIDAD",
+    "Delitos_Penales": 2
+  },
+  {
+    "strDelitoPenal": "ABANDO DE FAMILIA ART. COD.P.1924 - OMISIÓN DE ASISTENCIA FAMILIAR",
+    "Delitos_Penales": 1
+  },
+  { "strDelitoPenal": "ABANDONO DE DESTINO SIMPLE", "Delitos_Penales": 1 },
+  {
+    "strDelitoPenal": "ABANDONO DE FAMILIA ART COD.P.1924 - OMISION A LA ASISTENCIA FAMILIAR",
+    "Delitos_Penales": 1
+  },
+  { "strDelitoPenal": "ALIMENTOS", "Delitos_Penales": 1 },
+  { "strDelitoPenal": "ALTERACIÓN DEL AMBIENTE", "Delitos_Penales": 1 },
+  { "strDelitoPenal": "APROPIACION ILICITA", "Delitos_Penales": 1 },
+  { "strDelitoPenal": "APROPIACIÓN ILICITA", "Delitos_Penales": 1 },
+  { "strDelitoPenal": "APROPIACIÓN ILÍCITA", "Delitos_Penales": 1 },
+  {
+    "strDelitoPenal": "APROPIACIÓN ILÍCITA ESTAFA Y OTROS",
+    "Delitos_Penales": 1
+  },
+  { "strDelitoPenal": "APROPIACION ILIICTA", "Delitos_Penales": 1 },
+  { "strDelitoPenal": "ART. 181.", "Delitos_Penales": 1 },
+  { "strDelitoPenal": "ASIGNACION FAMILIAR", "Delitos_Penales": 1 },
+  { "strDelitoPenal": "AUMENTO DE ALIMENTOS", "Delitos_Penales": 1 },
+  {
+    "strDelitoPenal": "AVOCACION INDEBIDA DE PROCESOS EN TRAMITE",
+    "Delitos_Penales": 1
+  },
+  { "strDelitoPenal": "COHECHO ACTIVO GENERICO", "Delitos_Penales": 1 },
+  { "strDelitoPenal": "CONCUSIÓN", "Delitos_Penales": 1 },
+  { "strDelitoPenal": "CONCUSION 1 AÑO", "Delitos_Penales": 1 },
+  {
+    "strDelitoPenal": "CONDUCCION DE VEHICULO EN ESTADO DE EBRIEDA",
+    "Delitos_Penales": 1
+  },
+  {
+    "strDelitoPenal": "CONDUCCIÓN DE VEHÍCULO EN ESTADO DE EBRIEDAD",
+    "Delitos_Penales": 1
+  },
+  {
+    "strDelitoPenal": "CONTAMINACION DE AGUAS O SUSTANCIAS ALIMENTICIAS AL CONSUMO - ENCUBRIMIENTO",
+    "Delitos_Penales": 1
+  },
+  { "strDelitoPenal": "CONTRA EL HONOR", "Delitos_Penales": 1 },
+  {
+    "strDelitoPenal": "CONTRA EL HONOR  EN LA MODALIDAD DE DIFAMACIÓN AGRAVADA",
+    "Delitos_Penales": 1
+  },
+  { "strDelitoPenal": "CONTRA EL HONOR - DIFAMACION", "Delitos_Penales": 1 },
+  { "strDelitoPenal": "CONTRA EL PATRIMONIO Y/O ESTAFA", "Delitos_Penales": 1 },
+  {
+    "strDelitoPenal": "CONTRA LA ADMINISTRACION PUBLICA",
+    "Delitos_Penales": 1
+  },
+  {
+    "strDelitoPenal": "CONTRA LA ADMINISTRACIÓN PÚBLICA",
+    "Delitos_Penales": 1
+  },
+  {
+    "strDelitoPenal": "CONTRA LA ADMINISTRACION PUBLICA - ABUSO DE PODER",
+    "Delitos_Penales": 1
+  },
+  {
+    "strDelitoPenal": "CONTRA LA ADMINISTRACIÓN PÚBLICA , DESOBEDIENCIA Y/O RESISTENCIA",
+    "Delitos_Penales": 1
+  },
+  { "strDelitoPenal": "CONTRA LA FAMILIA", "Delitos_Penales": 1 },
+  { "strDelitoPenal": "CONTRA LA FE PUBLICA", "Delitos_Penales": 1 },
+  { "strDelitoPenal": "CONTRA LA SEGURIDAD PÚBLICA", "Delitos_Penales": 1 },
+  { "strDelitoPenal": "CONTRA LA TRANQUILIDAD PUBLICA", "Delitos_Penales": 1 },
+  { "strDelitoPenal": "CONTRA LA VOLUNTAD POPULAR", "Delitos_Penales": 1 },
+  {
+    "strDelitoPenal": "CONTRA LOS PODERES DEL ESTADO Y EL ORDEN CONSTITUCIONAL - REBELIÓN",
+    "Delitos_Penales": 1
+  },
+  { "strDelitoPenal": "CONTRACTUAL", "Delitos_Penales": 1 },
+  {
+    "strDelitoPenal": "CORRUPCIÓN ACTIVA DE FUNCIONARIOS",
+    "Delitos_Penales": 1
+  },
+  { "strDelitoPenal": "DAÑO AGRAVADO", "Delitos_Penales": 1 },
+  { "strDelitoPenal": "DAÑOS", "Delitos_Penales": 1 },
+  { "strDelitoPenal": "DAÑOS AGRAVADOS", "Delitos_Penales": 1 },
+  {
+    "strDelitoPenal": "DEFRAUDACION ART 197° CONCUSION ART 382",
+    "Delitos_Penales": 1
+  },
+  { "strDelitoPenal": "DEFRAUDACION TRIBUTARIA", "Delitos_Penales": 1 },
+  { "strDelitoPenal": "DELITO DE DIFAMACIÓN AGRAVADA", "Delitos_Penales": 1 },
+  { "strDelitoPenal": "DEMORA DE ACTOS FUNCIONALES", "Delitos_Penales": 1 },
+  { "strDelitoPenal": "DEPREDACION DE BOSQUES", "Delitos_Penales": 1 },
+  { "strDelitoPenal": "DESOBEDIENCIA A LA AUTORIDAD", "Delitos_Penales": 1 },
+  {
+    "strDelitoPenal": "DESOBEDIENCIA Y RESISTENCIA A LA UTORIDAD",
+    "Delitos_Penales": 1
+  },
+  {
+    "strDelitoPenal": "DESOBEDIENCIA Y RESISTENCIA DE AUTORIDAD",
+    "Delitos_Penales": 1
+  },
+  { "strDelitoPenal": "DEUDA", "Delitos_Penales": 1 },
+  { "strDelitoPenal": "DISTURBIO; DAÑO AGRAVADO", "Delitos_Penales": 1 },
+  {
+    "strDelitoPenal": "EJERCICIO ARBITRARIO DEL DERECHO POR PROPIA MANO",
+    "Delitos_Penales": 1
+  },
+  {
+    "strDelitoPenal": "ENTORPECIMIENTO AL SERVICIO PUBLICO",
+    "Delitos_Penales": 1
+  },
+  { "strDelitoPenal": "ESTAFA", "Delitos_Penales": 1 },
+  { "strDelitoPenal": "FALSA DECLARACIÓN", "Delitos_Penales": 1 },
+  {
+    "strDelitoPenal": "FALSA DECLARACIÓN EN PROCEDIMIENTO ADMINISTRATIVO",
+    "Delitos_Penales": 1
+  },
+  { "strDelitoPenal": "FALSEDAD", "Delitos_Penales": 1 },
+  { "strDelitoPenal": "FALSEDAD GENÉRICA", "Delitos_Penales": 1 },
+  { "strDelitoPenal": "FALSEDAD GENÉRICA O SUBSIDIARIA", "Delitos_Penales": 1 },
+  {
+    "strDelitoPenal": "FALSEDAD GENÉRICA O SUBSIDIARIA ART 438",
+    "Delitos_Penales": 1
+  },
+  { "strDelitoPenal": "FALSEDAD GENERICA, COLUSION", "Delitos_Penales": 1 },
+  { "strDelitoPenal": "FALSIFICACION DE DOCUMENTOS", "Delitos_Penales": 1 },
+  { "strDelitoPenal": "FALSIFICACIÓN DE DOCUMENTOS", "Delitos_Penales": 1 },
+  { "strDelitoPenal": "FALTAS CONTRA EL PATRIMONIO", "Delitos_Penales": 1 },
+  { "strDelitoPenal": "GIRO DE QUECHE FRAUDULENTO", "Delitos_Penales": 1 },
+  {
+    "strDelitoPenal": "HÁBEAS CORPUS CONTRA SENTENCIA POR DELITO DE DIFAMACIÓN AGRAVADA EN SEGUNDA INSTANCIA",
+    "Delitos_Penales": 1
+  },
+  { "strDelitoPenal": "HURTO AGRAVADO", "Delitos_Penales": 1 },
+  {
+    "strDelitoPenal": "INCUMPLIMIENTO DE DEBERES DE FUNCIONES",
+    "Delitos_Penales": 1
+  },
+  {
+    "strDelitoPenal": "INCUMPLIMIENTO DE OBLIGACION ALIMENTARIA ART. 149",
+    "Delitos_Penales": 1
+  },
+  {
+    "strDelitoPenal": "INDEMNIZACIÓN POR DAÑOS EMERGENTES",
+    "Delitos_Penales": 1
+  },
+  { "strDelitoPenal": "LESIONES CULPOSAS", "Delitos_Penales": 1 },
+  { "strDelitoPenal": "LESIONES GRAVES", "Delitos_Penales": 1 },
+  { "strDelitoPenal": "LESIONES LEVES ART 122", "Delitos_Penales": 1 },
+  {
+    "strDelitoPenal": "LESIONES LEVES POR VIOLENCIA FAMILIAR",
+    "Delitos_Penales": 1
+  },
+  { "strDelitoPenal": "LESIONES POR NEGLIGENCIA", "Delitos_Penales": 1 },
+  { "strDelitoPenal": "LIBRAMIENTO INDEBIDO", "Delitos_Penales": 1 },
+  { "strDelitoPenal": "MALVERSACIÓN DE FONDOS", "Delitos_Penales": 1 },
+  { "strDelitoPenal": "NEGOCIACIÓN INCOMPATIBLE", "Delitos_Penales": 1 },
+  { "strDelitoPenal": "OAF", "Delitos_Penales": 1 },
+  { "strDelitoPenal": "OBTENCIÓN DE DISTINTIVOS", "Delitos_Penales": 1 },
+  { "strDelitoPenal": "OMICION SIMPLE", "Delitos_Penales": 1 },
+  { "strDelitoPenal": "OMISION", "Delitos_Penales": 1 },
+  { "strDelitoPenal": "OMISIÓN", "Delitos_Penales": 1 },
+  {
+    "strDelitoPenal": "OMISIÓN A LA ASISTENCIA FAMILIAR",
+    "Delitos_Penales": 1
+  },
+  { "strDelitoPenal": "OMISIÓN DE ACTOS FUNCIONALES", "Delitos_Penales": 1 },
+  { "strDelitoPenal": "PELIGRO COMUN", "Delitos_Penales": 1 },
+  { "strDelitoPenal": "PENSION ALIMENTARIA", "Delitos_Penales": 1 },
+  {
+    "strDelitoPenal": "POR VIOLENCIA Y DESOBEDIENCIA A LA AUTORIDAD",
+    "Delitos_Penales": 1
+  },
+  { "strDelitoPenal": "QUERELLA DIFAMACION", "Delitos_Penales": 1 },
+  { "strDelitoPenal": "REBELIÓN Y OTROS", "Delitos_Penales": 1 },
+  { "strDelitoPenal": "REBELIÓN, SECUESTRO", "Delitos_Penales": 1 },
+  { "strDelitoPenal": "REBELIÓN, SECUESTRO Y OTROS", "Delitos_Penales": 1 },
+  {
+    "strDelitoPenal": "REBELION, SECUESTRO, SUSTRACCION O ARREBATO DE ARMAS,  HOMICIDIO SIMPLE, DAÑOS",
+    "Delitos_Penales": 1
+  },
+  {
+    "strDelitoPenal": "REBELION, SUSTRACCION DE ARMAS Y OTROS",
+    "Delitos_Penales": 1
+  },
+  {
+    "strDelitoPenal": "RESISTENCIA O DESOBEDIENCIA A LA AUTORIDAD",
+    "Delitos_Penales": 1
+  },
+  { "strDelitoPenal": "RESISTENCIA Y DESOBEDIENCIA", "Delitos_Penales": 1 },
+  { "strDelitoPenal": "ROBO AGRAVADO", "Delitos_Penales": 1 },
+  { "strDelitoPenal": "SENTENCIA", "Delitos_Penales": 1 },
+  { "strDelitoPenal": "TENENCIA ILEGAL DE ARMA", "Delitos_Penales": 1 },
+  { "strDelitoPenal": "TERRORISMO", "Delitos_Penales": 1 },
+  { "strDelitoPenal": "TRAFICO DE INFLUENCIAS", "Delitos_Penales": 1 },
+  { "strDelitoPenal": "USO DE DOCUMENTOS FALSOS", "Delitos_Penales": 1 },
+  { "strDelitoPenal": "USURPACIÓN AGRABADA", "Delitos_Penales": 1 },
+  { "strDelitoPenal": "USURPACIÓN AGRAVADA", "Delitos_Penales": 1 },
+  { "strDelitoPenal": "USURPACION AGRAVADA ART. 204", "Delitos_Penales": 1 },
+  {
+    "strDelitoPenal": "UTILIZACION DE TIERRAS CULTIVABLES CON FINES URBANOS",
+    "Delitos_Penales": 1
+  },
+  {
+    "strDelitoPenal": "V.R.A. (ATENT.C/ACTOS DE FUNCIÓN)",
+    "Delitos_Penales": 1
+  },
+  {
+    "strDelitoPenal": "VIOLACIÓN SEXUAL DE MENOR Y OTROS",
+    "Delitos_Penales": 1
+  },
+  {
+    "strDelitoPenal": "VIOLENCIA CONTRA LA AUTORIDAD PARA IMPEDIR QUE EJERZA SUS  FUNCIONES",
+    "Delitos_Penales": 1
+  },
+  { "strDelitoPenal": "VIOLENCIA FAMILIAR", "Delitos_Penales": 1 },
+  {
+    "strDelitoPenal": "VIOLENCIA Y RESISTENCIA A LA AUTORIDAD",
+    "Delitos_Penales": 1
+  }
+]

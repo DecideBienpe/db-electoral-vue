@@ -1,0 +1,32 @@
+[
+  { "Region": "AMAZONAS", "PorMujeres1": 5.26, "PorMujeresFinal": 26.32 },
+  { "Region": "ANCASH", "PorMujeres1": 4.55, "PorMujeresFinal": 29.55 },
+  { "Region": "APURIMAC", "PorMujeres1": 9.09, "PorMujeresFinal": 31.82 },
+  { "Region": "AREQUIPA", "PorMujeres1": 6.52, "PorMujeresFinal": 28.26 },
+  { "Region": "AYACUCHO", "PorMujeres1": 18.18, "PorMujeresFinal": 36.36 },
+  { "Region": "CAJAMARCA", "PorMujeres1": 5, "PorMujeresFinal": 27.5 },
+  { "Region": "CALLAO", "PorMujeres1": 9.52, "PorMujeresFinal": 42.86 },
+  { "Region": "CUSCO", "PorMujeres1": 2.27, "PorMujeresFinal": 29.55 },
+  { "Region": "HUANCAVELICA", "PorMujeres1": 26.32, "PorMujeresFinal": 26.32 },
+  { "Region": "HUANUCO", "PorMujeres1": 20.83, "PorMujeresFinal": 54.17 },
+  { "Region": "ICA", "PorMujeres1": 2.27, "PorMujeresFinal": 43.18 },
+  { "Region": "JUNIN", "PorMujeres1": 2.38, "PorMujeresFinal": 26.19 },
+  { "Region": "LA LIBERTAD", "PorMujeres1": 5.71, "PorMujeresFinal": 18.57 },
+  { "Region": "LAMBAYEQUE", "PorMujeres1": 6.52, "PorMujeresFinal": 36.96 },
+  {
+    "Region": "LIMA PROVINCIAS",
+    "PorMujeres1": 13.33,
+    "PorMujeresFinal": 35.56
+  },
+  { "Region": "LIMA+EXTERIOR", "PorMujeres1": 1.74, "PorMujeresFinal": 2.78 },
+  { "Region": "LORETO", "PorMujeres1": 6.82, "PorMujeresFinal": 43.18 },
+  { "Region": "MADRE DE DIOS", "PorMujeres1": 17.65, "PorMujeresFinal": 17.65 },
+  { "Region": "MOQUEGUA", "PorMujeres1": 13.64, "PorMujeresFinal": 36.36 },
+  { "Region": "PASCO", "PorMujeres1": 13.04, "PorMujeresFinal": 39.13 },
+  { "Region": "PIURA", "PorMujeres1": 4.84, "PorMujeresFinal": 22.58 },
+  { "Region": "PUNO", "PorMujeres1": 6.82, "PorMujeresFinal": 36.36 },
+  { "Region": "SAN MARTIN", "PorMujeres1": 4.76, "PorMujeresFinal": 40.48 },
+  { "Region": "TACNA", "PorMujeres1": 12.5, "PorMujeresFinal": 41.67 },
+  { "Region": "TUMBES", "PorMujeres1": 4.55, "PorMujeresFinal": 54.55 },
+  { "Region": "UCAYALI", "PorMujeres1": 13.04, "PorMujeresFinal": 47.83 }
+]

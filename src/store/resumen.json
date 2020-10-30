@@ -1,0 +1,200 @@
+[
+  {
+    "Partido": "ACCION POPULAR",
+    "n": 140,
+    "Mujeres": 37.86,
+    "Experiencia_Pol": 17.14,
+    "ExCongresitas": 0,
+    "Sentencias_Penal": 6,
+    "Sentencias_otros": 11
+  },
+  {
+    "Partido": "ALIANZA PARA EL PROGRESO",
+    "n": 142,
+    "Mujeres": 45.77,
+    "Experiencia_Pol": 20.42,
+    "ExCongresitas": 0,
+    "Sentencias_Penal": 4,
+    "Sentencias_otros": 8
+  },
+  {
+    "Partido": "APRA",
+    "n": 133,
+    "Mujeres": 39.85,
+    "Experiencia_Pol": 22.56,
+    "ExCongresitas": 1,
+    "Sentencias_Penal": 7,
+    "Sentencias_otros": 10
+  },
+  {
+    "Partido": "AVANZA PAIS",
+    "n": 142,
+    "Mujeres": 39.44,
+    "Experiencia_Pol": 58.45,
+    "ExCongresitas": 0,
+    "Sentencias_Penal": 4,
+    "Sentencias_otros": 10
+  },
+  {
+    "Partido": "CONTIGO",
+    "n": 136,
+    "Mujeres": 39.71,
+    "Experiencia_Pol": 6.62,
+    "ExCongresitas": 3,
+    "Sentencias_Penal": 3,
+    "Sentencias_otros": 9
+  },
+  {
+    "Partido": "DEMOCRACIA DIRECTA",
+    "n": 141,
+    "Mujeres": 39.72,
+    "Experiencia_Pol": 29.79,
+    "ExCongresitas": 0,
+    "Sentencias_Penal": 8,
+    "Sentencias_otros": 6
+  },
+  {
+    "Partido": "FRENTE AMPLIO",
+    "n": 138,
+    "Mujeres": 40.58,
+    "Experiencia_Pol": 31.16,
+    "ExCongresitas": 0,
+    "Sentencias_Penal": 2,
+    "Sentencias_otros": 3
+  },
+  {
+    "Partido": "FREPAP",
+    "n": 140,
+    "Mujeres": 42.14,
+    "Experiencia_Pol": 32.86,
+    "ExCongresitas": 0,
+    "Sentencias_Penal": 2,
+    "Sentencias_otros": 1
+  },
+  {
+    "Partido": "FUERZA POPULAR",
+    "n": 141,
+    "Mujeres": 41.84,
+    "Experiencia_Pol": 38.3,
+    "ExCongresitas": 6,
+    "Sentencias_Penal": 7,
+    "Sentencias_otros": 7
+  },
+  {
+    "Partido": "JUNTOS POR EL PERU",
+    "n": 140,
+    "Mujeres": 39.29,
+    "Experiencia_Pol": 27.86,
+    "ExCongresitas": 2,
+    "Sentencias_Penal": 9,
+    "Sentencias_otros": 10
+  },
+  {
+    "Partido": "PARTIDO MORADO",
+    "n": 141,
+    "Mujeres": 41.84,
+    "Experiencia_Pol": 17.73,
+    "ExCongresitas": 2,
+    "Sentencias_Penal": 2,
+    "Sentencias_otros": 7
+  },
+  {
+    "Partido": "PERU LIBRE",
+    "n": 141,
+    "Mujeres": 39.01,
+    "Experiencia_Pol": 22.7,
+    "ExCongresitas": 0,
+    "Sentencias_Penal": 10,
+    "Sentencias_otros": 7
+  },
+  {
+    "Partido": "PERU NACION",
+    "n": 132,
+    "Mujeres": 37.12,
+    "Experiencia_Pol": 52.27,
+    "ExCongresitas": 0,
+    "Sentencias_Penal": 7,
+    "Sentencias_otros": 3
+  },
+  {
+    "Partido": "PERU PATRIA SEGURA",
+    "n": 131,
+    "Mujeres": 38.93,
+    "Experiencia_Pol": 33.59,
+    "ExCongresitas": 0,
+    "Sentencias_Penal": 7,
+    "Sentencias_otros": 7
+  },
+  {
+    "Partido": "PODEMOS PERU",
+    "n": 134,
+    "Mujeres": 38.06,
+    "Experiencia_Pol": 38.06,
+    "ExCongresitas": 0,
+    "Sentencias_Penal": 11,
+    "Sentencias_otros": 10
+  },
+  {
+    "Partido": "PPC",
+    "n": 138,
+    "Mujeres": 44.93,
+    "Experiencia_Pol": 20.29,
+    "ExCongresitas": 0,
+    "Sentencias_Penal": 4,
+    "Sentencias_otros": 11
+  },
+  {
+    "Partido": "RENACIMIENTO UNIDO",
+    "n": 130,
+    "Mujeres": 36.92,
+    "Experiencia_Pol": 25.38,
+    "ExCongresitas": 0,
+    "Sentencias_Penal": 1,
+    "Sentencias_otros": 4
+  },
+  {
+    "Partido": "SOLIDARIDAD NACIONAL",
+    "n": 119,
+    "Mujeres": 40.34,
+    "Experiencia_Pol": 23.53,
+    "ExCongresitas": 4,
+    "Sentencias_Penal": 2,
+    "Sentencias_otros": 9
+  },
+  {
+    "Partido": "SOMOS PERU",
+    "n": 141,
+    "Mujeres": 39.01,
+    "Experiencia_Pol": 25.53,
+    "ExCongresitas": 0,
+    "Sentencias_Penal": 8,
+    "Sentencias_otros": 12
+  },
+  {
+    "Partido": "TODOS POR EL PERU",
+    "n": 90,
+    "Mujeres": 35.56,
+    "Experiencia_Pol": 18.89,
+    "ExCongresitas": 0,
+    "Sentencias_Penal": 3,
+    "Sentencias_otros": 7
+  },
+  {
+    "Partido": "UNION POR EL PERU",
+    "n": 140,
+    "Mujeres": 37.86,
+    "Experiencia_Pol": 20,
+    "ExCongresitas": 0,
+    "Sentencias_Penal": 18,
+    "Sentencias_otros": 5
+  },
+  {
+    "Partido": "VAMOS PERU",
+    "n": 128,
+    "Mujeres": 39.84,
+    "Experiencia_Pol": 40.62,
+    "ExCongresitas": 2,
+    "Sentencias_Penal": 12,
+    "Sentencias_otros": 7
+  }
+]
