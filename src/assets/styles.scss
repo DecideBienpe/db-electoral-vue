@@ -1,0 +1,83 @@
+$primary: #bb0723;
+$red: #bb0723;
+
+html, body {
+  background-color: #333333;
+}
+
+.v-application .red {
+  background-color: $red !important;
+  border-color: $red !important;
+}
+
+.v-application .decidebien-content {
+  .primary {
+    background-color: $red !important;
+    border-color: $red !important;
+  }
+}
+
+.decidebien-content {
+  background: #333;
+
+  img.logo {
+    display: inline-block;
+    max-width: 200px;
+  }
+
+  h1 {
+    margin: 0 10px;
+    color: #fff;
+  }
+
+  h3 {
+    max-width: 360px;
+    margin: 0 auto;
+    margin-bottom: 35px;
+    font-size: 27px;
+    color:$red;
+    line-height: 1.2em;
+  }
+
+  h4 {
+    margin: 15px 0;
+    font-weight: 400;
+    color: #a7a7a7;
+  }
+
+  .intro {
+    text-align: center;
+    color: #fff;
+  }
+
+  .btn-explorar {
+    margin-right: 15px;
+    color: #fff !important;
+    background-color: $red !important;
+  }
+}
+
+.grid-presidencial {
+  max-width: 720px;
+
+  img {
+    width: 100%;
+  }
+
+  .selection {
+    color: $red !important;
+  }
+
+  .v-image__image {
+    opacity: 0.7;
+  }
+
+  .v-item--active {
+    background: $red !important;
+  }
+
+  &__name {
+    font-size: 14px !important;
+    word-wrap: normal;
+  }
+}

@@ -3,6 +3,7 @@ import Vuex from "vuex";
 import listas from "./listas.json";
 import regiones from "./regiones.json";
 import resumen from "./resumen.json";
+import presidentials from "./presidentials.json";
 import t1 from "./t1.json";
 import t2 from "./t2.json";
 import t3 from "./t3.json";
@@ -23,6 +24,7 @@ export default new Vuex.Store({
     ),
     regiones: regiones,
     resumen: resumen,
+    presidentials: presidentials,
     t1: t1,
     t2: t2,
     t3: t3,

@@ -8,9 +8,9 @@
       congresistas.
     </h3>
     <p class="text-center mt-5">
-      Revisa las siguientes listas filtradas<span @click.stop="dialog = true"
-        ><v-icon left>mdi-information</v-icon></span
-      >:
+      Revisa las siguientes listas filtradas <span @click.stop="dialog = true"
+        ><v-icon left>mdi-information</v-icon>:
+        </span>
     </p>
     <v-row class="mt-5" justify="center">
       <v-dialog v-model="dialog" max-width="290">
