@@ -171,7 +171,7 @@
           class="subheading font-weight-regular mb-2 mt2"
           v-show="!$vuetify.breakpoint.xsOnly"
         >
-          ¿Qué buscas en una lista?
+          ¿Qué filtros deseas aplicar?
         </h3>
         <!-- TODO -->
         <v-expansion-panels
@@ -180,8 +180,7 @@
         >
           <v-expansion-panel>
             <v-expansion-panel-header
-              >¿Que los candidatos no tengan
-              sentencias?</v-expansion-panel-header
+              >Descartar listas que lleven candidatos con sentencias</v-expansion-panel-header
             >
             <v-expansion-panel-content>
               <v-row>
@@ -191,26 +190,16 @@
                     @change="updateURLQuery()"
                     color="info"
                     :label="
-                      `Deseo descartar listas que tengan candidat@s con sentencias penales (Declaradas en Hoja de Vida)`
-                    "
-                  ></v-checkbox>
-                  <v-checkbox
-                    v-model="f6"
-                    @change="updateURLQuery()"
-                    color="info"
-                    :label="
-                      `Deseo descartar listas que tengan candidat@s con sentencias alimentarias (Declaradas en Hoja de Vida)`
+                      `Descartar listas que lleven candidatos con sentencias`
                     "
                   ></v-checkbox>
                 </v-col>
               </v-row>
             </v-expansion-panel-content>
           </v-expansion-panel>
-
           <v-expansion-panel>
             <v-expansion-panel-header>
-              Que no incluya listas del congreso disuelto que fueron electos
-              (2016-2019) por:
+            Descartar partidos que votaron por la vacancia:
             </v-expansion-panel-header>
             <v-expansion-panel-content>
               <v-row>
@@ -219,28 +208,7 @@
                     v-model="f1"
                     @change="updateURLQuery()"
                     color="info"
-                    :label="`Fuerza Popular`"
-                  ></v-checkbox>
-                  <v-checkbox
-                    v-model="f2"
-                    @change="updateURLQuery()"
-                    color="info"
-                    :label="`Alianza Popular (Apra/PPC)`"
-                  ></v-checkbox>
-                </v-col>
-
-                <v-col>
-                  <v-checkbox
-                    v-model="f3"
-                    @change="updateURLQuery()"
-                    color="info"
-                    :label="`PPK`"
-                  ></v-checkbox>
-                  <v-checkbox
-                    v-model="f4"
-                    @change="updateURLQuery()"
-                    color="info"
-                    :label="`Frente Amplio`"
+                    :label="`Descartar partidos que votaron por la vacancia (Noviembre 2019)`"
                   ></v-checkbox>
                 </v-col>
               </v-row>
@@ -249,30 +217,22 @@
 
           <v-expansion-panel>
             <v-expansion-panel-header
-              >¿Que promuevan la equidad de género?</v-expansion-panel-header
+              >Descartar listas que NO promuevan la equidad de género</v-expansion-panel-header
             >
             <v-expansion-panel-content>
               <v-row>
                 <v-col>
                   <v-checkbox
-                    v-model="f7"
-                    @change="updateURLQuery()"
-                    color="info"
-                    :label="
-                      `Deseo listas con más de lo requerido en la cuota (> 30%)`
-                    "
-                  ></v-checkbox>
-                  <v-checkbox
                     v-model="f8"
                     @change="updateURLQuery()"
                     color="info"
-                    :label="`Deseo listas con paridad (50%)`"
+                    :label="`Descartar listas sin paridad (50%)`"
                   ></v-checkbox>
                   <v-checkbox
                     v-model="f9"
                     @change="updateURLQuery()"
                     color="info"
-                    :label="`Deseo listas con una mujer como cabeza de lista`"
+                    :label="`Descartar listas sin alternancia`"
                   ></v-checkbox>
                 </v-col>
               </v-row>
@@ -281,7 +241,7 @@
 
           <v-expansion-panel>
             <v-expansion-panel-header
-              >¿Que promuevan fortalecer Partidos?</v-expansion-panel-header
+              >Descartar listas que NO promuevan democracia interna</v-expansion-panel-header
             >
             <v-expansion-panel-content>
               <v-row>
@@ -291,14 +251,14 @@
                     @change="updateURLQuery()"
                     color="info"
                     :label="
-                      `Deseo EXCLUIR listas donde el número 1 no fue electo en democracia interna`
+                      `Descartar listas donde el número 1 no fue electo en democracia interna`
                     "
                   ></v-checkbox>
                   <v-checkbox
                     v-model="f11"
                     @change="updateURLQuery()"
                     color="info"
-                    :label="`Excluir partidos sin AGENDA LEGISLATIVA (fuente: Transparencia)`"
+                    :label="`Descartar listas cuyas primarias fueron por delegados`"
                   ></v-checkbox>
                 </v-col>
               </v-row>
@@ -682,3 +642,4 @@ export default {
   opacity: 0;
 }
 </style>
+
