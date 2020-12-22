@@ -49,7 +49,6 @@
         </div>
 
         <v-divider v-show="!$vuetify.breakpoint.xsOnly" />
-
         <v-chip
           v-if="f1"
           class="ma-2"
@@ -59,7 +58,7 @@
             updateURLQuery();
           "
         >
-          <v-icon left>mdi-alert</v-icon>Fuerza Popular
+          <v-icon left>mdi-alert</v-icon>Sentencias
         </v-chip>
         <v-chip
           v-if="f2"
@@ -70,7 +69,7 @@
             updateURLQuery();
           "
         >
-          <v-icon left>mdi-alert</v-icon>Alianza Popular (Apra/PPC)
+          <v-icon left>mdi-alert</v-icon>Vacancia
         </v-chip>
         <v-chip
           v-if="f3"
@@ -81,7 +80,7 @@
             updateURLQuery();
           "
         >
-          <v-icon left>mdi-alert</v-icon>PPK
+          <v-icon left>mdi-alert</v-icon>Paridad
         </v-chip>
         <v-chip
           v-if="f4"
@@ -92,7 +91,7 @@
             updateURLQuery();
           "
         >
-          <v-icon left>mdi-alert</v-icon>Frente Amplio
+          <v-icon left>mdi-alert</v-icon>Militantes
         </v-chip>
         <v-chip
           v-if="f5"
@@ -103,69 +102,8 @@
             updateURLQuery();
           "
         >
-          <v-icon left>mdi-alert</v-icon>S. Penales
+          <v-icon left>mdi-alert</v-icon>D.Interna
         </v-chip>
-        <v-chip
-          v-if="f6"
-          class="ma-2"
-          close
-          @click:close="
-            f6 = false;
-            updateURLQuery();
-          "
-        >
-          <v-icon left>mdi-alert</v-icon>S. Alimentarias
-        </v-chip>
-        <v-chip
-          v-if="f7"
-          class="ma-2"
-          close
-          @click:close="
-            f7 = false;
-            updateURLQuery();
-          "
-          >E.de G. > 30%</v-chip
-        >
-        <v-chip
-          v-if="f8"
-          class="ma-2"
-          close
-          @click:close="
-            f8 = false;
-            updateURLQuery();
-          "
-          >Paridad</v-chip
-        >
-        <v-chip
-          v-if="f9"
-          class="ma-2"
-          close
-          @click:close="
-            f9 = false;
-            updateURLQuery();
-          "
-          >Mujer Cabeza de Lista</v-chip
-        >
-        <v-chip
-          v-if="f10"
-          class="ma-2"
-          close
-          @click:close="
-            f10 = false;
-            updateURLQuery();
-          "
-          >Militancia</v-chip
-        >
-        <v-chip
-          v-if="f11"
-          class="ma-2"
-          close
-          @click:close="
-            f10 = false;
-            updateURLQuery();
-          "
-          >Agenda.Legislativa</v-chip
-        >
         <v-divider v-show="!$vuetify.breakpoint.xsOnly" />
         <h3
           class="subheading font-weight-regular mb-2 mt2"
@@ -186,7 +124,7 @@
               <v-row>
                 <v-col>
                   <v-checkbox
-                    v-model="f5"
+                    v-model="f1"
                     @change="updateURLQuery()"
                     color="info"
                     :label="
@@ -205,7 +143,7 @@
               <v-row>
                 <v-col>
                   <v-checkbox
-                    v-model="f1"
+                    v-model="f2"
                     @change="updateURLQuery()"
                     color="info"
                     :label="`Descartar partidos que votaron por la vacancia (Noviembre 2019)`"
@@ -223,16 +161,10 @@
               <v-row>
                 <v-col>
                   <v-checkbox
-                    v-model="f8"
+                    v-model="f3"
                     @change="updateURLQuery()"
                     color="info"
                     :label="`Descartar listas sin paridad (50%)`"
-                  ></v-checkbox>
-                  <v-checkbox
-                    v-model="f9"
-                    @change="updateURLQuery()"
-                    color="info"
-                    :label="`Descartar listas sin alternancia`"
                   ></v-checkbox>
                 </v-col>
               </v-row>
@@ -247,7 +179,7 @@
               <v-row>
                 <v-col>
                   <v-checkbox
-                    v-model="f10"
+                    v-model="f4"
                     @change="updateURLQuery()"
                     color="info"
                     :label="
@@ -255,7 +187,7 @@
                     "
                   ></v-checkbox>
                   <v-checkbox
-                    v-model="f11"
+                    v-model="f5"
                     @change="updateURLQuery()"
                     color="info"
                     :label="`Descartar listas cuyas primarias fueron por delegados`"
@@ -344,54 +276,6 @@ export default {
         this.$store.commit("updateFiltro5", value);
       }
     },
-    f6: {
-      get() {
-        return this.$store.state.filtros.f6;
-      },
-      set(value) {
-        this.$store.commit("updateFiltro6", value);
-      }
-    },
-    f7: {
-      get() {
-        return this.$store.state.filtros.f7;
-      },
-      set(value) {
-        this.$store.commit("updateFiltro7", value);
-      }
-    },
-    f8: {
-      get() {
-        return this.$store.state.filtros.f8;
-      },
-      set(value) {
-        this.$store.commit("updateFiltro8", value);
-      }
-    },
-    f9: {
-      get() {
-        return this.$store.state.filtros.f9;
-      },
-      set(value) {
-        this.$store.commit("updateFiltro9", value);
-      }
-    },
-    f10: {
-      get() {
-        return this.$store.state.filtros.f10;
-      },
-      set(value) {
-        this.$store.commit("updateFiltro10", value);
-      }
-    },
-    f11: {
-      get() {
-        return this.$store.state.filtros.f11;
-      },
-      set(value) {
-        this.$store.commit("updateFiltro11", value);
-      }
-    },
     noRegionSelected() {
       return !!this.currentRegion.region;
     },
@@ -402,12 +286,9 @@ export default {
       return this.uniqueFilter(
         this.$store.state.listas
           .filter(this.regionFilter)
-          .filter(this.partidoFilter)
           .filter(this.sentencia1Filter)
           .filter(this.sentencia2Filter)
           .filter(this.genero1Filter)
-          .filter(this.genero2Filter)
-          .filter(this.genero3Filter)
           .filter(this.militantesFilter)
           .filter(this.agendaFilter),
         "Partido"
@@ -416,12 +297,9 @@ export default {
     filtroTabla2() {
       return this.$store.state.listas
         .filter(this.regionFilter)
-        .filter(this.partidoFilter)
         .filter(this.sentencia1Filter)
         .filter(this.sentencia2Filter)
         .filter(this.genero1Filter)
-        .filter(this.genero2Filter)
-        .filter(this.genero3Filter)
         .filter(this.militantesFilter)
         .filter(this.agendaFilter);
     }
@@ -465,13 +343,7 @@ export default {
         this.f2 == false &&
         this.f3 == false &&
         this.f4 == false &&
-        this.f5 == false &&
-        this.f6 == false &&
-        this.f7 == false &&
-        this.f8 == false &&
-        this.f9 == false &&
-        this.f10 == false &&
-        this.f11 == false
+        this.f5 == false
       ) {
         return;
       } else {
@@ -480,12 +352,6 @@ export default {
         this.f3 = false;
         this.f4 = false;
         this.f5 = false;
-        this.f6 = false;
-        this.f7 = false;
-        this.f8 = false;
-        this.f9 = false;
-        this.f10 = false;
-        this.f11 = false;
         this.updateURLQuery();
       }
     },
@@ -495,13 +361,7 @@ export default {
         this.f2 ||
         this.f3 ||
         this.f4 ||
-        this.f5 ||
-        this.f6 ||
-        this.f7 ||
-        this.f8 ||
-        this.f9 ||
-        this.f10 ||
-        this.f11
+        this.f5
       );
     },
     // Este metodo actualiza el url cuando los checkboxes cambian
@@ -515,20 +375,7 @@ export default {
         this.f3 === false ||
         this.f4 === true ||
         this.f4 === false ||
-        this.f5 === true ||
-        this.f5 === false ||
-        this.f6 === true ||
-        this.f6 === false ||
-        this.f7 === true ||
-        this.f7 === false ||
-        this.f8 === true ||
-        this.f8 === false ||
-        this.f9 === true ||
-        this.f9 === false ||
-        this.f10 === true ||
-        this.f10 === false ||
-        this.f11 === true ||
-        this.f11 === false
+        this.f5 === true
       ) {
         // TODO: refactorizar para evitar el error. Baja prioridad.
         // .push bota un error en el console cuando se trata ir al mismo route existente,
@@ -543,13 +390,7 @@ export default {
               f2: this.f2,
               f3: this.f3,
               f4: this.f4,
-              f5: this.f5,
-              f6: this.f6,
-              f7: this.f7,
-              f8: this.f8,
-              f9: this.f9,
-              f10: this.f10,
-              f11: this.f11
+              f5: this.f5
             }
           })
           .catch(err => {
@@ -570,13 +411,7 @@ export default {
             f2: this.f2,
             f3: this.f3,
             f4: this.f4,
-            f5: this.f5,
-            f6: this.f6,
-            f7: this.f7,
-            f8: this.f8,
-            f9: this.f9,
-            f10: this.f10,
-            f11: this.f11
+            f5: this.f5
           }
         });
       }
@@ -600,12 +435,6 @@ export default {
           this.f3 = queryParams.f3 == "true";
           this.f4 = queryParams.f4 == "true";
           this.f5 = queryParams.f5 == "true";
-          this.f6 = queryParams.f6 == "true";
-          this.f7 = queryParams.f7 == "true";
-          this.f8 = queryParams.f8 == "true";
-          this.f9 = queryParams.f9 == "true";
-          this.f10 = queryParams.f10 == "true";
-          this.f11 = queryParams.f11 == "true";
           this.sendToGA();
           this.reAttachTwitterButton();
         }
@@ -642,4 +471,3 @@ export default {
   opacity: 0;
 }
 </style>
-
