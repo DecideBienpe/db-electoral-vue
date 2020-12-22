@@ -13,7 +13,7 @@ export default {
     },
     sentencia2Filter: function(lista) {
       if (this.f2) {
-        return lista.Vacancia == 0;
+        return lista.Vacancia != 1;
       } else {
         return true;
       }
@@ -29,7 +29,7 @@ export default {
       if (this.f4) {
         // Importante: Algunos candidatos no tienen un valor asignado,
         // Seria conveniente dar un codigo numerico para ese caso. ex: 999
-        return lista.CabezaD == 1;
+        return lista.CabezaD == 0;
       } else {
         return true;
       }

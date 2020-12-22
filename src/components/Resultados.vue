@@ -17,12 +17,8 @@
       <v-dialog v-model="dialog" max-width="290">
         <v-card>
           <v-card-text class="pt-4">
-            Las listas a continuación muestran las organizaciones políticas y
-            los candidatos por Región y de acuerdo a los filtros ingresados.
-            Actualmente estamos mostrando la edad, último grado de estudios
-            alcanzado, experiencia política en cargos públicos y sí tiene
-            sentencias declaradas en la hoja de vida entregada al Jurado
-            Nacional de Elecciones para su candidatura.
+            Candidatos:Actualmente estamos mostrando la edad, último grado de estudios alcanzado, experiencia política en cargos públicos y sí tiene sentencias declaradas en la hoja de vida entregada al Jurado Nacional de Elecciones para su candidatura.  
+            <h3 style="color:red;">Vacancia</h3> Solo aplica a los partidos que estuvieron en el congreso 2020.
           </v-card-text>
 
           <v-card-actions>
@@ -77,11 +73,11 @@
             :items="dataTable2"
             :search="search"
           >
-            <template v-slot:item.ConSentencia="{ item }">
+            <template v-slot:item.Materia="{ item }">
               <v-chip
                 class="ma-2"
                 text-color="white"
-                :color="getColor(item.ConSentencia)"
+                :color="getColor(item.Materia)"
               >
                 {{ item.ConSentencia }}
               </v-chip>
@@ -123,7 +119,7 @@ export default {
         { text: "Número", value: "Número" },
         { text: "Sexo", value: "Sexo" },
         { text: "Edad", value: "Edad" },
-        { text: "Con Sentencia", value: "ConSentencia" },
+        { text: "Con Sentencia", value: "Materia" },
         { text: "Experiencia Politica", value: "Experiencia_Pol" },
         { text: "Estudios", value: "Estudios" }
       ],
