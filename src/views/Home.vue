@@ -5,13 +5,14 @@
         <v-row align="start" justify="center">
           <v-card class="ma-3 pa-6 red lighten-3 text-center" outlined tile>
             <div>
-            <img class="logo" src="../assets/logo.png"/>
+              <img class="logo" src="../assets/logo.png" />
             </div>
             <h2>
-            #ReiniciaPeru: filtra los partidos y decide bien. 
+              #ReiniciaPeru: filtra los partidos y decide bien.
             </h2>
             <p>
-            Primero el equipo luego el jugador! Utiliza los filtros que te parezcan los más importantes y tengamos un mejor congreso. 
+              Primero el equipo luego el jugador! Utiliza los filtros que te
+              parezcan los más importantes y tengamos un mejor congreso.
             </p>
           </v-card>
         </v-row>

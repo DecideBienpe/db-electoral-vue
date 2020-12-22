@@ -3,7 +3,9 @@
     <v-app-bar app clipped-right color="red">
       <v-app-bar-nav-icon class="white--text" @click.stop="drawer = !drawer" />
       <v-toolbar-title class="mr-12 align-center">
-        <span class="white--text title"><img src="./assets/logo.png" width="40px" />decidebien.pe</span>
+        <span class="white--text title"
+          ><img src="./assets/logo.png" width="40px" />decidebien.pe</span
+        >
       </v-toolbar-title>
       <v-spacer></v-spacer>
     </v-app-bar>
@@ -17,14 +19,14 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-main>
+    <v-content>
       <router-view />
-    </v-main>
+    </v-content>
   </v-app>
 </template>
 
 <style lang="scss">
-  @import './assets/styles.scss';
+@import "./assets/styles.scss";
 </style>
 
 <script>
@@ -152,7 +154,7 @@ export default {
         text: "Resúmen General",
         path: "/resumen"
       },
-      { icon: "mdi-contact-mail", text: "Créditosfgf∂", path: "/creditos" }
+      { icon: "mdi-contact-mail", text: "Créditos", path: "/creditos" }
     ]
   })
 };
