@@ -4,19 +4,35 @@
       <v-card height="100%">
         <v-card-text class="px-4">
           <h4>Auspiciadores</h4>
+          <p>Este app está en línea gracias al auspicio de:</p>
+          <ul>
+            <li>
+              <a
+                href="https://fnst.org/content/la-fundacion-friedrich-naumann-para-la-libertad"
+                target="_blank"
+                >Fundación Friedrich Naumann</a
+              >
+            </li>
+            <li>
+              <a href="https://www.redesarrollo.pe/" target="_blank">Redes</a>
+            </li>
+            <li>
+              <a
+                href="https://www.idea.int/our-work/where-we-work/latin-america-caribbean/peru"
+                target="_blank"
+                >IDEA Internacional</a
+              >
+            </li>
+          </ul>
           <p>
-            Este app está en línea gracias al auspicio de:
-            <ul>
-              <li> <a href="https://fnst.org/content/la-fundacion-friedrich-naumann-para-la-libertad" target="_blank">Fundación Friedrich Naumann</a></li>
-              <li> <a href="https://www.redesarrollo.pe/" target="_blank">Redes</a></li>
-              <li> <a href="https://www.idea.int/our-work/where-we-work/latin-america-caribbean/peru" target="_blank">IDEA Internacional</a></li>
-            </ul>
-            Esta plataforma fue iniciada por José Incio y ahora
-            cuenta con much@s colaboradores. Cualquier error/sugerencia o problema escríbenos. 
+            Esta plataforma fue iniciada por José Incio y ahora cuenta con
+            much@s colaboradores. Cualquier error/sugerencia o problema
+            escríbenos.
           </p>
           <h4>Información y código</h4>
           <p>
-            Para mayor información sobre la aplicación, filtros, e información ingresa aquí
+            Para mayor información sobre la aplicación, filtros, e información
+            ingresa aquí
           </p>
           <h4>Desarrolladores:</h4>
           <h5>Vue version</h5>

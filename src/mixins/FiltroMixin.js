@@ -6,7 +6,7 @@ export default {
   methods: {
     sentencia1Filter: function(lista) {
       if (this.f1) {
-        return lista.FlagSP== 0;
+        return lista.FlagSP == 0;
       } else {
         return true;
       }

@@ -118,7 +118,8 @@
         >
           <v-expansion-panel>
             <v-expansion-panel-header
-              >Descartar listas que lleven candidatos con sentencias</v-expansion-panel-header
+              >Descartar listas que lleven candidatos con
+              sentencias</v-expansion-panel-header
             >
             <v-expansion-panel-content>
               <v-row>
@@ -137,7 +138,7 @@
           </v-expansion-panel>
           <v-expansion-panel>
             <v-expansion-panel-header>
-            Descartar partidos que votaron por la vacancia:
+              Descartar partidos que votaron por la vacancia:
             </v-expansion-panel-header>
             <v-expansion-panel-content>
               <v-row>
@@ -146,7 +147,9 @@
                     v-model="f2"
                     @change="updateURLQuery()"
                     color="info"
-                    :label="`Descartar partidos que votaron por la vacancia (Noviembre 2019)`"
+                    :label="
+                      `Descartar partidos que votaron por la vacancia (Noviembre 2019)`
+                    "
                   ></v-checkbox>
                 </v-col>
               </v-row>
@@ -155,7 +158,8 @@
 
           <v-expansion-panel>
             <v-expansion-panel-header
-              >Descartar listas que NO promuevan la equidad de género</v-expansion-panel-header
+              >Descartar listas que NO promuevan la equidad de
+              género</v-expansion-panel-header
             >
             <v-expansion-panel-content>
               <v-row>
@@ -173,7 +177,8 @@
 
           <v-expansion-panel>
             <v-expansion-panel-header
-              >Descartar listas que NO promuevan democracia interna</v-expansion-panel-header
+              >Descartar listas que NO promuevan democracia
+              interna</v-expansion-panel-header
             >
             <v-expansion-panel-content>
               <v-row>
@@ -190,7 +195,9 @@
                     v-model="f5"
                     @change="updateURLQuery()"
                     color="info"
-                    :label="`Descartar listas cuyas primarias fueron por delegados`"
+                    :label="
+                      `Descartar listas cuyas primarias fueron por delegados`
+                    "
                   ></v-checkbox>
                 </v-col>
               </v-row>
@@ -356,13 +363,7 @@ export default {
       }
     },
     noFiltrosUsed() {
-      return (
-        this.f1 ||
-        this.f2 ||
-        this.f3 ||
-        this.f4 ||
-        this.f5
-      );
+      return this.f1 || this.f2 || this.f3 || this.f4 || this.f5;
     },
     // Este metodo actualiza el url cuando los checkboxes cambian
     updateURLQuery() {
