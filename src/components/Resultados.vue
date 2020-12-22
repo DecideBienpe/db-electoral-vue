@@ -79,7 +79,7 @@
                 text-color="white"
                 :color="getColor(item.Materia)"
               >
-                {{ item.ConSentencia }}
+                {{ item.Materia }}
               </v-chip>
             </template>
           </v-data-table>
@@ -115,7 +115,7 @@ export default {
       headers1: [{ text: "Partido", value: "Partido" }],
       headers2: [
         { text: "Partido", value: "Partido" },
-        { text: "Candidato", value: "Candidato" },
+        { text: "Candidato", value: "Nombre" },
         { text: "Número", value: "Número" },
         { text: "Sexo", value: "Sexo" },
         { text: "Edad", value: "Edad" },
