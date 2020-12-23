@@ -79,7 +79,7 @@
                 text-color="white"
                 :color="getColor(item.Materia)"
               >
-                {{ item.Materia }}
+                {{ item.Materia}}
               </v-chip>
             </template>
           </v-data-table>
