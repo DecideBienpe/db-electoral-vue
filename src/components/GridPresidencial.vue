@@ -15,7 +15,7 @@
           >
             <v-item v-slot="{ active, toggle }">
               <v-img
-                :src="require(`../assets/presidenciales/${candidato.id}.png`)"
+                :src="require(`../assets/presidenciales/${candidato.ID}.png`)"
                 height="85"
                 class="text-right pa-2"
                 @click="toggle"
@@ -35,11 +35,14 @@
 </template>
 
 <script>
+
+import { filter } from 'lodash'
+
 export default {
   name: "GridPresidencial",
   computed: {
     candidatos() {
-      return this.$store.state.presidentials;
+      return filter(this.$store.state.presidentials, ['Cargo', 'Presidente'])
     }
   },
   data() {

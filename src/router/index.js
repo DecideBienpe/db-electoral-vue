@@ -26,6 +26,12 @@ const routes = [
       import(/* webpackChunkName: "filtros" */ "../views/Filtros.vue")
   },
   {
+    path: "/partidos/:partido",
+    name: "partidos",
+    component: () =>
+      import(/* webpackChunkName: "filtros" */ "../views/Partidos.vue")
+  },
+  {
     path: "/resumen",
     name: "resumen",
     component: () =>

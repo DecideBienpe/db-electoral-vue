@@ -1,6 +1,6 @@
 `<template>
-  <v-container fluid class="decidebien-content">
-    <v-row>
+  <v-container fluid>
+    <v-row class="decidebien-content pb-5">
       <v-col cols="12">
         <div class="intro">
           <div>
@@ -12,15 +12,22 @@
         </div>
       </v-col>
     </v-row>
+
+    <v-row>
+      <v-col cols="12">
+        <grid-partidos></grid-partidos>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
 <script>
 import Explorar from "../components/Explorar.vue";
+import GridPartidos from "../components/GridPartidos.vue";
 
 export default {
   name: "home",
-  components: { Explorar },
+  components: { Explorar, GridPartidos },
   data() {
     return {
       dialog: false,
