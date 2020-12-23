@@ -17,8 +17,12 @@
       <v-dialog v-model="dialog" max-width="290">
         <v-card>
           <v-card-text class="pt-4">
-            Candidatos:Actualmente estamos mostrando la edad, último grado de estudios alcanzado, experiencia política en cargos públicos y sí tiene sentencias declaradas en la hoja de vida entregada al Jurado Nacional de Elecciones para su candidatura.  
-            <h3 style="color:red;">Vacancia</h3> Solo aplica a los partidos que estuvieron en el congreso 2020.
+            Candidatos:Actualmente estamos mostrando la edad, último grado de
+            estudios alcanzado, experiencia política en cargos públicos y sí
+            tiene sentencias declaradas en la hoja de vida entregada al Jurado
+            Nacional de Elecciones para su candidatura.
+            <h3 style="color:red;">Vacancia</h3>
+            Solo aplica a los partidos que estuvieron en el congreso 2020.
           </v-card-text>
 
           <v-card-actions>
@@ -79,7 +83,7 @@
                 text-color="white"
                 :color="getColor(item.Materia)"
               >
-                {{ item.Materia}}
+                {{ item.Materia }}
               </v-chip>
             </template>
           </v-data-table>
