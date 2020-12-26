@@ -53,7 +53,7 @@ const getters = {};
 //to handle actions
 const actions = {
   getRegiones({ commit }) {
-    axios.get("http://localhost:3000/regiones").then(response => {
+    axios.get("https://api.keines.net/regiones").then(response => {
       commit("SET_REGIONES", response.data);
     });
   }

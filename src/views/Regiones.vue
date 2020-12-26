@@ -1,7 +1,6 @@
 <template>
   <v-row justify="center" align="center">
     <v-col cols="12" sm="8" md="6">
-      <div class="text-center">here</div>
       <v-card>
         <v-card-title class="headline"> Regiones Demo </v-card-title>
         <v-card-text>
@@ -20,9 +19,7 @@
 export default {
   components: {},
   created() {
-    this.$store.dispatch("getRegiones").then(() => {
-      console.log("This would be printed after dispatch!!");
-    });
+    this.$store.dispatch("getRegiones");
   },
   computed: {
     regiones() {
