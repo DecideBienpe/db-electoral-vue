@@ -14,10 +14,8 @@ app.use(cors());
 app.use(express.json()); //http://expressjs.com/en/api.html#express.json
 app.use(express.urlencoded({ extended: false })); //http://expressjs.com/en/5x/api.html#express.urlencoded
 
-const postRouter = require("./routes/posts");
 const regionRouter = require("./routes/regions");
 
-app.use("/posts", postRouter);
 app.use("/regiones", regionRouter);
 
 db.sequelize
