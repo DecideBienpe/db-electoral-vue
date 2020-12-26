@@ -1,0 +1,18 @@
+{
+  "development": {
+    "username": "demo_user",
+    "password": "1234",
+    "database": "express_demo_development",
+    "host": "db.keines.net",
+    "dialect": "postgres",
+    "logging": false
+  },
+  "test": {
+    "username": "demo_user",
+    "password": "1234",
+    "database": "express_demo_test",
+    "host": "db.keines.net",
+    "dialect": "postgres",
+    "logging": false
+  }
+}
