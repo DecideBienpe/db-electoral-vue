@@ -1,0 +1,18 @@
+{
+  "development": {
+    "username": "demo_user",
+    "password": "1234",
+    "database": "express_demo_development",
+    "host": "192.168.1.69",
+    "dialect": "postgres",
+    "logging": false
+  },
+  "test": {
+    "username": "demo_user",
+    "password": "1234",
+    "database": "express_demo_test",
+    "host": "192.168.1.69",
+    "dialect": "postgres",
+    "logging": false
+  }
+}

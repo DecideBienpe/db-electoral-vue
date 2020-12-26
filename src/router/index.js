@@ -29,7 +29,13 @@ const routes = [
     path: "/partidos/:partido",
     name: "partidos",
     component: () =>
-      import(/* webpackChunkName: "filtros" */ "../views/Partidos.vue")
+      import(/* webpackChunkName: "partidos" */ "../views/Partidos.vue")
+  },
+  {
+    path: "/regiones",
+    name: "regiones",
+    component: () =>
+      import(/* webpackChunkName: "regiones" */ "../views/Regiones.vue")
   },
   {
     path: "/resumen",
