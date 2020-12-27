@@ -14,9 +14,11 @@ app.use(cors());
 app.use(express.json()); //http://expressjs.com/en/api.html#express.json
 app.use(express.urlencoded({ extended: false })); //http://expressjs.com/en/5x/api.html#express.urlencoded
 
-const regionRouter = require("./routes/regions");
+const regionesRouter = require("./routes/regiones");
+const partidosRouter = require("./routes/partidos");
 
-app.use("/regiones", regionRouter);
+app.use("/regiones", regionesRouter);
+app.use("/partidos", partidosRouter);
 
 db.sequelize
   .sync()
