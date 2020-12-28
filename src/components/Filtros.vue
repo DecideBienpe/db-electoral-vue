@@ -432,14 +432,16 @@ export default {
         console.log(newDefault, this.regiones, urlDepto)
         if (newDefault && newDefault[0].region) {
           this.currentRegion = newDefault[0];
-          this.f1 = queryParams.f1 == "true";
-          this.f2 = queryParams.f2 == "true";
-          this.f3 = queryParams.f3 == "true";
-          this.f4 = queryParams.f4 == "true";
-          this.f5 = queryParams.f5 == "true";
+          this.f1 = queryParams.f1 == true;
+          this.f2 = queryParams.f2 == true;
+          this.f3 = queryParams.f3 == true;
+          this.f4 = queryParams.f4 == true;
+          this.f5 = queryParams.f5 == true;
           this.sendToGA();
           this.reAttachTwitterButton();
         }
+        
+        console.log(this.f1)
       }
     },
     // Mandar la pagina visitada a Google Analytics como un custom event

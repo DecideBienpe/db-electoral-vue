@@ -42,6 +42,10 @@ export default {
   components: {
     Enlace
   },
+  created() {
+    this.$store.dispatch("getPartidos");
+    this.$store.dispatch("getRegiones");
+  },
   methods: {
     filterChanged() {
       EventBus.$emit("filter-change");
