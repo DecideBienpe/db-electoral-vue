@@ -65,6 +65,11 @@ html, body {
 .grid-presidencial {
   max-width: 720px;
 
+  .theme--dark.v-overlay {
+    color: #FFFFFF;
+    overflow: scroll;
+  }
+
   img {
     width: 100%;
   }

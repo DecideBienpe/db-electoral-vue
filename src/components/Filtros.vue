@@ -424,11 +424,12 @@ export default {
     restoreTablesValues() {
       const urlDepto = this.$route.params.departamento;
       const queryParams = this.$route.query;
-
+      console.log(queryParams, urlDepto, this.regiones)
       if (urlDepto) {
         const newDefault = this.regiones.filter(
           region => region.region == urlDepto
         );
+        console.log(newDefault, this.regiones, urlDepto)
         if (newDefault && newDefault[0].region) {
           this.currentRegion = newDefault[0];
           this.f1 = queryParams.f1 == "true";

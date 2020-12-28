@@ -1,4 +1,4 @@
-`<template>
+<template>
   <v-container fluid>
     <v-row class="decidebien-content pb-5">
       <v-col cols="12">
@@ -15,7 +15,7 @@
 
     <v-row>
       <v-col cols="12">
-        <grid-partidos></grid-partidos>
+        <partidos></partidos>
       </v-col>
     </v-row>
   </v-container>
@@ -23,11 +23,11 @@
 
 <script>
 import Explorar from "../components/Explorar.vue";
-import GridPartidos from "../components/GridPartidos.vue";
+import Partidos from "../components/Partidos.vue";
 
 export default {
   name: "home",
-  components: { Explorar, GridPartidos },
+  components: { Explorar, Partidos },
   data() {
     return {
       dialog: false,
@@ -38,6 +38,10 @@ export default {
       defaultSelected: null,
       currentRegion: {}
     };
-  }
+  },
+  created() {
+    this.$store.dispatch("getPartidos");
+    this.$store.dispatch("getRegiones");
+  },
 };
 </script>

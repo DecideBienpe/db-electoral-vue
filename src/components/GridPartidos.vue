@@ -1,41 +1,54 @@
 <template>
   <div class="grid-partidos pt-5">
-    <h2 class="text-center">
-      Partidos que participan en estás elecciones
-    </h2>
-    <h3 class="text-center">
-      Conoce su lista a la presidencia y sus candidatos al congreso
-    </h3>
     <v-row>
-      <v-col v-for="(partido, i) in partidos" :key="i" cols="12" md="2">
-        <a :href="`#/partidos/${render_logo(i)}`">
-          <v-img
-            :src="require(`../assets/partidos/${render_logo(i)}.png`)"
-            height="85"
-            class="text-right pa-2"
-          >
-          </v-img>
-        </a>
-      </v-col>
+      <v-item-group v-model="partidosFavoritos" multiple>
+        <v-row>
+          <v-col
+          v-for="(partido, i) in partidos"
+          :key="i" cols="4" md="3" sm="2">
+            <v-item v-slot="{ active, toggle }">
+              <v-img
+                :src="require(`../assets/partidos/${partido.Imagen}`)"
+                height="85"
+                class="text-right pa-2"
+                @click="toggle"
+              >
+              <v-btn class="selection" icon dark>
+                <v-icon>
+                  {{
+                    active
+                      ? "mdi-checkbox-marked-circle"
+                      : "mdi-checkbox-marked-circle-outline"
+                  }}
+                </v-icon>
+              </v-btn>
+              </v-img>
+            </v-item>
+          </v-col>
+        </v-row>
+      </v-item-group>
+
     </v-row>
   </div>
 </template>
 
 <script>
 import slugify from "slugify";
-import { groupBy } from "lodash";
 
 export default {
   name: "GridPartidos",
-  computed: {
-    partidos() {
-      return groupBy(this.$store.state.presidentials, "Partido");
+  data(){
+    return {
+      partidosFavoritos: []
     }
   },
-  data() {
-    return {
-      favoritos: []
-    };
+  created() {
+    this.$store.dispatch("getPartidos");
+  },
+  computed: {
+    partidos() {
+      return this.$store.state.partidos;
+    }
   },
   methods: {
     render_logo(i) {

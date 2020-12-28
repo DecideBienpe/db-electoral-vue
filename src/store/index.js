@@ -26,6 +26,7 @@ const state = {
       : -1
   ),
   presidentials: presidentials,
+  partidos: [],
   regiones: [],
   resumen: resumen,
   t1: t1,
@@ -56,11 +57,19 @@ const actions = {
     axios.get("https://api.keines.net/regiones").then(response => {
       commit("SET_REGIONES", response.data);
     });
+  },
+  getPartidos({ commit }) {
+    axios.get("https://api.keines.net/partidos").then(response => {
+      commit("SET_PARTIDOS", response.data);
+    });
   }
 };
 
 //to handle mutations
 const mutations = {
+  SET_PARTIDOS(state, partidos) {
+    state.partidos = partidos;
+  },
   SET_REGIONES(state, regiones) {
     state.regiones = regiones;
   },
