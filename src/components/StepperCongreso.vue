@@ -49,9 +49,11 @@
           ></v-checkbox>
           <v-checkbox
             v-model="f2"
-            :label="`
+            :label="
+              `
             Descartar partidos que votaron por la vacancia (Noviembre 2019)
-            `"
+            `
+            "
           ></v-checkbox>
           <v-checkbox
             v-model="f3"
@@ -59,7 +61,9 @@
           ></v-checkbox>
           <v-checkbox
             v-model="f4"
-            :label="`Descartar listas donde el número 1 no fue electo en democracia interna`"
+            :label="
+              `Descartar listas donde el número 1 no fue electo en democracia interna`
+            "
           ></v-checkbox>
           <v-checkbox
             v-model="f5"
@@ -78,7 +82,6 @@
 </template>
 
 <script>
-
 import GridPartidos from "./GridPartidos.vue";
 
 export default {
@@ -108,7 +111,7 @@ export default {
   },
   methods: {
     filterButtonClicked() {
-      console.log(this.regiones[this.currentRegion])
+      console.log(this.regiones[this.currentRegion]);
       if (this.currentRegion.region) {
         this.$router.push({
           name: "filtros",

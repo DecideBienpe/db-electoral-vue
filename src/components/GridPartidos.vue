@@ -4,8 +4,12 @@
       <v-item-group v-model="partidosFavoritos" multiple>
         <v-row>
           <v-col
-          v-for="(partido, i) in partidos"
-          :key="i" cols="4" md="3" sm="2">
+            v-for="(partido, i) in partidos"
+            :key="i"
+            cols="4"
+            md="3"
+            sm="2"
+          >
             <v-item v-slot="{ active, toggle }">
               <v-img
                 :src="require(`../assets/partidos/${partido.Imagen}`)"
@@ -13,21 +17,20 @@
                 class="text-right pa-2"
                 @click="toggle"
               >
-              <v-btn class="selection" icon dark>
-                <v-icon>
-                  {{
-                    active
-                      ? "mdi-checkbox-marked-circle"
-                      : "mdi-checkbox-marked-circle-outline"
-                  }}
-                </v-icon>
-              </v-btn>
+                <v-btn class="selection" icon dark>
+                  <v-icon>
+                    {{
+                      active
+                        ? "mdi-checkbox-marked-circle"
+                        : "mdi-checkbox-marked-circle-outline"
+                    }}
+                  </v-icon>
+                </v-btn>
               </v-img>
             </v-item>
           </v-col>
         </v-row>
       </v-item-group>
-
     </v-row>
   </div>
 </template>
@@ -37,10 +40,10 @@ import slugify from "slugify";
 
 export default {
   name: "GridPartidos",
-  data(){
+  data() {
     return {
       partidosFavoritos: []
-    }
+    };
   },
   created() {
     this.$store.dispatch("getPartidos");

@@ -220,6 +220,7 @@
 </template>
 
 <script>
+import axios from "axios";
 import Resultados from "../components/Resultados.vue";
 import Twitter from "../components/Twitter.vue";
 import Vue from "vue";
@@ -424,24 +425,22 @@ export default {
     restoreTablesValues() {
       const urlDepto = this.$route.params.departamento;
       const queryParams = this.$route.query;
-      console.log(queryParams, urlDepto, this.regiones)
+      console.log(queryParams, urlDepto, this.regiones);
       if (urlDepto) {
         const newDefault = this.regiones.filter(
           region => region.region == urlDepto
         );
-        console.log(newDefault, this.regiones, urlDepto)
+        console.log(newDefault, this.regiones, urlDepto);
         if (newDefault && newDefault[0].region) {
           this.currentRegion = newDefault[0];
-          this.f1 = queryParams.f1 == true;
-          this.f2 = queryParams.f2 == true;
-          this.f3 = queryParams.f3 == true;
-          this.f4 = queryParams.f4 == true;
-          this.f5 = queryParams.f5 == true;
+          this.f1 = queryParams.f1 === "true";
+          this.f2 = queryParams.f2 === "true";
+          this.f3 = queryParams.f3 === "true";
+          this.f4 = queryParams.f4 === "true";
+          this.f5 = queryParams.f5 === "true";
           this.sendToGA();
           this.reAttachTwitterButton();
         }
-        
-        console.log(this.f1)
       }
     },
     // Mandar la pagina visitada a Google Analytics como un custom event
@@ -458,7 +457,13 @@ export default {
     });
     // TODO: Discutir que tiene mas sentido, elegir un dpto por default o no:
     // Si seleccionamos una region automaticamente, los analytics reportaran esa region mucho mas que las demas
-    this.restoreTablesValues();
+    // LLamada al API para tener las regiones, actualizar el store y luego restaurar la tabla de filtros.
+    // Problema original es que esta funcion se llama antes que el store termine de conseguir la data de los partidos.
+    // TODO: quizas hay manera de remover esta llamada.
+    axios.get("https://api.keines.net/regiones").then(response => {
+      this.$store.commit("SET_REGIONES", response.data);
+      this.restoreTablesValues();
+    });
   }
 };
 </script>
