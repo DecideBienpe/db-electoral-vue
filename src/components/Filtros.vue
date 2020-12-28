@@ -1,222 +1,240 @@
 <template>
-  <v-row>
-    <v-flex md4 class="mb-2">
-      <v-card class="pa-2 mx-2 grey lighten-4" shaped>
-        <v-select
-          :items="regiones"
-          item-text="region"
-          item-value="codigo"
-          label="Elije tu departamento:"
-          v-model="currentRegion"
-          prepend-icon="mdi-map"
-          color="secondary"
-          :return-object="true"
-          v-on:change="updateURLParams"
-        ></v-select>
-        <v-layout text-xs-center align-center justify-center>
-          <v-fab-transition>
-            <v-btn
-              v-show="
-                $vuetify.breakpoint.xsOnly && $route.path.includes('filtros')
-              "
-              @click="filterButtonClicked()"
-              color="orange darken-4"
-              dark
-            >
-              <span class="white--text pl-2">Filtra Aquí</span
-              ><v-icon>mdi-filter</v-icon>
-            </v-btn>
-          </v-fab-transition>
-        </v-layout>
-        <v-layout text-xs-center align-center justify-center>
-          <v-fab-transition>
-            <v-btn
-              @click="onNoFiltrosClicked()"
-              class="ma-2"
-              tile
-              outlined
-              color="blue-grey"
-              v-show="noFiltrosUsed()"
-            >
-              <v-icon left>mdi-map-marker-off</v-icon>Quitar Filtros
-            </v-btn>
-          </v-fab-transition>
-        </v-layout>
-
-        <!-- Container para el boton de Twitter -->
-        <div class="fixedHeight">
-          <div ref="container"></div>
+  <div>
+    <v-row class="decidebien-region" :class="currentRegion.region">
+      <v-col cols="12">
+        <div class="intro">
+          <div>
+            <img class="logo" src="../assets/logo.png" />
+          </div>
+          <h1>Decide Bien en</h1>
+          <div class="region-selected">
+            {{ currentRegion.region }}
+          </div>
+          <div class="curul-selected">
+            Se eligiran {{ currentRegion.curul }} dos congresistas
+          </div>
         </div>
-
-        <v-divider v-show="!$vuetify.breakpoint.xsOnly" />
-        <v-chip
-          v-if="f1"
-          class="ma-2"
-          close
-          @click:close="
-            f1 = false;
-            updateURLQuery();
-          "
-        >
-          <v-icon left>mdi-alert</v-icon>Sentencias
-        </v-chip>
-        <v-chip
-          v-if="f2"
-          class="ma-2"
-          close
-          @click:close="
-            f2 = false;
-            updateURLQuery();
-          "
-        >
-          <v-icon left>mdi-alert</v-icon>Vacancia
-        </v-chip>
-        <v-chip
-          v-if="f3"
-          class="ma-2"
-          close
-          @click:close="
-            f3 = false;
-            updateURLQuery();
-          "
-        >
-          <v-icon left>mdi-alert</v-icon>Paridad
-        </v-chip>
-        <v-chip
-          v-if="f4"
-          class="ma-2"
-          close
-          @click:close="
-            f4 = false;
-            updateURLQuery();
-          "
-        >
-          <v-icon left>mdi-alert</v-icon>Militantes
-        </v-chip>
-        <v-chip
-          v-if="f5"
-          class="ma-2"
-          close
-          @click:close="
-            f5 = false;
-            updateURLQuery();
-          "
-        >
-          <v-icon left>mdi-alert</v-icon>D.Interna
-        </v-chip>
-        <v-divider v-show="!$vuetify.breakpoint.xsOnly" />
-        <h3
-          class="subheading font-weight-regular mb-2 mt2"
-          v-show="!$vuetify.breakpoint.xsOnly"
-        >
-          ¿Qué filtros deseas aplicar?
-        </h3>
-        <!-- TODO -->
-        <v-expansion-panels
-          v-bind:disabled="!noRegionSelected"
-          v-show="!$vuetify.breakpoint.xsOnly"
-        >
-          <v-expansion-panel>
-            <v-expansion-panel-header
-              >Descartar listas que lleven candidatos con
-              sentencias</v-expansion-panel-header
-            >
-            <v-expansion-panel-content>
-              <v-row>
-                <v-col>
-                  <v-checkbox
-                    v-model="f1"
-                    @change="updateURLQuery()"
-                    color="info"
-                    :label="
-                      `Descartar listas que lleven candidatos con sentencias`
-                    "
-                  ></v-checkbox>
-                </v-col>
-              </v-row>
-            </v-expansion-panel-content>
-          </v-expansion-panel>
-          <v-expansion-panel>
-            <v-expansion-panel-header>
-              Descartar partidos que votaron por la vacancia:
-            </v-expansion-panel-header>
-            <v-expansion-panel-content>
-              <v-row>
-                <v-col>
-                  <v-checkbox
-                    v-model="f2"
-                    @change="updateURLQuery()"
-                    color="info"
-                    :label="
-                      `Descartar partidos que votaron por la vacancia (Noviembre 2019)`
-                    "
-                  ></v-checkbox>
-                </v-col>
-              </v-row>
-            </v-expansion-panel-content>
-          </v-expansion-panel>
-
-          <v-expansion-panel>
-            <v-expansion-panel-header
-              >Descartar listas que NO promuevan la equidad de
-              género</v-expansion-panel-header
-            >
-            <v-expansion-panel-content>
-              <v-row>
-                <v-col>
-                  <v-checkbox
-                    v-model="f3"
-                    @change="updateURLQuery()"
-                    color="info"
-                    :label="`Descartar listas sin paridad (50%)`"
-                  ></v-checkbox>
-                </v-col>
-              </v-row>
-            </v-expansion-panel-content>
-          </v-expansion-panel>
-
-          <v-expansion-panel>
-            <v-expansion-panel-header
-              >Descartar listas que NO promuevan democracia
-              interna</v-expansion-panel-header
-            >
-            <v-expansion-panel-content>
-              <v-row>
-                <v-col>
-                  <v-checkbox
-                    v-model="f4"
-                    @change="updateURLQuery()"
-                    color="info"
-                    :label="
-                      `Descartar listas donde el número 1 no fue electo en democracia interna`
-                    "
-                  ></v-checkbox>
-                  <v-checkbox
-                    v-model="f5"
-                    @change="updateURLQuery()"
-                    color="info"
-                    :label="
-                      `Descartar listas cuyas primarias fueron por delegados`
-                    "
-                  ></v-checkbox>
-                </v-col>
-              </v-row>
-            </v-expansion-panel-content>
-          </v-expansion-panel>
-        </v-expansion-panels>
-      </v-card>
-    </v-flex>
-    <!-- TODO -->
-    <v-flex md8>
-      <transition name="fade" appear>
-        <resultados
-          :current-region="currentRegion"
-          :data-table1="filtroTabla1"
-          :data-table2="filtroTabla2"
-        ></resultados>
-      </transition>
-    </v-flex>
-  </v-row>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-flex md4 class="mb-2">
+        <v-card class="pa-2 mx-2 grey lighten-4" shaped>
+          <v-select
+            :items="regiones"
+            item-text="region"
+            item-value="codigo"
+            label="Elije tu departamento:"
+            v-model="currentRegion"
+            prepend-icon="mdi-map"
+            color="secondary"
+            :return-object="true"
+            v-on:change="updateURLParams"
+          ></v-select>
+          <v-layout text-xs-center align-center justify-center>
+            <v-fab-transition>
+              <v-btn
+                v-show="
+                  $vuetify.breakpoint.xsOnly && $route.path.includes('filtros')
+                "
+                @click="filterButtonClicked()"
+                color="orange darken-4"
+                dark
+              >
+                <span class="white--text pl-2">Filtra Aquí</span
+                ><v-icon>mdi-filter</v-icon>
+              </v-btn>
+            </v-fab-transition>
+          </v-layout>
+          <v-layout text-xs-center align-center justify-center>
+            <v-fab-transition>
+              <v-btn
+                @click="onNoFiltrosClicked()"
+                class="ma-2"
+                tile
+                outlined
+                color="blue-grey"
+                v-show="noFiltrosUsed()"
+              >
+                <v-icon left>mdi-map-marker-off</v-icon>Quitar Filtros
+              </v-btn>
+            </v-fab-transition>
+          </v-layout>
+  
+          <!-- Container para el boton de Twitter -->
+          <div class="fixedHeight">
+            <div ref="container"></div>
+          </div>
+  
+          <v-divider v-show="!$vuetify.breakpoint.xsOnly" />
+          <v-chip
+            v-if="f1"
+            class="ma-2"
+            close
+            @click:close="
+              f1 = false;
+              updateURLQuery();
+            "
+          >
+            <v-icon left>mdi-alert</v-icon>Sentencias
+          </v-chip>
+          <v-chip
+            v-if="f2"
+            class="ma-2"
+            close
+            @click:close="
+              f2 = false;
+              updateURLQuery();
+            "
+          >
+            <v-icon left>mdi-alert</v-icon>Vacancia
+          </v-chip>
+          <v-chip
+            v-if="f3"
+            class="ma-2"
+            close
+            @click:close="
+              f3 = false;
+              updateURLQuery();
+            "
+          >
+            <v-icon left>mdi-alert</v-icon>Paridad
+          </v-chip>
+          <v-chip
+            v-if="f4"
+            class="ma-2"
+            close
+            @click:close="
+              f4 = false;
+              updateURLQuery();
+            "
+          >
+            <v-icon left>mdi-alert</v-icon>Militantes
+          </v-chip>
+          <v-chip
+            v-if="f5"
+            class="ma-2"
+            close
+            @click:close="
+              f5 = false;
+              updateURLQuery();
+            "
+          >
+            <v-icon left>mdi-alert</v-icon>D.Interna
+          </v-chip>
+          <v-divider v-show="!$vuetify.breakpoint.xsOnly" />
+          <h3
+            class="subheading font-weight-regular mb-2 mt2"
+            v-show="!$vuetify.breakpoint.xsOnly"
+          >
+            ¿Qué filtros deseas aplicar?
+          </h3>
+          <!-- TODO -->
+          <v-expansion-panels
+            v-bind:disabled="!noRegionSelected"
+            v-show="!$vuetify.breakpoint.xsOnly"
+          >
+            <v-expansion-panel>
+              <v-expansion-panel-header
+                >Descartar listas que lleven candidatos con
+                sentencias</v-expansion-panel-header
+              >
+              <v-expansion-panel-content>
+                <v-row>
+                  <v-col>
+                    <v-checkbox
+                      v-model="f1"
+                      @change="updateURLQuery()"
+                      color="info"
+                      :label="
+                        `Descartar listas que lleven candidatos con sentencias`
+                      "
+                    ></v-checkbox>
+                  </v-col>
+                </v-row>
+              </v-expansion-panel-content>
+            </v-expansion-panel>
+            <v-expansion-panel>
+              <v-expansion-panel-header>
+                Descartar partidos que votaron por la vacancia:
+              </v-expansion-panel-header>
+              <v-expansion-panel-content>
+                <v-row>
+                  <v-col>
+                    <v-checkbox
+                      v-model="f2"
+                      @change="updateURLQuery()"
+                      color="info"
+                      :label="
+                        `Descartar partidos que votaron por la vacancia (Noviembre 2019)`
+                      "
+                    ></v-checkbox>
+                  </v-col>
+                </v-row>
+              </v-expansion-panel-content>
+            </v-expansion-panel>
+  
+            <v-expansion-panel>
+              <v-expansion-panel-header
+                >Descartar listas que NO promuevan la equidad de
+                género</v-expansion-panel-header
+              >
+              <v-expansion-panel-content>
+                <v-row>
+                  <v-col>
+                    <v-checkbox
+                      v-model="f3"
+                      @change="updateURLQuery()"
+                      color="info"
+                      :label="`Descartar listas sin paridad (50%)`"
+                    ></v-checkbox>
+                  </v-col>
+                </v-row>
+              </v-expansion-panel-content>
+            </v-expansion-panel>
+  
+            <v-expansion-panel>
+              <v-expansion-panel-header
+                >Descartar listas que NO promuevan democracia
+                interna</v-expansion-panel-header
+              >
+              <v-expansion-panel-content>
+                <v-row>
+                  <v-col>
+                    <v-checkbox
+                      v-model="f4"
+                      @change="updateURLQuery()"
+                      color="info"
+                      :label="
+                        `Descartar listas donde el número 1 no fue electo en democracia interna`
+                      "
+                    ></v-checkbox>
+                    <v-checkbox
+                      v-model="f5"
+                      @change="updateURLQuery()"
+                      color="info"
+                      :label="
+                        `Descartar listas cuyas primarias fueron por delegados`
+                      "
+                    ></v-checkbox>
+                  </v-col>
+                </v-row>
+              </v-expansion-panel-content>
+            </v-expansion-panel>
+          </v-expansion-panels>
+        </v-card>
+      </v-flex>
+      <!-- TODO -->
+      <v-flex md8>
+        <transition name="fade" appear>
+          <resultados
+            :current-region="currentRegion"
+            :data-table1="filtroTabla1"
+            :data-table2="filtroTabla2"
+          ></resultados>
+        </transition>
+      </v-flex>
+    </v-row>
+  </div>
 </template>
 
 <script>
@@ -425,12 +443,12 @@ export default {
     restoreTablesValues() {
       const urlDepto = this.$route.params.departamento;
       const queryParams = this.$route.query;
-      console.log(queryParams, urlDepto, this.regiones);
+
       if (urlDepto) {
         const newDefault = this.regiones.filter(
           region => region.region == urlDepto
         );
-        console.log(newDefault, this.regiones, urlDepto);
+
         if (newDefault && newDefault[0].region) {
           this.currentRegion = newDefault[0];
           this.f1 = queryParams.f1 === "true";

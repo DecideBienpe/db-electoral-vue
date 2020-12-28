@@ -113,3 +113,50 @@ html, body {
     text-align: center;
   }
 }
+
+.decidebien-region {
+  padding: 100px 0 !important;
+  background-color: #333;
+  background-size: cover;
+  background-position: center;
+  transition: background-image .2s ease-in-out;
+
+  &.APURIMAC {
+    background-image: url('./assets/APURIMAC.png');
+  }
+
+  &.LIMA {
+    background-image: url('./assets/LIMA.png');
+  }
+
+  h1 {
+    font-size: 21px;
+    color: #fff;
+    text-align: center;
+  }
+
+  .logo {
+    display: block;
+    width: 100%;
+    max-width: 55px;
+    margin: 0 auto;
+  }
+
+  .region-selected {
+    max-width: 360px;
+    margin: 0 auto;
+    font-size: 31px;
+    font-weight: 900;
+    color: #fff;
+    text-align: center;
+  }
+
+  .curul-selected {
+    max-width: 360px;
+    margin: 0 auto;
+    font-size: 21px;
+    font-weight: 900;
+    color: #fff;
+    text-align: center;
+  }
+}

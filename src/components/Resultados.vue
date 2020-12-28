@@ -35,6 +35,43 @@
       </v-dialog>
     </v-row>
 
+    <v-row>
+      <v-col>
+        <h3>Los siguientes partidos que pasaron los filtros</h3>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col
+        v-for="(partido, i) in dataTable1"
+        :key="i"
+        cols="4"
+        md="3"
+        sm="2"
+      >
+        <v-item>
+          {{ partido.Partido }}  
+        </v-item>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col>
+        <h3>Los que no pasaron los filtros</h3>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col
+        v-for="(partido, i) in dataTable1"
+        :key="i"
+        cols="4"
+        md="3"
+        sm="2"
+      >
+        <v-item>
+          {{ partido.Partido }}  
+        </v-item>
+      </v-col>
+    </v-row>
+
     <v-tabs centered v-model="tabs" :vertical="this.$vuetify.breakpoint.xsOnly">
       <v-tabs-slider></v-tabs-slider>
       <v-tab class="">Por Organización Política:</v-tab>
@@ -44,20 +81,8 @@
     <v-tabs-items v-model="tabs">
       <v-tab-item>
         <v-card flat>
-          <v-card-title>
-            <v-text-field
-              v-model="search"
-              label="Buscar"
-              single-line
-              hide-details
-            ></v-text-field>
-            <v-spacer />
-          </v-card-title>
-          <v-data-table
-            :headers="headers1"
-            :items="dataTable1"
-            :search="search"
-          ></v-data-table>
+
+
         </v-card>
       </v-tab-item>
 
