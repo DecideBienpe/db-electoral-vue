@@ -10,9 +10,7 @@
         <div>
           <grid-presidencial></grid-presidencial>
         </div>
-        <v-btn color="primary" @click="e6 = 2">
-          Seleccionar
-        </v-btn>
+        <v-btn color="primary" @click="e6 = 2"> Seleccionar </v-btn>
       </v-stepper-content>
 
       <v-stepper-step :complete="e6 > 2" step="2">
@@ -22,9 +20,7 @@
 
       <v-stepper-content step="2">
         <filtros></filtros>
-        <v-btn color="primary" @click="e6 = 3">
-          Continue
-        </v-btn>
+        <v-btn color="primary" @click="e6 = 3"> Continue </v-btn>
       </v-stepper-content>
 
       <v-stepper-step :complete="e6 > 3" step="3">
@@ -33,12 +29,8 @@
       </v-stepper-step>
       <v-stepper-content step="3">
         <v-card color="grey lighten-1" class="mb-12" height="200px"></v-card>
-        <v-btn color="primary" @click="e6 = 4">
-          Continue
-        </v-btn>
-        <v-btn text>
-          Cancel
-        </v-btn>
+        <v-btn color="primary" @click="e6 = 4"> Continue </v-btn>
+        <v-btn text> Cancel </v-btn>
       </v-stepper-content>
     </v-stepper>
   </div>
