@@ -38,10 +38,6 @@ export default {
       defaultSelected: null,
       currentRegion: {}
     };
-  },
-  created() {
-    this.$store.dispatch("getPartidos");
-    this.$store.dispatch("getRegiones");
-  },
+  }
 };
 </script>
