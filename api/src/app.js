@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 require("dotenv").config();
 
 const express = require("express");
@@ -16,9 +17,13 @@ app.use(express.urlencoded({ extended: false })); //http://expressjs.com/en/5x/a
 
 const regionesRouter = require("./routes/regiones");
 const partidosRouter = require("./routes/partidos");
+const congresoRouter = require("./routes/candidatosC");
+const presidenteRouter = require("./routes/candidatosP");
 
 app.use("/regiones", regionesRouter);
 app.use("/partidos", partidosRouter);
+app.use("/congreso/candidatos", congresoRouter);
+app.use("/presidente/candidatos", presidenteRouter);
 
 db.sequelize
   .sync()
