@@ -45,6 +45,7 @@ export default {
   created() {
     this.$store.dispatch("getPartidos");
     this.$store.dispatch("getRegiones");
+    this.$store.dispatch("getListas");
   },
   methods: {
     filterChanged() {

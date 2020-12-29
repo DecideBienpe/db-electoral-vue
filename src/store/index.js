@@ -4,7 +4,6 @@ import Vuex from "vuex";
 import Vue from "vue";
 // import regiones from "./regiones.json"; // copia backup local para debugging
 import presidentials from "./EPresidencial.json";
-import listas from "./listas.json";
 import resumen from "./resumen.json";
 import t1 from "./t1.json";
 import t2 from "./t2.json";
@@ -16,15 +15,7 @@ Vue.use(Vuex);
 
 //to handle state
 const state = {
-  listas: listas.sort((a, b) =>
-    a.Partido > b.Partido
-      ? 1
-      : a.Partido === b.Partido
-      ? a.Número > b.Número
-        ? 1
-        : -1
-      : -1
-  ),
+  listas: [],
   presidentials: presidentials,
   partidos: [],
   regiones: [],
@@ -62,6 +53,11 @@ const actions = {
     axios.get("https://api.keines.net/partidos").then(response => {
       commit("SET_PARTIDOS", response.data);
     });
+  },
+  getListas({ commit }) {
+    axios.get("https://api.keines.net/congreso/candidatos").then(response => {
+      commit("SET_LISTAS", response.data);
+    });
   }
 };
 
@@ -72,6 +68,9 @@ const mutations = {
   },
   SET_REGIONES(state, regiones) {
     state.regiones = regiones;
+  },
+  SET_LISTAS(state, listas) {
+    state.listas = listas;
   },
   updateFiltro1(state, payload) {
     state.filtros.f1 = payload;

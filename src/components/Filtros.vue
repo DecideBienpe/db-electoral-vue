@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-row class="decidebien-region" :class="currentRegion.region">
+    <v-row class="decidebien-region" :class="`region_${currentRegion.codigo}`">
       <v-col cols="12">
         <div class="intro">
           <div>
@@ -11,7 +11,7 @@
             {{ currentRegion.region }}
           </div>
           <div class="curul-selected">
-            Se eligiran {{ currentRegion.curul }} dos congresistas
+            Se eligiran {{ currentRegion.curul }} congresistas
           </div>
         </div>
       </v-col>
@@ -309,6 +309,7 @@ export default {
       return this.$store.state.regiones;
     },
     filtroTabla1() {
+      console.log(this.$store.state.listas)
       return this.uniqueFilter(
         this.$store.state.listas
           .filter(this.regionFilter)

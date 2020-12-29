@@ -121,12 +121,112 @@ html, body {
   background-position: center;
   transition: background-image .2s ease-in-out;
 
-  &.APURIMAC {
-    background-image: url('./assets/APURIMAC.png');
+  &.region_1 {
+    background-image: url('./assets/1.png');
   }
 
-  &.LIMA {
-    background-image: url('./assets/LIMA.png');
+  &.region_15 {
+    background-image: url('./assets/15.png');
+  }
+
+  &.region_2 {
+    background-image: url('./assets/2.png');
+  }
+
+  &.region_3 {
+    background-image: url('./assets/3.png');
+  }
+
+  &.region_4 {
+    background-image: url('./assets/4.png');
+  }
+
+  &.region_5 {
+    background-image: url('./assets/5.png');
+  }
+
+  &.region_6 {
+    background-image: url('./assets/6.png');
+  }
+
+  &.region_7 {
+    background-image: url('./assets/7.png');
+  }
+
+  &.region_8 {
+    background-image: url('./assets/8.png');
+  }
+
+  &.region_9 {
+    background-image: url('./assets/9.png');
+  }
+
+  &.region_10 {
+    background-image: url('./assets/10.png');
+  }
+
+  &.region_11 {
+    background-image: url('./assets/11.png');
+  }
+
+  &.region_12 {
+    background-image: url('./assets/12.png');
+  }
+
+  &.region_13 {
+    background-image: url('./assets/13.png');
+  }
+
+  &.region_14 {
+    background-image: url('./assets/14.png');
+  }
+
+  &.region_16 {
+    background-image: url('./assets/16.png');
+  }
+
+  &.region_17 {
+    background-image: url('./assets/17.png');
+  }
+
+  &.region_18 {
+    background-image: url('./assets/18.png');
+  }
+
+  &.region_19 {
+    background-image: url('./assets/19.png');
+  }
+
+  &.region_20 {
+    background-image: url('./assets/20.png');
+  }
+
+  &.region_21 {
+    background-image: url('./assets/21.png');
+  }
+
+  &.region_22 {
+    background-image: url('./assets/22.png');
+  }
+
+  &.region_23 {
+    background-image: url('./assets/23.png');
+  }
+
+  &.region_24 {
+    background-image: url('./assets/24.png');
+  }
+
+  &.region_25 {
+    background-image: url('./assets/25.png');
+  }
+
+  &.region_26 {
+    background-image: url('./assets/26.png');
+  }
+
+  &.region_27 {
+    background-image: url('./assets/27.png');
   }
 
   h1 {
@@ -154,7 +254,7 @@ html, body {
   .curul-selected {
     max-width: 360px;
     margin: 0 auto;
-    font-size: 21px;
+    font-size: 16px;
     font-weight: 900;
     color: #fff;
     text-align: center;

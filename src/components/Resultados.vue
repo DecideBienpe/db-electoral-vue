@@ -1,14 +1,7 @@
 <template>
   <v-card class="pa-2 mx-2" v-show="currentRegion.region">
-    <h3 class="mt-5 text-center">
-      En el Departamento de
-      <v-chip color="red" text-color="white"> {{ showRegion }} </v-chip>
-      se elegiran
-      <v-chip color="red" text-color="white"> {{ showCurules }}</v-chip>
-      congresistas.
-    </h3>
     <p class="text-center mt-5">
-      Revisa las siguientes listas filtradas
+      Revisa las siguientes listas que pasaron tus filtros
       <span @click.stop="dialog = true"
         ><v-icon left>mdi-information</v-icon>:
       </span>
@@ -35,43 +28,6 @@
       </v-dialog>
     </v-row>
 
-    <v-row>
-      <v-col>
-        <h3>Los siguientes partidos que pasaron los filtros</h3>
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col
-        v-for="(partido, i) in dataTable1"
-        :key="i"
-        cols="4"
-        md="3"
-        sm="2"
-      >
-        <v-item>
-          {{ partido.Partido }}  
-        </v-item>
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col>
-        <h3>Los que no pasaron los filtros</h3>
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col
-        v-for="(partido, i) in dataTable1"
-        :key="i"
-        cols="4"
-        md="3"
-        sm="2"
-      >
-        <v-item>
-          {{ partido.Partido }}  
-        </v-item>
-      </v-col>
-    </v-row>
-
     <v-tabs centered v-model="tabs" :vertical="this.$vuetify.breakpoint.xsOnly">
       <v-tabs-slider></v-tabs-slider>
       <v-tab class="">Por Organización Política:</v-tab>
@@ -82,6 +38,24 @@
       <v-tab-item>
         <v-card flat>
 
+          <v-row>
+            <v-col
+              v-for="(partido, i) in dataTable1"
+              :key="i"
+              cols="4"
+              md="3"
+              sm="2"
+            >
+              <v-item>
+                <v-img
+                :src="require(`../assets/partidos/${partido.idOrgPol}.png`)"
+                height="95"
+                class="text-right pa-2"
+              >
+              </v-img>
+              </v-item>
+            </v-col>
+          </v-row>
 
         </v-card>
       </v-tab-item>
