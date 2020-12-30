@@ -14,9 +14,6 @@
               >
             </li>
             <li>
-              <a href="https://www.redesarrollo.pe/" target="_blank">Redes</a>
-            </li>
-            <li>
               <a
                 href="https://www.idea.int/our-work/where-we-work/latin-america-caribbean/peru"
                 target="_blank"
