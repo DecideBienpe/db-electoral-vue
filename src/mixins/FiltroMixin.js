@@ -20,7 +20,7 @@ export default {
     },
     genero1Filter: function(lista) {
       if (this.f3) {
-        return lista.Pmujeres > 0.45;
+        return lista.Pmujeres >= 0.40;
       } else {
         return true;
       }
