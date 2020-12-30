@@ -76,13 +76,13 @@
             :items="dataTable2"
             :search="search"
           >
-            <template v-slot:item.Materia="{ item }">
+            <template v-slot:item.Sentencia="{ item }">
               <v-chip
                 class="ma-2"
                 text-color="white"
-                :color="getColor(item.Materia)"
+                :color="getColor(item.Sentencia)"
               >
-                {{ item.Materia }}
+                {{ item.Sentencia }}
               </v-chip>
             </template>
           </v-data-table>
@@ -122,8 +122,8 @@ export default {
         { text: "Número", value: "Número" },
         { text: "Sexo", value: "Sexo" },
         { text: "Edad", value: "Edad" },
-        { text: "Con Sentencia", value: "Materia" },
-        { text: "Experiencia Politica", value: "Experiencia_Pol" },
+        { text: "Con Sentencia", value: "Sentencia" },
+        { text: "Experiencia Politica", value: "Experiencia"},
         { text: "Estudios", value: "Estudios" }
       ],
       headers3: [{ text: "Partido", value: "Partido" }]
