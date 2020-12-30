@@ -8,7 +8,7 @@ exports.getAllCandidatos = async (req, res, next) => {
       "ID",
       "Region",
       "Nombre",
-      ["Número", "Numero"], // Cambio de nombre para evitar problemas de parsing
+      "Numero",
       "Designado",
       "Sexo",
       "Pmujeres",
