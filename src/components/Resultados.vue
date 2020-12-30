@@ -119,7 +119,7 @@ export default {
       headers2: [
         { text: "Partido", value: "Partido" },
         { text: "Candidato", value: "Nombre" },
-        { text: "Número", value: "Número" },
+        { text: "Número", value: "Numero" },
         { text: "Sexo", value: "Sexo" },
         { text: "Edad", value: "Edad" },
         { text: "Con Sentencia", value: "Sentencia" },
