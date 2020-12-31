@@ -4,13 +4,13 @@
       <v-item-group v-model="partidosFavoritos" multiple>
         <v-row>
           <v-col
-            v-for="(partido, i) in partidos"
-            :key="i"
+            v-for="partido in partidos"
+            :key="partido.codigo"
             cols="4"
             md="3"
             sm="2"
           >
-            <v-item v-slot="{ active, toggle }">
+            <v-item :value="partido.codigo" v-slot="{ active, toggle }">
               <v-img
                 :src="require(`../assets/partidos/${partido.Imagen}`)"
                 height="85"

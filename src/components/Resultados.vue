@@ -37,7 +37,25 @@
     <v-tabs-items v-model="tabs">
       <v-tab-item>
         <v-card flat>
-
+          <h2 class="mt-5 mb-5 text-center">De los partidos que seleccionaste</h2>
+          <v-row>
+            <v-col
+              v-for="(partido, i) in renderSelected"
+              :key="i"
+              cols="4"
+              md="3"
+              sm="2">
+                <v-img
+                  :src="require(`../assets/partidos/${partido.Imagen}`)"
+                  height="95"
+                  class="text-right pa-2"
+                  :class="`filter-${partido.filter}`"
+                >
+                </v-img>
+                <h4>{{ partido.filter ? 'Pasó el filtro' : 'No pasó el filtro' }}</h4>
+            </v-col>
+          </v-row>
+          <h2 class="mt-5 mb-5 text-center">Otros partidos que pasaron el filtro</h2>
           <v-row>
             <v-col
               v-for="(partido, i) in dataTable1"
@@ -48,15 +66,14 @@
             >
               <v-item>
                 <v-img
-                :src="require(`../assets/partidos/${partido.idOrgPol}.png`)"
-                height="95"
-                class="text-right pa-2"
-              >
-              </v-img>
+                  :src="require(`../assets/partidos/${partido.idOrgPol}.png`)"
+                  height="95"
+                  class="text-right pa-2"
+                >
+                </v-img>
               </v-item>
             </v-col>
           </v-row>
-
         </v-card>
       </v-tab-item>
 
@@ -93,6 +110,8 @@
 </template>
 
 <script>
+import { filter, map } from "lodash";
+
 export default {
   name: "resultados",
   components: {},
@@ -123,7 +142,7 @@ export default {
         { text: "Sexo", value: "Sexo" },
         { text: "Edad", value: "Edad" },
         { text: "Con Sentencia", value: "Sentencia" },
-        { text: "Experiencia Politica", value: "Experiencia"},
+        { text: "Experiencia Politica", value: "Experiencia" },
         { text: "Estudios", value: "Estudios" }
       ],
       headers3: [{ text: "Partido", value: "Partido" }]
@@ -141,6 +160,38 @@ export default {
     },
     showCurules() {
       return this.currentRegion.curul;
+    },
+    partiesSelected() {
+      let partidos = this.$route.query.favs.split(",");
+      return filter(this.$store.state.partidos, item => {
+        if(partidos.indexOf(`${item.IDPartido}`) > -1) {
+          return item;
+        }
+      })
+    },
+    renderSelected() {
+      return map(this.partiesSelected, item => {
+
+        item.filter = 0;
+        
+        if(this.idsPartidosFilter.indexOf(`${item.IDPartido}`) > -1) {
+          item.filter = 1;
+          return item;
+        }
+
+        return item;
+      })
+    },
+    idsPartidosFilter() {
+      return map(this.dataTable1, 'IDPartido')
+    },
+    partiesSelectedNoFilter() {
+      let partidos = this.$route.query.favs.split(",");
+      return filter(this.$store.state.partidos, item => {
+        if(partidos.indexOf(`${item.IDPartido}`) > -1) {
+          return item;
+        }
+      })
     }
   }
 };

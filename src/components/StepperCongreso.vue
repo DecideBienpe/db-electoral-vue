@@ -8,9 +8,39 @@
         </v-stepper-step>
 
         <v-stepper-content step="1">
-          <div>
-            <grid-partidos></grid-partidos>
-          </div>
+          <v-row>
+            <v-item-group v-model="partidosFavoritos" multiple>
+              <v-row>
+                <v-col
+                  v-for="partido in partidos"
+                  :key="partido.codigo"
+                  cols="4"
+                  md="3"
+                  sm="2"
+                >
+                  <v-item :value="partido.IDPartido" v-slot="{ active, toggle }">
+                    <v-img
+                      :value="partido.codigo"
+                      :src="require(`../assets/partidos/${partido.Imagen}`)"
+                      height="85"
+                      class="text-right pa-2"
+                      @click="toggle"
+                    >
+                      <v-btn class="selection" icon dark>
+                        <v-icon>
+                          {{
+                            active
+                              ? "mdi-checkbox-marked-circle"
+                              : "mdi-checkbox-marked-circle-outline"
+                          }}
+                        </v-icon>
+                      </v-btn>
+                    </v-img>
+                  </v-item>
+                </v-col>
+              </v-row>
+            </v-item-group>
+          </v-row>
           <v-btn color="primary" @click="e6 = 2">
             Seleccionar
           </v-btn>
@@ -82,13 +112,10 @@
 </template>
 
 <script>
-import GridPartidos from "./GridPartidos.vue";
+import slugify from 'slugify';
 
 export default {
   name: "stepperCongreso",
-  components: {
-    GridPartidos
-  },
   computed: {
     partidos() {
       return this.$store.state.partidos;
@@ -99,7 +126,7 @@ export default {
   },
   data() {
     return {
-      favoritos: [],
+      partidosFavoritos: [],
       currentRegion: "",
       e6: 1,
       f1: false,
@@ -109,9 +136,15 @@ export default {
       f5: false
     };
   },
+  created() {
+    this.$store.dispatch("getPartidos");
+  },
   methods: {
+    render_logo(i) {
+      return slugify(i).toLowerCase();
+    },
     filterButtonClicked() {
-      console.log(this.regiones[this.currentRegion]);
+
       if (this.currentRegion.region) {
         this.$router.push({
           name: "filtros",
@@ -121,7 +154,9 @@ export default {
             f2: this.f2,
             f3: this.f3,
             f4: this.f4,
-            f5: this.f5
+            f5: this.f5,
+            favs: this.partidosFavoritos.join(','),
+            stepper: 'congreso'
           }
         });
       }

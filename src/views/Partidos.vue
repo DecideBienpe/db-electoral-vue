@@ -5,11 +5,7 @@
         <h2 class="text-center mb-5">
           {{ partido }}
         </h2>
-        <v-img
-          :src="require(`../assets/partidos/${idPartido}.png`)"
-          class="logo-partido"
-        >
-        </v-img>
+
       </v-col>
       <v-col md="9" lg="6" cols="12 align-self-center">
         <v-row>
@@ -76,9 +72,11 @@ export default {
   name: "partidos",
   computed: {
     idPartido() {
-      return this.$route.params.partido;
+      return find(this.$store.state.listas, item => slugify(item.Partido) == this.$route.params.partido);
     },
     regiones() {
+      
+
       let regiones = uniq(
         map(
           filter(
