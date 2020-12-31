@@ -44,7 +44,20 @@
               :key="i"
               cols="4"
               md="3"
-              sm="2">
+              sm="2"
+              class="image-partido">
+                <h4
+                  class="text-center"
+                  :class="`filter-${partido.filter}`"
+                >{{ partido.filter ? 'Pasó el filtro' : 'No pasó el filtro' }}
+                  <v-icon>
+                    {{
+                      partido.filter 
+                        ? "mdi-checkbox-marked-circle"
+                        : "mdi-cancel"
+                    }}
+                  </v-icon>
+                </h4>
                 <v-img
                   :src="require(`../assets/partidos/${partido.Imagen}`)"
                   height="95"
@@ -52,13 +65,12 @@
                   :class="`filter-${partido.filter}`"
                 >
                 </v-img>
-                <h4>{{ partido.filter ? 'Pasó el filtro' : 'No pasó el filtro' }}</h4>
             </v-col>
           </v-row>
           <h2 class="mt-5 mb-5 text-center">Otros partidos que pasaron el filtro</h2>
           <v-row>
             <v-col
-              v-for="(partido, i) in dataTable1"
+              v-for="(partido, i) in partiesOthers"
               :key="i"
               cols="4"
               md="3"
@@ -67,6 +79,25 @@
               <v-item>
                 <v-img
                   :src="require(`../assets/partidos/${partido.idOrgPol}.png`)"
+                  height="95"
+                  class="text-right pa-2"
+                >
+                </v-img>
+              </v-item>
+            </v-col>
+          </v-row>
+          <h2 class="mt-5 mb-5 text-center">Los que no pasaron los filtros</h2>
+          <v-row>
+            <v-col
+              v-for="(partido, i) in others"
+              :key="i"
+              cols="4"
+              md="3"
+              sm="2"
+            >
+              <v-item>
+                <v-img
+                  :src="require(`../assets/partidos/${partido.Imagen}`)"
                   height="95"
                   class="text-right pa-2"
                 >
@@ -162,6 +193,9 @@ export default {
       return this.currentRegion.curul;
     },
     partiesSelected() {
+      if(!this.$route.query.favs)
+        return false
+
       let partidos = this.$route.query.favs.split(",");
       return filter(this.$store.state.partidos, item => {
         if(partidos.indexOf(`${item.IDPartido}`) > -1) {
@@ -171,25 +205,39 @@ export default {
     },
     renderSelected() {
       return map(this.partiesSelected, item => {
-
         item.filter = 0;
-        
         if(this.idsPartidosFilter.indexOf(`${item.IDPartido}`) > -1) {
           item.filter = 1;
           return item;
         }
-
         return item;
       })
     },
     idsPartidosFilter() {
-      return map(this.dataTable1, 'IDPartido')
+      return map(this.dataTable1, 'idOrgPol');
     },
     partiesSelectedNoFilter() {
       let partidos = this.$route.query.favs.split(",");
       return filter(this.$store.state.partidos, item => {
         if(partidos.indexOf(`${item.IDPartido}`) > -1) {
           return item;
+        }
+      })
+    },
+    partiesOthers() {
+      let partidos = this.$route.query.favs.split(",");
+      return filter(this.dataTable1, item => {
+        if(partidos.indexOf(`${item.idOrgPol}`) == -1) {
+          return item;
+        }
+      })
+    },
+    others() {
+      let partidos = this.$route.query.favs.split(",");
+      return filter(this.$store.state.partidos, item => {
+        if(this.idsPartidosFilter.indexOf(`${item.IDPartido}`) == -1) {
+          if(partidos.indexOf(`${item.IDPartido}`) == -1)
+            return item;
         }
       })
     }

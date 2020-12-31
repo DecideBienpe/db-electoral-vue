@@ -114,6 +114,31 @@ html, body {
   }
 }
 
+.image-partido {
+  position: relative;
+
+  h4 {
+    max-width: 140px;
+    margin: 0 auto;
+    font-size: 14px;
+    
+    &.filter-0 {
+      color: #fff;
+      background: $primary;
+    }
+    
+    &.filter-1 {
+      color: #333;
+      background: #5bbb07;
+    }
+  }
+
+  .v-image__image--cover {
+    background-size: contain;
+    background-position: center;
+  }
+}
+
 .decidebien-region {
   padding: 100px 0 !important;
   background-color: #333;

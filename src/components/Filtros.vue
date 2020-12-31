@@ -411,7 +411,8 @@ export default {
               f2: this.f2,
               f3: this.f3,
               f4: this.f4,
-              f5: this.f5
+              f5: this.f5,
+              favs: this.$route.query.favs
             }
           })
           .catch(err => {
