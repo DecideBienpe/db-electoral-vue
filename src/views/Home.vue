@@ -7,8 +7,9 @@
             <img class="logo" src="../assets/logo.png" />
           </div>
           <h1>Decide Bien</h1>
-          <h3>Es momento de elegir al presidente del Bicentenario
-          #ReiniciaPeru</h3>
+          <h3>
+            Es momento de elegir al presidente del Bicentenario #ReiniciaPeru
+          </h3>
           <explorar></explorar>
         </div>
       </v-col>

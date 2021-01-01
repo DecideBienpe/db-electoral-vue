@@ -23,9 +23,10 @@
           </ul>
           <h4>Responsables</h4>
           <p>
-            Esta plataforma fue iniciada por <a href="https://www.joseincio.com" target="_blank">José Incio</a> y ahora cuenta con
-            much@s colaboradores. Cualquier error/sugerencia o problema
-            escríbenos.
+            Esta plataforma fue iniciada por
+            <a href="https://www.joseincio.com" target="_blank">José Incio</a> y
+            ahora cuenta con much@s colaboradores. Cualquier error/sugerencia o
+            problema escríbenos.
           </p>
           <h4>Información y código</h4>
           <p>
@@ -36,8 +37,14 @@
           <h5>Vue version</h5>
           <ul>
             <li><a href="" target="_blank">Luis Salas (Github: zettai )</a></li>
-            <li><a href="" target="_blank">Antonio Cucho (Github: antoniocuga)</a></li>
-            <li><a href="https://www.joseincio.com" target="_blank">José Incio </a></li>
+            <li>
+              <a href="" target="_blank">Antonio Cucho (Github: antoniocuga)</a>
+            </li>
+            <li>
+              <a href="https://www.joseincio.com" target="_blank"
+                >José Incio
+              </a>
+            </li>
           </ul>
         </v-card-text>
       </v-card>

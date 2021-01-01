@@ -1,4 +1,4 @@
-<template> 
+<template>
   <div class="grid-presidencial">
     <v-form @submit.prevent="filterButtonClicked" id="check-candidatos">
       <v-stepper v-model="e6" vertical>
@@ -18,7 +18,10 @@
                   md="3"
                   sm="2"
                 >
-                  <v-item :value="partido.IDPartido" v-slot="{ active, toggle }">
+                  <v-item
+                    :value="partido.IDPartido"
+                    v-slot="{ active, toggle }"
+                  >
                     <v-img
                       :value="partido.codigo"
                       :src="require(`../assets/partidos/${partido.Imagen}`)"
@@ -112,7 +115,7 @@
 </template>
 
 <script>
-import slugify from 'slugify';
+import slugify from "slugify";
 
 export default {
   name: "stepperCongreso",
@@ -144,7 +147,6 @@ export default {
       return slugify(i).toLowerCase();
     },
     filterButtonClicked() {
-
       if (this.currentRegion.region) {
         this.$router.push({
           name: "filtros",
@@ -155,8 +157,8 @@ export default {
             f3: this.f3,
             f4: this.f4,
             f5: this.f5,
-            favs: this.partidosFavoritos.join(','),
-            stepper: 'congreso'
+            favs: this.partidosFavoritos.join(","),
+            stepper: "congreso"
           }
         });
       }

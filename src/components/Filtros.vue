@@ -59,12 +59,12 @@
               </v-btn>
             </v-fab-transition>
           </v-layout>
-  
+
           <!-- Container para el boton de Twitter -->
           <div class="fixedHeight">
             <div ref="container"></div>
           </div>
-  
+
           <v-divider v-show="!$vuetify.breakpoint.xsOnly" />
           <v-chip
             v-if="f1"
@@ -172,7 +172,7 @@
                 </v-row>
               </v-expansion-panel-content>
             </v-expansion-panel>
-  
+
             <v-expansion-panel>
               <v-expansion-panel-header
                 >Descartar listas que NO promuevan la equidad de
@@ -191,7 +191,7 @@
                 </v-row>
               </v-expansion-panel-content>
             </v-expansion-panel>
-  
+
             <v-expansion-panel>
               <v-expansion-panel-header
                 >Descartar listas que NO promuevan democracia
@@ -454,11 +454,11 @@ export default {
 
         if (newDefault && newDefault[0].region) {
           this.currentRegion = newDefault[0];
-          this.f1 = queryParams.f1 === "true";
-          this.f2 = queryParams.f2 === "true";
-          this.f3 = queryParams.f3 === "true";
-          this.f4 = queryParams.f4 === "true";
-          this.f5 = queryParams.f5 === "true";
+          this.f1 = queryParams.f1.toString() === "true";
+          this.f2 = queryParams.f2.toString() === "true";
+          this.f3 = queryParams.f3.toString() === "true";
+          this.f4 = queryParams.f4.toString() === "true";
+          this.f5 = queryParams.f5.toString() === "true";
           this.sendToGA();
           this.reAttachTwitterButton();
         }

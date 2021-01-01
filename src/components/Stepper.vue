@@ -12,10 +12,17 @@
             <v-row>
               <v-item-group v-model="candidatosFavs" multiple>
                 <v-row>
-                  <v-col v-for="(candidato, i) in candidatos" :key="i" cols="12" md="2">
+                  <v-col
+                    v-for="(candidato, i) in candidatos"
+                    :key="i"
+                    cols="12"
+                    md="2"
+                  >
                     <v-item v-slot="{ active, toggle }">
                       <v-img
-                        :src="require(`../assets/presidenciales/${candidato.ID}.png`)"
+                        :src="
+                          require(`../assets/presidenciales/${candidato.ID}.png`)
+                        "
                         height="85"
                         class="text-right pa-2"
                         @click="toggle"
@@ -46,42 +53,42 @@
 
         <v-stepper-content step="2">
           <v-checkbox
-              v-model="f1"
-              :label="`Descartar listas que lleven candidatos con sentencias`"
-            ></v-checkbox>
-            <v-checkbox
-              v-model="f2"
-              :label="
-                `
+            v-model="f1"
+            :label="`Descartar listas que lleven candidatos con sentencias`"
+          ></v-checkbox>
+          <v-checkbox
+            v-model="f2"
+            :label="
+              `
               Descartar partidos que votaron por la vacancia (Noviembre 2019)
               `
-              "
-            ></v-checkbox>
-            <v-checkbox
-              v-model="f3"
-              :label="`Descartar listas sin paridad (50%)`"
-            ></v-checkbox>
-            <v-checkbox
-              v-model="f4"
-              :label="
-                `Descartar listas donde el número 1 no fue electo en democracia interna`
-              "
-            ></v-checkbox>
-            <v-checkbox
-              v-model="f5"
-              :label="`Descartar listas cuyas primarias fueron por delegados`"
-            ></v-checkbox>
-            <v-btn form="check-presidentes" type="submit" color="primary">
-              Ver partidos
-            </v-btn>
-            <v-btn text>
-              Volver
-            </v-btn>
+            "
+          ></v-checkbox>
+          <v-checkbox
+            v-model="f3"
+            :label="`Descartar listas sin paridad (50%)`"
+          ></v-checkbox>
+          <v-checkbox
+            v-model="f4"
+            :label="
+              `Descartar listas donde el número 1 no fue electo en democracia interna`
+            "
+          ></v-checkbox>
+          <v-checkbox
+            v-model="f5"
+            :label="`Descartar listas cuyas primarias fueron por delegados`"
+          ></v-checkbox>
+          <v-btn form="check-presidentes" type="submit" color="primary">
+            Ver partidos
+          </v-btn>
+          <v-btn text>
+            Volver
+          </v-btn>
         </v-stepper-content>
       </v-stepper>
     </form>
   </div>
-</template> 
+</template>
 
 <script>
 import { filter } from "lodash";
@@ -90,7 +97,10 @@ export default {
   name: "stepper",
   computed: {
     candidatos() {
-      return filter(this.$store.state.presidentes, ['Cargo', 'PRESIDENTE DE LA REPÚBLICA']);
+      return filter(this.$store.state.presidentes, [
+        "Cargo",
+        "PRESIDENTE DE LA REPÚBLICA"
+      ]);
     }
   },
   data() {
@@ -114,8 +124,8 @@ export default {
           f3: this.f3,
           f4: this.f4,
           f5: this.f5,
-          candidatos: this.candidatosFavs.join(','),
-          stepper: 'presidente'
+          candidatos: this.candidatosFavs.join(","),
+          stepper: "presidente"
         }
       });
     }

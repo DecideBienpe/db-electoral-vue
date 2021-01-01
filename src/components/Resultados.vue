@@ -37,7 +37,9 @@
     <v-tabs-items v-model="tabs">
       <v-tab-item>
         <v-card flat>
-          <h2 class="mt-5 mb-5 text-center">De los partidos que seleccionaste</h2>
+          <h2 class="mt-5 mb-5 text-center">
+            De los partidos que seleccionaste
+          </h2>
           <v-row>
             <v-col
               v-for="(partido, i) in renderSelected"
@@ -45,29 +47,28 @@
               cols="4"
               md="3"
               sm="2"
-              class="image-partido">
-                <h4
-                  class="text-center"
-                  :class="`filter-${partido.filter}`"
-                >{{ partido.filter ? 'Pasó el filtro' : 'No pasó el filtro' }}
-                  <v-icon>
-                    {{
-                      partido.filter 
-                        ? "mdi-checkbox-marked-circle"
-                        : "mdi-cancel"
-                    }}
-                  </v-icon>
-                </h4>
-                <v-img
-                  :src="require(`../assets/partidos/${partido.Imagen}`)"
-                  height="95"
-                  class="text-right pa-2"
-                  :class="`filter-${partido.filter}`"
-                >
-                </v-img>
+              class="image-partido"
+            >
+              <h4 class="text-center" :class="`filter-${partido.filter}`">
+                {{ partido.filter ? "Pasó el filtro" : "No pasó el filtro" }}
+                <v-icon>
+                  {{
+                    partido.filter ? "mdi-checkbox-marked-circle" : "mdi-cancel"
+                  }}
+                </v-icon>
+              </h4>
+              <v-img
+                :src="require(`../assets/partidos/${partido.Imagen}`)"
+                height="95"
+                class="text-right pa-2"
+                :class="`filter-${partido.filter}`"
+              >
+              </v-img>
             </v-col>
           </v-row>
-          <h2 class="mt-5 mb-5 text-center">Otros partidos que pasaron el filtro</h2>
+          <h2 class="mt-5 mb-5 text-center">
+            Otros partidos que pasaron el filtro
+          </h2>
           <v-row>
             <v-col
               v-for="(partido, i) in partiesOthers"
@@ -193,53 +194,51 @@ export default {
       return this.currentRegion.curul;
     },
     partiesSelected() {
-      if(!this.$route.query.favs)
-        return false
+      if (!this.$route.query.favs) return false;
 
       let partidos = this.$route.query.favs.split(",");
       return filter(this.$store.state.partidos, item => {
-        if(partidos.indexOf(`${item.IDPartido}`) > -1) {
+        if (partidos.indexOf(`${item.IDPartido}`) > -1) {
           return item;
         }
-      })
+      });
     },
     renderSelected() {
       return map(this.partiesSelected, item => {
         item.filter = 0;
-        if(this.idsPartidosFilter.indexOf(`${item.IDPartido}`) > -1) {
+        if (this.idsPartidosFilter.indexOf(`${item.IDPartido}`) > -1) {
           item.filter = 1;
           return item;
         }
         return item;
-      })
+      });
     },
     idsPartidosFilter() {
-      return map(this.dataTable1, 'idOrgPol');
+      return map(this.dataTable1, "idOrgPol");
     },
     partiesSelectedNoFilter() {
       let partidos = this.$route.query.favs.split(",");
       return filter(this.$store.state.partidos, item => {
-        if(partidos.indexOf(`${item.IDPartido}`) > -1) {
+        if (partidos.indexOf(`${item.IDPartido}`) > -1) {
           return item;
         }
-      })
+      });
     },
     partiesOthers() {
       let partidos = this.$route.query.favs.split(",");
       return filter(this.dataTable1, item => {
-        if(partidos.indexOf(`${item.idOrgPol}`) == -1) {
+        if (partidos.indexOf(`${item.idOrgPol}`) == -1) {
           return item;
         }
-      })
+      });
     },
     others() {
       let partidos = this.$route.query.favs.split(",");
       return filter(this.$store.state.partidos, item => {
-        if(this.idsPartidosFilter.indexOf(`${item.IDPartido}`) == -1) {
-          if(partidos.indexOf(`${item.IDPartido}`) == -1)
-            return item;
+        if (this.idsPartidosFilter.indexOf(`${item.IDPartido}`) == -1) {
+          if (partidos.indexOf(`${item.IDPartido}`) == -1) return item;
         }
-      })
+      });
     }
   }
 };

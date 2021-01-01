@@ -45,12 +45,12 @@
               </v-btn>
             </v-fab-transition>
           </v-layout>
-  
+
           <!-- Container para el boton de Twitter -->
           <div class="fixedHeight">
             <div ref="container"></div>
           </div>
-  
+
           <v-divider v-show="!$vuetify.breakpoint.xsOnly" />
           <v-chip
             v-if="f1"
@@ -115,9 +115,7 @@
             ¿Qué filtros deseas aplicar?
           </h3>
           <!-- TODO -->
-          <v-expansion-panels
-            v-show="!$vuetify.breakpoint.xsOnly"
-          >
+          <v-expansion-panels v-show="!$vuetify.breakpoint.xsOnly">
             <v-expansion-panel>
               <v-expansion-panel-header
                 >Descartar listas que lleven candidatos con
@@ -157,7 +155,7 @@
                 </v-row>
               </v-expansion-panel-content>
             </v-expansion-panel>
-  
+
             <v-expansion-panel>
               <v-expansion-panel-header
                 >Descartar listas que NO promuevan la equidad de
@@ -176,7 +174,7 @@
                 </v-row>
               </v-expansion-panel-content>
             </v-expansion-panel>
-  
+
             <v-expansion-panel>
               <v-expansion-panel-header
                 >Descartar listas que NO promuevan democracia
@@ -280,7 +278,7 @@ export default {
       }
     },
     listas() {
-      return this.$store.state.presidentes
+      return this.$store.state.presidentes;
     },
     filtroTabla1() {
       return this.uniqueFilter(

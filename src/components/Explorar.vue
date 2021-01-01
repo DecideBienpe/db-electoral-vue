@@ -1,8 +1,8 @@
 <template>
   <div>
     <h4>
-      Somos una herramienta crearte para ayudarte a tomar una mejor
-      decision.<br />Conoce a los candidatos que apoyan tus luchas y pasan tus filtros.
+      Somos una herramienta crearte para ayudarte a tomar una mejor decision.<br />Conoce
+      a los candidatos que apoyan tus luchas y pasan tus filtros.
     </h4>
 
     <v-btn class="btn-explorar" @click="overlay = !overlay">
