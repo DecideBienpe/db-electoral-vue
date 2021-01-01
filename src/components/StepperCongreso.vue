@@ -1,10 +1,10 @@
-<template>
+<template> 
   <div class="grid-presidencial">
     <v-form @submit.prevent="filterButtonClicked" id="check-candidatos">
       <v-stepper v-model="e6" vertical>
         <v-stepper-step :complete="e6 > 1" step="1">
           Elige a tus partidos
-          <small>Cuáles son tus partidos favoritos</small>
+          <small>¿Cuáles son tus partidos favoritos?</small>
         </v-stepper-step>
 
         <v-stepper-content step="1">
@@ -48,7 +48,7 @@
 
         <v-stepper-step :complete="e6 > 2" step="2">
           Selecciona tu región
-          <small>Candidatos al congreso</small>
+          <small>¿Dónde votas?</small>
         </v-stepper-step>
 
         <v-stepper-content step="2">
