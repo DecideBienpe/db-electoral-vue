@@ -6,12 +6,9 @@
           <div>
             <img class="logo" src="../assets/logo.png" />
           </div>
-          <h1>Decide Bien en</h1>
+          <h1>Decide Bien</h1>
           <div class="region-selected">
-            {{ currentRegion.region }}
-          </div>
-          <div class="curul-selected">
-            Se eligiran {{ currentRegion.curul }} congresistas
+            Candidatos a Presidente
           </div>
         </div>
       </v-col>
@@ -19,17 +16,6 @@
     <v-row>
       <v-flex md4 class="mb-2">
         <v-card class="pa-2 mx-2 grey lighten-4" shaped>
-          <v-select
-            :items="regiones"
-            item-text="region"
-            item-value="codigo"
-            label="Elije tu departamento:"
-            v-model="currentRegion"
-            prepend-icon="mdi-map"
-            color="secondary"
-            :return-object="true"
-            v-on:change="updateURLParams"
-          ></v-select>
           <v-layout text-xs-center align-center justify-center>
             <v-fab-transition>
               <v-btn
@@ -130,7 +116,6 @@
           </h3>
           <!-- TODO -->
           <v-expansion-panels
-            v-bind:disabled="!noRegionSelected"
             v-show="!$vuetify.breakpoint.xsOnly"
           >
             <v-expansion-panel>
@@ -225,13 +210,9 @@
       </v-flex>
       <!-- TODO -->
       <v-flex md8>
-        <transition name="fade" appear>
-          <resultados
-            :current-region="currentRegion"
-            :data-table1="filtroTabla1"
-            :data-table2="filtroTabla2"
-          ></resultados>
-        </transition>
+        <v-card>
+          {{ listas }}
+        </v-card>
       </v-flex>
     </v-row>
   </div>
@@ -239,17 +220,13 @@
 
 <script>
 import axios from "axios";
-import Resultados from "../components/Resultados.vue";
 import Twitter from "../components/Twitter.vue";
 import Vue from "vue";
 import { EventBus } from "../eventbus";
 import FiltroMixin from "../mixins/FiltroMixin";
 
 export default {
-  name: "filtros",
-  components: {
-    Resultados
-  },
+  name: "presidentesFiltros",
   mixins: [FiltroMixin],
   // TODO: cambiar el nombre de checkbox a algo mas chico para que el url sea mas corto
   // envolverlos en un objecto, por ex: checkboxes: {}
@@ -302,14 +279,8 @@ export default {
         this.$store.commit("updateFiltro5", value);
       }
     },
-    noRegionSelected() {
-      return !!this.currentRegion.region;
-    },
-    regiones() {
-      return this.$store.state.regiones;
-    },
     listas() {
-      return this.$store.state.listas;
+      return this.$store.state.presidentes
     },
     filtroTabla1() {
       return this.uniqueFilter(
@@ -412,7 +383,7 @@ export default {
               f3: this.f3,
               f4: this.f4,
               f5: this.f5,
-              candidatos: this.$route.query.candidatos,
+              favs: this.$route.query.favs,
               stepper: this.$route.query.stepper
             }
           })
