@@ -3,7 +3,6 @@ import axios from "axios";
 import Vuex from "vuex";
 import Vue from "vue";
 // import regiones from "./regiones.json"; // copia backup local para debugging
-import presidentials from "./EPresidencial.json";
 import resumen from "./resumen.json";
 import t1 from "./t1.json";
 import t2 from "./t2.json";
@@ -16,7 +15,7 @@ Vue.use(Vuex);
 //to handle state
 const state = {
   listas: [],
-  presidentials: presidentials,
+  presidentes: [],
   partidos: [],
   regiones: [],
   resumen: resumen,
@@ -58,6 +57,11 @@ const actions = {
     axios.get("https://api.keines.net/congreso/candidatos").then(response => {
       commit("SET_LISTAS", response.data);
     });
+  },
+  getPresidentes({ commit }) {
+    axios.get("https://api.keines.net/presidente/candidatos").then(response => {
+      commit("SET_PRESIDENTES", response.data);
+    });
   }
 };
 
@@ -71,6 +75,9 @@ const mutations = {
   },
   SET_LISTAS(state, listas) {
     state.listas = listas;
+  },
+  SET_PRESIDENTES(state, presidentes) {
+    state.presidentes = presidentes;
   },
   updateFiltro1(state, payload) {
     state.filtros.f1 = payload;

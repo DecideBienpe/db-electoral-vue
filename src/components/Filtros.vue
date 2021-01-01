@@ -308,10 +308,14 @@ export default {
     regiones() {
       return this.$store.state.regiones;
     },
+    listas() {
+      if(this.$route.query.stepper == 'congreso')
+        return this.$store.state.listas
+      return this.$store.state.presidentes
+    },
     filtroTabla1() {
-      console.log(this.$store.state.listas)
       return this.uniqueFilter(
-        this.$store.state.listas
+        this.listas
           .filter(this.regionFilter)
           .filter(this.sentencia1Filter)
           .filter(this.sentencia2Filter)
@@ -322,7 +326,7 @@ export default {
       );
     },
     filtroTabla2() {
-      return this.$store.state.listas
+      return this.listas
         .filter(this.regionFilter)
         .filter(this.sentencia1Filter)
         .filter(this.sentencia2Filter)

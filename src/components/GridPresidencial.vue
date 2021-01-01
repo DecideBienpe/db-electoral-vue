@@ -36,7 +36,7 @@ export default {
   name: "GridPresidencial",
   computed: {
     candidatos() {
-      return filter(this.$store.state.presidentials, ["Cargo", "Presidente"]);
+      return filter(this.$store.state.presidentes, ["Cargo", "Presidente"]);
     }
   },
   data() {
