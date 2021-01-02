@@ -12,7 +12,6 @@
 **Descartar listas de partidos que votaron por la vacancia**:
 - Consideramos que un partido votó por la vacancia cuando más de la mitad de su bancada en el congreso voto por la misma. 
 - Descartar partidos que votaron por la vacancia (Noviembre 2019):
-    + field en la tabla: Vacancia. Valores: 1 = TRUE , 0|2 = FALSE
 
 **Descartar listas que NO promuevan la equidad de género**
 - Descartar listas sin paridad (50%) (incluido): 
