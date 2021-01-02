@@ -69,43 +69,47 @@
           <h2 class="mt-5 mb-5 text-center">
             Otros partidos que pasaron el filtro
           </h2>
-          <v-row>
-            <v-col
-              v-for="(partido, i) in partiesOthers"
-              :key="i"
-              cols="4"
-              md="3"
-              sm="2"
-            >
-              <v-item>
-                <v-img
-                  :src="require(`../assets/partidos/${partido.idOrgPol}.png`)"
-                  height="95"
-                  class="text-right pa-2"
-                >
-                </v-img>
-              </v-item>
-            </v-col>
-          </v-row>
+          <v-item-group>
+            <v-row>
+              <v-col
+                v-for="(partido, i) in partiesOthers"
+                :key="i"
+                cols="4"
+                md="3"
+                sm="2"
+              >
+                <v-item>
+                  <v-img
+                    :src="require(`../assets/partidos/${partido.idOrgPol}.png`)"
+                    height="95"
+                    class="text-right pa-2"
+                  >
+                  </v-img>
+                </v-item>
+              </v-col>
+            </v-row>
+          </v-item-group>
           <h2 class="mt-5 mb-5 text-center">Los que no pasaron los filtros</h2>
-          <v-row>
-            <v-col
-              v-for="(partido, i) in others"
-              :key="i"
-              cols="4"
-              md="3"
-              sm="2"
-            >
-              <v-item>
-                <v-img
-                  :src="require(`../assets/partidos/${partido.Imagen}`)"
-                  height="95"
-                  class="text-right pa-2"
-                >
-                </v-img>
-              </v-item>
-            </v-col>
-          </v-row>
+          <v-item-group>
+            <v-row>
+              <v-col
+                v-for="(partido, i) in others"
+                :key="i"
+                cols="4"
+                md="3"
+                sm="2"
+              >
+                <v-item>
+                  <v-img
+                    :src="require(`../assets/partidos/${partido.Imagen}`)"
+                    height="95"
+                    class="text-right pa-2"
+                  >
+                  </v-img>
+                </v-item>
+              </v-col>
+            </v-row>
+          </v-item-group>
         </v-card>
       </v-tab-item>
 

@@ -14,10 +14,7 @@
 
     <v-navigation-drawer v-model="drawer" app>
       <v-list dense>
-        <enlace :item="items[0]"></enlace>
-        <enlace :item="items[1]"></enlace>
-        <enlace :item="items[2]"></enlace>
-        <enlace :item="items[3]"></enlace>
+        <enlace v-for="(item, i) in items" :key="i" :item="item"></enlace>
       </v-list>
     </v-navigation-drawer>
 
@@ -156,12 +153,12 @@ export default {
     // cuando se hace click in filtros estando en filtros...
     items: [
       { icon: "mdi-home", text: "Inicio", path: "/" },
-      { icon: "mdi-filter", text: "Filtrar", path: "/filtros" },
-      {
-        icon: "mdi-file-document-box",
-        text: "Resúmen General",
-        path: "/resumen"
-      },
+      // { icon: "mdi-filter", text: "Filtrar", path: "/filtros" },
+      // {
+      //   icon: "mdi-file-document-box",
+      //   text: "Resúmen General",
+      //   path: "/resumen"
+      // },
       { icon: "mdi-contact-mail", text: "Créditos", path: "/creditos" }
     ]
   })

@@ -2,12 +2,51 @@
   <div class="grid-presidencial">
     <v-form @submit.prevent="filterButtonClicked" id="check-candidatos">
       <v-stepper v-model="e6" vertical>
+        <v-row justify="end">
+          <v-spacer></v-spacer>
+          <v-col class="text-right mr-3">
+            <v-btn
+              small
+              color="primary"
+              @click="
+                e6 = 1;
+                $emit('close-stepper');
+              "
+            >
+              <v-icon small>
+                mdi-close
+              </v-icon>
+            </v-btn>
+          </v-col>
+        </v-row>
         <v-stepper-step :complete="e6 > 1" step="1">
+          Selecciona tu región
+          <small>¿Dónde votas?</small>
+        </v-stepper-step>
+
+        <v-stepper-content step="1">
+          <v-select
+            :items="regiones"
+            item-text="region"
+            item-value="codigo"
+            v-model="currentRegion"
+            prepend-icon="mdi-map"
+            color="secondary"
+            :return-object="true"
+            required
+          ></v-select>
+
+          <v-btn color="primary" @click="e6 = 2">
+            Seleccionar
+          </v-btn>
+        </v-stepper-content>
+
+        <v-stepper-step :complete="e6 > 2" step="2">
           Elige a tus partidos
           <small>¿Cuáles son tus partidos favoritos?</small>
         </v-stepper-step>
 
-        <v-stepper-content step="1">
+        <v-stepper-content step="2">
           <v-row>
             <v-item-group v-model="partidosFavoritos" multiple>
               <v-row>
@@ -44,30 +83,12 @@
               </v-row>
             </v-item-group>
           </v-row>
-          <v-btn color="primary" @click="e6 = 2">
+          <v-btn color="primary" @click="e6 = 3">
             Seleccionar
           </v-btn>
-        </v-stepper-content>
-
-        <v-stepper-step :complete="e6 > 2" step="2">
-          Selecciona tu región
-          <small>¿Dónde votas?</small>
-        </v-stepper-step>
-
-        <v-stepper-content step="2">
-          <v-select
-            :items="regiones"
-            item-text="region"
-            item-value="codigo"
-            v-model="currentRegion"
-            prepend-icon="mdi-map"
-            color="secondary"
-            :return-object="true"
-            required
-          ></v-select>
-
-          <v-btn color="primary" @click="e6 = 3">
-            Continue
+          &nbsp;
+          <v-btn text @click="e6 = 1">
+            Volver
           </v-btn>
         </v-stepper-content>
 
@@ -105,7 +126,8 @@
           <v-btn form="check-candidatos" type="submit" color="primary">
             Ver partidos
           </v-btn>
-          <v-btn text>
+          &nbsp;
+          <v-btn text @click="e6 = 2">
             Volver
           </v-btn>
         </v-stepper-content>
@@ -121,7 +143,7 @@ export default {
   name: "stepperCongreso",
   computed: {
     partidos() {
-      return this.$store.state.partidos;
+      return this.$store.state.partidos.filter(this.filterPartidos);
     },
     regiones() {
       return this.$store.state.regiones;
@@ -143,6 +165,12 @@ export default {
     this.$store.dispatch("getPartidos");
   },
   methods: {
+    filterPartidos(partido) {
+      return (
+        this.currentRegion.idOrgPol &&
+        this.currentRegion.idOrgPol.includes(partido.IDPartido.toString())
+      );
+    },
     render_logo(i) {
       return slugify(i).toLowerCase();
     },
