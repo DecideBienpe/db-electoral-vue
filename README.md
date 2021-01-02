@@ -9,7 +9,7 @@
     + field en la tabla: FlagSP. Valores: 0 = FALSE, 1 = TRUE
 
 **Descartar listas de partidos que votaron por la vacancia**:
-- Descartar partidos que votaron por la vacancia (Noviembre 2019):
+- Descartar partidos que votaron por la vacancia (Noviembre- 2019):
     + field en la tabla: Vacancia. Valores: 1 = TRUE , 0|2 = FALSE
 
 **Descartar listas que NO promuevan la equidad de género**
