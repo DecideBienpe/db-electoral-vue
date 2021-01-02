@@ -412,6 +412,7 @@ export default {
               f3: this.f3,
               f4: this.f4,
               f5: this.f5,
+              favs: this.$route.query.favs,
               candidatos: this.$route.query.candidatos,
               stepper: this.$route.query.stepper
             }
