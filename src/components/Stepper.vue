@@ -124,8 +124,7 @@ export default {
           f3: this.f3,
           f4: this.f4,
           f5: this.f5,
-          candidatos: this.candidatosFavs.join(","),
-          stepper: "presidente"
+          candidatos: this.candidatosFavs.join(",")
         }
       });
     }

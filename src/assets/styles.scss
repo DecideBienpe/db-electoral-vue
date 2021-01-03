@@ -57,13 +57,28 @@ html, body {
   }
 }
 
+.v-overlay__content {
+  position: relative;
+}
+
 .grid-partidos {
   max-width: 1024px;
   margin: 0 auto;
 }
 
 .grid-presidencial {
-  max-width: 720px;
+  width: 80%;
+  max-width: 920px;
+  margin: 0 auto;
+
+  .v-stepper--vertical .v-stepper__content {
+    padding: 16px 60px 16px 23px;
+    width: auto;
+  }
+
+  .v-application--is-ltr .v-stepper--vertical .v-stepper__content {
+    margin: -8px -39px -16px 16px;
+  }
 
   .theme--dark.v-overlay {
     color: #FFFFFF;

@@ -4,10 +4,10 @@
       Somos una herramienta crearte para ayudarte a tomar una mejor decision.<br />Conoce
       a los candidatos que apoyan tus luchas y pasan tus filtros.
     </h4>
-    <!-- Esconde boton temporalmente -->
-    <!-- <v-btn class="btn-explorar" @click="overlay = !overlay">
+
+    <v-btn class="btn-explorar" @click="overlay = !overlay">
       <v-icon left> mdi-checkbox-marked-circle</v-icon> Presidente
-    </v-btn> -->
+    </v-btn>
 
     <v-btn class="btn-explorar" @click="overlayCongreso = !overlayCongreso">
       <v-icon left> mdi-checkbox-marked-circle-outline</v-icon> Congreso

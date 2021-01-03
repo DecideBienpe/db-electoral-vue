@@ -55,7 +55,7 @@
                   :key="partido.codigo"
                   cols="4"
                   md="3"
-                  sm="2"
+                  sm="1"
                 >
                   <v-item
                     :value="partido.IDPartido"

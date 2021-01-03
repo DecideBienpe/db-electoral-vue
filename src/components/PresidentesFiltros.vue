@@ -209,7 +209,33 @@
       <!-- TODO -->
       <v-flex md8>
         <v-card>
-          {{ listas }}
+          <v-row>
+            <v-col
+              v-for="(candidato, i) in filtroTabla1"
+              :key="i"
+              cols="4"
+              md="2"
+              sm="4"
+              xs="4"
+            >
+              <v-img
+                :src="
+                  require(`../assets/presidenciales/${candidato.ID}.png`)
+                "
+                height="175"
+                class="text-right pa-2"
+              >
+              </v-img>
+              <v-img
+                :src="
+                  require(`../assets/partidos/${candidato.idOrgPol}.png`)
+                "
+                class="text-right"
+              >
+              
+              </v-img>
+            </v-col>
+          </v-row>
         </v-card>
       </v-flex>
     </v-row>
@@ -222,6 +248,7 @@ import Twitter from "../components/Twitter.vue";
 import Vue from "vue";
 import { EventBus } from "../eventbus";
 import FiltroMixin from "../mixins/FiltroMixin";
+import { filter } from "lodash";
 
 export default {
   name: "presidentesFiltros",
@@ -278,7 +305,10 @@ export default {
       }
     },
     listas() {
-      return this.$store.state.presidentes;
+      return filter(this.$store.state.presidentes, [
+        "Cargo",
+        "PRESIDENTE DE LA REPÚBLICA"
+      ]);
     },
     filtroTabla1() {
       return this.uniqueFilter(
@@ -371,7 +401,7 @@ export default {
         // .push bota un error en el console cuando se trata ir al mismo route existente,
         this.$router
           .push({
-            name: "filtros",
+            name: "presidentes",
             params: {
               departamento: this.currentRegion.region
             },
@@ -396,8 +426,7 @@ export default {
     updateURLParams() {
       if (this.currentRegion.region) {
         this.$router.push({
-          name: "filtros",
-          params: { departamento: this.currentRegion.region },
+          name: "presidentes",
           query: {
             f1: this.f1,
             f2: this.f2,
