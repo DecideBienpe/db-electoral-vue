@@ -18,7 +18,7 @@
                     cols="12"
                     md="2"
                   >
-                    <v-item v-slot="{ active, toggle }">
+                    <v-item :value="candidato.ID" v-slot="{ active, toggle }">
                       <v-img
                         :src="
                           require(`../assets/presidenciales/${candidato.ID}.png`)

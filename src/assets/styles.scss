@@ -300,3 +300,28 @@ html, body {
     text-align: center;
   }
 }
+
+.presidentes {
+  padding: 0 15px;
+  .candidato-name {
+    margin: 10px 0;
+    font-size: 12px;
+    font-weight: 900;
+  }
+
+  h4 {
+    max-width: 140px;
+    margin: 0 auto;
+    font-size: 14px;
+    
+    &.filter-0 {
+      color: #fff;
+      background: $primary;
+    }
+    
+    &.filter-1 {
+      color: #333;
+      background: #5bbb07;
+    }
+  }
+}

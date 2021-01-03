@@ -208,8 +208,47 @@
       </v-flex>
       <!-- TODO -->
       <v-flex md8>
-        <v-card>
-          <v-row>
+        <v-card class="presidentes">
+          <h2>Candidatos favoritos</h2>
+          <v-row class="mb-5">
+            <v-col
+              v-for="(candidato, i) in candidatesFavs"
+              :key="i"
+              cols="4"
+              md="2"
+              sm="4"
+              xs="4"
+            >
+              <h2 class="candidato-name">{{ candidato.Nombre }}</h2>
+              <h4 class="candidato-filter text-center" :class="`filter-${candidato.filter}`">
+                {{ candidato.filter ? "Pasó el filtro" : "No pasó el filtro" }}
+                <v-icon>
+                  {{
+                    candidato.filter ? "mdi-checkbox-marked-circle" : "mdi-cancel"
+                  }}
+                </v-icon>
+              </h4>
+              <v-img
+                :src="
+                  require(`../assets/presidenciales/${candidato.ID}.png`)
+                "
+                height="175"
+                class="text-right pa-2"
+              >
+              </v-img>
+              <v-img
+                :src="
+                  require(`../assets/partidos/${candidato.idOrgPol}.png`)
+                "
+                class="text-right"
+              >
+              
+              </v-img>
+            </v-col>
+          </v-row>
+
+          <h2>Otros candidatos que pasaron el filtro</h2>
+          <v-row class="mb-5">
             <v-col
               v-for="(candidato, i) in filtroTabla1"
               :key="i"
@@ -218,6 +257,37 @@
               sm="4"
               xs="4"
             >
+              <h2 class="candidato-name">{{ candidato.Nombre }}</h2>
+              <v-img
+                :src="
+                  require(`../assets/presidenciales/${candidato.ID}.png`)
+                "
+                height="175"
+                class="text-right pa-2"
+              >
+              </v-img>
+              <v-img
+                :src="
+                  require(`../assets/partidos/${candidato.idOrgPol}.png`)
+                "
+                class="text-right"
+              >
+              
+              </v-img>
+            </v-col>
+          </v-row>
+          
+          <h2>Los que no pasaron el filtro</h2>
+          <v-row>
+            <v-col
+              v-for="(candidato, i) in others"
+              :key="i"
+              cols="4"
+              md="2"
+              sm="4"
+              xs="4"
+            >
+              <h2 class="candidato-name">{{ candidato.Nombre }}</h2>
               <v-img
                 :src="
                   require(`../assets/presidenciales/${candidato.ID}.png`)
@@ -248,7 +318,7 @@ import Twitter from "../components/Twitter.vue";
 import Vue from "vue";
 import { EventBus } from "../eventbus";
 import FiltroMixin from "../mixins/FiltroMixin";
-import { filter } from "lodash";
+import { filter, map } from "lodash";
 
 export default {
   name: "presidentesFiltros",
@@ -310,7 +380,33 @@ export default {
         "PRESIDENTE DE LA REPÚBLICA"
       ]);
     },
-    filtroTabla1() {
+    candidatesFavs() {
+      let favs = this.$route.query.candidatos.split(",");
+      return filter(this.listas, item => {
+        if(favs.indexOf(item.ID) > -1) {
+          if(this.idsCandidatosFilter.indexOf(item.ID) == -1) {
+            item.filter = 0;
+          } else {
+            item.filter = 1;
+          }
+          return item
+        }
+      })
+    },
+    idsCandidatosFilter() {
+      return map(this.listasFiltered, "ID");
+    },
+    others() {
+      let favs = this.$route.query.candidatos.split(",");
+      return filter(this.listas, item => {
+        if(this.idsCandidatosFilter.indexOf(item.ID) == -1) {
+          if(favs.indexOf(item.ID) == -1) {
+            return item
+          }
+        }
+      });
+    },
+    listasFiltered() {
       return this.uniqueFilter(
         this.listas
           .filter(this.sentencia1Filter)
@@ -320,6 +416,13 @@ export default {
           .filter(this.agendaFilter),
         "Partido"
       );
+    },
+    filtroTabla1() {
+      let favs = this.$route.query.candidatos.split(",");
+      return filter(this.listasFiltered, item => {
+        if(favs.indexOf(item.ID) == -1)
+          return item
+      });
     },
     filtroTabla2() {
       return this.listas
@@ -411,8 +514,7 @@ export default {
               f3: this.f3,
               f4: this.f4,
               f5: this.f5,
-              favs: this.$route.query.favs,
-              stepper: this.$route.query.stepper
+              candidatos: this.$route.query.candidatos
             }
           })
           .catch(err => {
