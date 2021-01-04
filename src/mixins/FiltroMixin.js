@@ -27,13 +27,6 @@ export default {
     },
     presidenteFilter4: function(lista) {
       if (this.f4) {
-        return lista.FlagEs != 1;
-      } else {
-        return true;
-      }
-    },
-    presidenteFilter5: function(lista) {
-      if (this.f5) {
         return lista.DI == 1;
       } else {
         return true;

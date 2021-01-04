@@ -94,17 +94,6 @@
               updateURLQuery();
             "
           >
-            <v-icon left>mdi-alert</v-icon>Educación
-          </v-chip>
-          <v-chip
-            v-if="f5"
-            class="ma-2"
-            close
-            @click:close="
-              f5 = false;
-              updateURLQuery();
-            "
-          >
             <v-icon left>mdi-alert</v-icon>DemoInterna
           </v-chip>
           <v-divider v-show="!$vuetify.breakpoint.xsOnly" />
@@ -183,25 +172,6 @@
                   <v-col>
                     <v-checkbox
                       v-model="f4"
-                      @change="updateURLQuery()"
-                      color="info"
-                      :label="
-                        `Descartar candidatos sin estudios universitarios`
-                      "
-                    ></v-checkbox>
-                  </v-col>
-                </v-row>
-              </v-expansion-panel-content>
-            </v-expansion-panel>
-           <v-expansion-panel>
-              <v-expansion-panel-header>
-                Democracia interna:
-              </v-expansion-panel-header>
-              <v-expansion-panel-content>
-                <v-row>
-                  <v-col>
-                    <v-checkbox
-                      v-model="f5"
                       @change="updateURLQuery()"
                       color="info"
                       :label="
@@ -375,14 +345,6 @@ export default {
         this.$store.commit("updateFiltro4", value);
       }
     },
-    f5: {
-      get() {
-        return this.$store.state.filtros.f5;
-      },
-      set(value) {
-        this.$store.commit("updateFiltro5", value);
-      }
-    },
     listas() {
       return filter(this.$store.state.presidentes, [
         "Cargo",
@@ -435,8 +397,7 @@ export default {
         .filter(this.presidenteFilter1)
         .filter(this.presidenteFilter2)
         .filter(this.presidenteFilter3)
-        .filter(this.presidenteFilter4)
-        .filter(this.presidenteFilter5);
+        .filter(this.presidenteFilter4);
     }
   },
   methods: {
@@ -477,8 +438,7 @@ export default {
         this.f1 == false &&
         this.f2 == false &&
         this.f3 == false &&
-        this.f4 == false &&
-        this.f5 == false
+        this.f4 == false
       ) {
         return;
       } else {
@@ -486,7 +446,6 @@ export default {
         this.f2 = false;
         this.f3 = false;
         this.f4 = false;
-        this.f5 = false;
         this.updateURLQuery();
       }
     },
@@ -503,9 +462,7 @@ export default {
         this.f3 === true ||
         this.f3 === false ||
         this.f4 === true ||
-        this.f4 === false || 
-        this.f5 === true ||
-        this.f5 === false
+        this.f4 === false
       ) {
         // TODO: refactorizar para evitar el error. Baja prioridad.
         // .push bota un error en el console cuando se trata ir al mismo route existente,
@@ -516,7 +473,6 @@ export default {
               f2: this.f2,
               f3: this.f3,
               f4: this.f4,
-              f5: this.f5,
               candidatos: this.$route.query.candidatos
             }
           })
@@ -536,8 +492,7 @@ export default {
             f1: this.f1,
             f2: this.f2,
             f3: this.f3,
-            f4: this.f4,
-            f5: this.f5
+            f4: this.f4
           }
         });
       }
@@ -553,7 +508,6 @@ export default {
         this.f2 = queryParams.f2 === "true";
         this.f3 = queryParams.f3 === "true";
         this.f4 = queryParams.f4 === "true";
-        this.f5 = queryParams.f5 === "true";
         this.sendToGA();
         this.reAttachTwitterButton();
       }
