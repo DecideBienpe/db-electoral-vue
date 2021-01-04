@@ -74,7 +74,39 @@
           >
             <v-icon left>mdi-alert</v-icon>Vacancia
           </v-chip>
-          
+          <v-chip
+            v-if="f3"
+            class="ma-2"
+            close
+            @click:close="
+              f3 = false;
+              updateURLQuery();
+            "
+          >
+            <v-icon left>mdi-alert</v-icon>Escazú
+          </v-chip>
+          <v-chip
+            v-if="f4"
+            class="ma-2"
+            close
+            @click:close="
+              f4 = false;
+              updateURLQuery();
+            "
+          >
+            <v-icon left>mdi-alert</v-icon>Educación
+          </v-chip>
+          <v-chip
+            v-if="f5"
+            class="ma-2"
+            close
+            @click:close="
+              f5 = false;
+              updateURLQuery();
+            "
+          >
+            <v-icon left>mdi-alert</v-icon>DemoInterna
+          </v-chip>
           <v-divider v-show="!$vuetify.breakpoint.xsOnly" />
           <h3
             class="subheading font-weight-regular mb-2 mt2"
@@ -97,7 +129,7 @@
                       @change="updateURLQuery()"
                       color="info"
                       :label="
-                        `Descartar candidatos que tienen investigaciones fiscales`
+                        `Descartar planchas con candidatos con sentencias declaradas`
                       "
                     ></v-checkbox>
                   </v-col>
@@ -117,6 +149,63 @@
                       color="info"
                       :label="
                         `Descartar candidatos de partidos que votaron por la vacancia`
+                      "
+                    ></v-checkbox>
+                  </v-col>
+                </v-row>
+              </v-expansion-panel-content>
+            </v-expansion-panel>
+            <v-expansion-panel>
+              <v-expansion-panel-header>
+                Medio Ambiente-Acuerdo de Escazú:
+              </v-expansion-panel-header>
+              <v-expansion-panel-content>
+                <v-row>
+                  <v-col>
+                    <v-checkbox
+                      v-model="f3"
+                      @change="updateURLQuery()"
+                      color="info"
+                      :label="
+                        `Descartar candidatos de partidos que votaron contra la ratificación de Escazú`
+                      "
+                    ></v-checkbox>
+                  </v-col>
+                </v-row>
+              </v-expansion-panel-content>
+            </v-expansion-panel>
+           <v-expansion-panel>
+              <v-expansion-panel-header>
+                Educación:
+              </v-expansion-panel-header>
+              <v-expansion-panel-content>
+                <v-row>
+                  <v-col>
+                    <v-checkbox
+                      v-model="f4"
+                      @change="updateURLQuery()"
+                      color="info"
+                      :label="
+                        `Descartar candidatos sin estudios universitarios`
+                      "
+                    ></v-checkbox>
+                  </v-col>
+                </v-row>
+              </v-expansion-panel-content>
+            </v-expansion-panel>
+           <v-expansion-panel>
+              <v-expansion-panel-header>
+                Democracia interna:
+              </v-expansion-panel-header>
+              <v-expansion-panel-content>
+                <v-row>
+                  <v-col>
+                    <v-checkbox
+                      v-model="f5"
+                      @change="updateURLQuery()"
+                      color="info"
+                      :label="
+                        `Descartar candidatos de partidos que eligieron candidatos a través de delegados`
                       "
                     ></v-checkbox>
                   </v-col>
@@ -270,6 +359,30 @@ export default {
         this.$store.commit("updateFiltro2", value);
       }
     },
+    f3: {
+      get() {
+        return this.$store.state.filtros.f3;
+      },
+      set(value) {
+        this.$store.commit("updateFiltro3", value);
+      }
+    },
+    f4: {
+      get() {
+        return this.$store.state.filtros.f4;
+      },
+      set(value) {
+        this.$store.commit("updateFiltro4", value);
+      }
+    },
+    f5: {
+      get() {
+        return this.$store.state.filtros.f5;
+      },
+      set(value) {
+        this.$store.commit("updateFiltro5", value);
+      }
+    },
     listas() {
       return filter(this.$store.state.presidentes, [
         "Cargo",
@@ -320,7 +433,10 @@ export default {
     filtroTabla2() {
       return this.listas
         .filter(this.presidenteFilter1)
-        .filter(this.presidenteFilter2);
+        .filter(this.presidenteFilter2)
+        .filter(this.presidenteFilter3)
+        .filter(this.presidenteFilter4)
+        .filter(this.presidenteFilter5);
     }
   },
   methods: {
@@ -359,17 +475,23 @@ export default {
     onNoFiltrosClicked() {
       if (
         this.f1 == false &&
-        this.f2 == false
+        this.f2 == false &&
+        this.f3 == false &&
+        this.f4 == false &&
+        this.f5 == false
       ) {
         return;
       } else {
         this.f1 = false;
         this.f2 = false;
+        this.f3 = false;
+        this.f4 = false;
+        this.f5 = false;
         this.updateURLQuery();
       }
     },
     noFiltrosUsed() {
-      return this.f1 || this.f2;
+      return this.f1 || this.f2 || this.f3 || this.f4 || this.f5;
     },
     // Este metodo actualiza el url cuando los checkboxes cambian
     updateURLQuery() {
@@ -377,7 +499,13 @@ export default {
         this.f1 === true ||
         this.f1 === false ||
         this.f2 === true ||
-        this.f2 === false
+        this.f2 === false || 
+        this.f3 === true ||
+        this.f3 === false ||
+        this.f4 === true ||
+        this.f4 === false || 
+        this.f5 === true ||
+        this.f5 === false
       ) {
         // TODO: refactorizar para evitar el error. Baja prioridad.
         // .push bota un error en el console cuando se trata ir al mismo route existente,
@@ -386,6 +514,9 @@ export default {
             query: {
               f1: this.f1,
               f2: this.f2,
+              f3: this.f3,
+              f4: this.f4,
+              f5: this.f5,
               candidatos: this.$route.query.candidatos
             }
           })
@@ -403,7 +534,10 @@ export default {
           name: "presidentes",
           query: {
             f1: this.f1,
-            f2: this.f2
+            f2: this.f2,
+            f3: this.f3,
+            f4: this.f4,
+            f5: this.f5
           }
         });
       }
@@ -417,6 +551,9 @@ export default {
       if(queryParams.candidatos) {
         this.f1 = queryParams.f1 === "true";
         this.f2 = queryParams.f2 === "true";
+        this.f3 = queryParams.f3 === "true";
+        this.f4 = queryParams.f4 === "true";
+        this.f5 = queryParams.f5 === "true";
         this.sendToGA();
         this.reAttachTwitterButton();
       }

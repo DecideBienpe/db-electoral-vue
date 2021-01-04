@@ -4,7 +4,7 @@
       <v-stepper v-model="e6" vertical>
         <v-stepper-step :complete="e6 > 1" step="1">
           Elige a tus candidatos
-          <small>Cuáles son tus candidatos favoritos</small>
+          <small>¿Cuáles son tus candidatos favoritos?</small>
         </v-stepper-step>
 
         <v-stepper-content step="1">
@@ -54,13 +54,37 @@
         <v-stepper-content step="2">
           <v-checkbox
             v-model="f1"
-            :label="`Descartar candidatos que tienen investigaciones fiscales`"
+            :label="`Descartar planchas con candidatos con sentencias declaradas`"
           ></v-checkbox>
           <v-checkbox
             v-model="f2"
             :label="
               `
               Descartar candidatos de partidos que votaron por la vacancia
+              `
+            "
+          ></v-checkbox>
+          <v-checkbox
+            v-model="f3"
+            :label="
+              `
+              Descartar candidatos de partidos que votaron contra la ratificación de Escazú
+              `
+            "
+          ></v-checkbox>
+          <v-checkbox
+            v-model="f4"
+            :label="
+              `
+              Descartar candidatos sin educación superior
+              `
+            "
+          ></v-checkbox>
+          <v-checkbox
+            v-model="f5"
+            :label="
+              `
+              Descartar partidos cuyas primarias fueron por delegados
               `
             "
           ></v-checkbox>
@@ -94,7 +118,10 @@ export default {
       candidatosFavs: [],
       e6: 1,
       f1: false,
-      f2: false
+      f2: false,
+      f3: false,
+      f4: false,
+      f5: false
     };
   },
   methods: {
@@ -104,6 +131,9 @@ export default {
         query: {
           f1: this.f1,
           f2: this.f2,
+          f3: this.f3,
+          f4: this.f4,
+          f5: this.f5,
           candidatos: this.candidatosFavs.join(",")
         }
       });

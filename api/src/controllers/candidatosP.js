@@ -15,6 +15,7 @@ exports.getAllCandidatos = async (req, res, next) => {
       "FlagS",
       "Sentencia",
       "Estudios",
+      "FlagEs",
       "VotoMV",
       "TipoDemocracia",
       "DenInv",
@@ -23,6 +24,9 @@ exports.getAllCandidatos = async (req, res, next) => {
       "InvFiscal",
       "FlagE",
       "Experiencia",
+      "Escazu",
+      "VotoEscazu",
+      "FlagSP"
       "idOrgPol"
     ]
   });

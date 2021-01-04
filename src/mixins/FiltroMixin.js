@@ -1,4 +1,4 @@
-export default {
+export default { 
   // Mixin Methods and Created
   // TODO: Ahora que estamos reusando componentes este Mixin podria moverse a un lugar mas 'global'
   // o quizas moverlo a un componente 'checkboxComponent'
@@ -6,7 +6,7 @@ export default {
   methods: {
     presidenteFilter1: function(lista) {
       if (this.f1) {
-        return lista.InvFiscal == 0;
+        return lista.FlagSP == 0;
       } else {
         return true;
       }
@@ -14,6 +14,27 @@ export default {
     presidenteFilter2: function(lista) {
       if (this.f2) {
         return lista.Vacancia == 0;
+      } else {
+        return true;
+      }
+    },
+    presidenteFilter3: function(lista) {
+      if (this.f3) {
+        return lista.Escazu == 0;
+      } else {
+        return true;
+      }
+    },
+    presidenteFilter4: function(lista) {
+      if (this.f4) {
+        return lista.FlagEs == 0;
+      } else {
+        return true;
+      }
+    },
+    presidenteFilter5: function(lista) {
+      if (this.f5) {
+        return lista.DI == 1;
       } else {
         return true;
       }
