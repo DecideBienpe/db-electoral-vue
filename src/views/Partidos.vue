@@ -29,7 +29,7 @@
       <v-col>
         <v-row>
           <v-col>
-            Plancha congresal
+            Lista congresal
           </v-col>
         </v-row>
         <v-row>
