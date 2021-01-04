@@ -94,7 +94,7 @@
 
         <v-stepper-step :complete="e6 > 3" step="3">
           Aplicar los siguientes filtros
-          <small>Vacadores, con sentencias, género, etc.</small>
+          <small>listas con sentenciados, equidad de género, partidos que apoyaron la vacancia, etc.</small>
         </v-stepper-step>
         <v-stepper-content step="3">
           <v-checkbox
