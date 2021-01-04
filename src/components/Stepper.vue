@@ -54,29 +54,15 @@
         <v-stepper-content step="2">
           <v-checkbox
             v-model="f1"
-            :label="`Descartar listas que lleven candidatos con sentencias`"
+            :label="`Descartar candidatos que tienen investigaciones fiscales`"
           ></v-checkbox>
           <v-checkbox
             v-model="f2"
             :label="
               `
-              Descartar partidos que votaron por la vacancia (Noviembre 2019)
+              Descartar candidatos de partidos que votaron por la vacancia
               `
             "
-          ></v-checkbox>
-          <v-checkbox
-            v-model="f3"
-            :label="`Descartar listas sin paridad (50%)`"
-          ></v-checkbox>
-          <v-checkbox
-            v-model="f4"
-            :label="
-              `Descartar listas donde el número 1 no fue electo en democracia interna`
-            "
-          ></v-checkbox>
-          <v-checkbox
-            v-model="f5"
-            :label="`Descartar listas cuyas primarias fueron por delegados`"
           ></v-checkbox>
           <v-btn form="check-presidentes" type="submit" color="primary">
             Ver partidos
@@ -108,10 +94,7 @@ export default {
       candidatosFavs: [],
       e6: 1,
       f1: false,
-      f2: false,
-      f3: false,
-      f4: false,
-      f5: false
+      f2: false
     };
   },
   methods: {
@@ -121,9 +104,6 @@ export default {
         query: {
           f1: this.f1,
           f2: this.f2,
-          f3: this.f3,
-          f4: this.f4,
-          f5: this.f5,
           candidatos: this.candidatosFavs.join(",")
         }
       });

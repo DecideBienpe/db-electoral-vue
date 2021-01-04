@@ -4,6 +4,20 @@ export default {
   // o quizas moverlo a un componente 'checkboxComponent'
   created: function() {},
   methods: {
+    presidenteFilter1: function(lista) {
+      if (this.f1) {
+        return lista.InvFiscal == 0;
+      } else {
+        return true;
+      }
+    },
+    presidenteFilter2: function(lista) {
+      if (this.f2) {
+        return lista.Vacancia == 0;
+      } else {
+        return true;
+      }
+    },
     sentencia1Filter: function(lista) {
       if (this.f1) {
         return lista.FlagSP == 0;

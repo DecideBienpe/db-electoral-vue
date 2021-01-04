@@ -74,39 +74,7 @@
           >
             <v-icon left>mdi-alert</v-icon>Vacancia
           </v-chip>
-          <v-chip
-            v-if="f3"
-            class="ma-2"
-            close
-            @click:close="
-              f3 = false;
-              updateURLQuery();
-            "
-          >
-            <v-icon left>mdi-alert</v-icon>Paridad
-          </v-chip>
-          <v-chip
-            v-if="f4"
-            class="ma-2"
-            close
-            @click:close="
-              f4 = false;
-              updateURLQuery();
-            "
-          >
-            <v-icon left>mdi-alert</v-icon>Militantes
-          </v-chip>
-          <v-chip
-            v-if="f5"
-            class="ma-2"
-            close
-            @click:close="
-              f5 = false;
-              updateURLQuery();
-            "
-          >
-            <v-icon left>mdi-alert</v-icon>D.Interna
-          </v-chip>
+          
           <v-divider v-show="!$vuetify.breakpoint.xsOnly" />
           <h3
             class="subheading font-weight-regular mb-2 mt2"
@@ -129,7 +97,7 @@
                       @change="updateURLQuery()"
                       color="info"
                       :label="
-                        `Descartar listas que lleven candidatos con sentencias`
+                        `Descartar candidatos que tienen investigaciones fiscales`
                       "
                     ></v-checkbox>
                   </v-col>
@@ -148,55 +116,7 @@
                       @change="updateURLQuery()"
                       color="info"
                       :label="
-                        `Descartar partidos que votaron por la vacancia (Noviembre 2019)`
-                      "
-                    ></v-checkbox>
-                  </v-col>
-                </v-row>
-              </v-expansion-panel-content>
-            </v-expansion-panel>
-
-            <v-expansion-panel>
-              <v-expansion-panel-header
-                >Descartar listas que NO promuevan la equidad de
-                género</v-expansion-panel-header
-              >
-              <v-expansion-panel-content>
-                <v-row>
-                  <v-col>
-                    <v-checkbox
-                      v-model="f3"
-                      @change="updateURLQuery()"
-                      color="info"
-                      :label="`Descartar listas sin paridad (50%)`"
-                    ></v-checkbox>
-                  </v-col>
-                </v-row>
-              </v-expansion-panel-content>
-            </v-expansion-panel>
-
-            <v-expansion-panel>
-              <v-expansion-panel-header
-                >Descartar listas que NO promuevan democracia
-                interna</v-expansion-panel-header
-              >
-              <v-expansion-panel-content>
-                <v-row>
-                  <v-col>
-                    <v-checkbox
-                      v-model="f4"
-                      @change="updateURLQuery()"
-                      color="info"
-                      :label="
-                        `Descartar listas donde el número 1 no fue electo en democracia interna`
-                      "
-                    ></v-checkbox>
-                    <v-checkbox
-                      v-model="f5"
-                      @change="updateURLQuery()"
-                      color="info"
-                      :label="
-                        `Descartar listas cuyas primarias fueron por delegados`
+                        `Descartar candidatos de partidos que votaron por la vacancia`
                       "
                     ></v-checkbox>
                   </v-col>
@@ -350,30 +270,6 @@ export default {
         this.$store.commit("updateFiltro2", value);
       }
     },
-    f3: {
-      get() {
-        return this.$store.state.filtros.f3;
-      },
-      set(value) {
-        this.$store.commit("updateFiltro3", value);
-      }
-    },
-    f4: {
-      get() {
-        return this.$store.state.filtros.f4;
-      },
-      set(value) {
-        this.$store.commit("updateFiltro4", value);
-      }
-    },
-    f5: {
-      get() {
-        return this.$store.state.filtros.f5;
-      },
-      set(value) {
-        this.$store.commit("updateFiltro5", value);
-      }
-    },
     listas() {
       return filter(this.$store.state.presidentes, [
         "Cargo",
@@ -409,11 +305,8 @@ export default {
     listasFiltered() {
       return this.uniqueFilter(
         this.listas
-          .filter(this.sentencia1Filter)
-          .filter(this.sentencia2Filter)
-          .filter(this.genero1Filter)
-          .filter(this.militantesFilter)
-          .filter(this.agendaFilter),
+          .filter(this.presidenteFilter1)
+          .filter(this.presidenteFilter2),
         "Partido"
       );
     },
@@ -426,11 +319,8 @@ export default {
     },
     filtroTabla2() {
       return this.listas
-        .filter(this.sentencia1Filter)
-        .filter(this.sentencia2Filter)
-        .filter(this.genero1Filter)
-        .filter(this.militantesFilter)
-        .filter(this.agendaFilter);
+        .filter(this.presidenteFilter1)
+        .filter(this.presidenteFilter2);
     }
   },
   methods: {
@@ -469,23 +359,17 @@ export default {
     onNoFiltrosClicked() {
       if (
         this.f1 == false &&
-        this.f2 == false &&
-        this.f3 == false &&
-        this.f4 == false &&
-        this.f5 == false
+        this.f2 == false
       ) {
         return;
       } else {
         this.f1 = false;
         this.f2 = false;
-        this.f3 = false;
-        this.f4 = false;
-        this.f5 = false;
         this.updateURLQuery();
       }
     },
     noFiltrosUsed() {
-      return this.f1 || this.f2 || this.f3 || this.f4 || this.f5;
+      return this.f1 || this.f2;
     },
     // Este metodo actualiza el url cuando los checkboxes cambian
     updateURLQuery() {
@@ -493,27 +377,15 @@ export default {
         this.f1 === true ||
         this.f1 === false ||
         this.f2 === true ||
-        this.f2 === false ||
-        this.f3 === true ||
-        this.f3 === false ||
-        this.f4 === true ||
-        this.f4 === false ||
-        this.f5 === true
+        this.f2 === false
       ) {
         // TODO: refactorizar para evitar el error. Baja prioridad.
         // .push bota un error en el console cuando se trata ir al mismo route existente,
         this.$router
           .push({
-            name: "presidentes",
-            params: {
-              departamento: this.currentRegion.region
-            },
             query: {
               f1: this.f1,
               f2: this.f2,
-              f3: this.f3,
-              f4: this.f4,
-              f5: this.f5,
               candidatos: this.$route.query.candidatos
             }
           })
@@ -531,10 +403,7 @@ export default {
           name: "presidentes",
           query: {
             f1: this.f1,
-            f2: this.f2,
-            f3: this.f3,
-            f4: this.f4,
-            f5: this.f5
+            f2: this.f2
           }
         });
       }
@@ -544,24 +413,12 @@ export default {
     // Este metodo recibe un route (url) y parsea sus params y query
     // Usamos esto para poder compartir 'resultados' usando el url
     restoreTablesValues() {
-      const urlDepto = this.$route.params.departamento;
       const queryParams = this.$route.query;
-
-      if (urlDepto) {
-        const newDefault = this.regiones.filter(
-          region => region.region == urlDepto
-        );
-
-        if (newDefault && newDefault[0].region) {
-          this.currentRegion = newDefault[0];
-          this.f1 = queryParams.f1 === "true";
-          this.f2 = queryParams.f2 === "true";
-          this.f3 = queryParams.f3 === "true";
-          this.f4 = queryParams.f4 === "true";
-          this.f5 = queryParams.f5 === "true";
-          this.sendToGA();
-          this.reAttachTwitterButton();
-        }
+      if(queryParams.candidatos) {
+        this.f1 = queryParams.f1 === "true";
+        this.f2 = queryParams.f2 === "true";
+        this.sendToGA();
+        this.reAttachTwitterButton();
       }
     },
     // Mandar la pagina visitada a Google Analytics como un custom event
