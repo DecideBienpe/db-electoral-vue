@@ -76,7 +76,7 @@
             v-model="f4"
             :label="
               `
-              Descartar candidatos sin educación superior
+              Descartar candidatos sin educación universitaria
               `
             "
           ></v-checkbox>

@@ -26,7 +26,7 @@ exports.getAllCandidatos = async (req, res, next) => {
       "Experiencia",
       "Escazu",
       "VotoEscazu",
-      "FlagSP"
+      "FlagSP",
       "idOrgPol"
     ]
   });

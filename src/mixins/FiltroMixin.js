@@ -6,28 +6,28 @@ export default {
   methods: {
     presidenteFilter1: function(lista) {
       if (this.f1) {
-        return lista.FlagSP == 0;
+        return lista.FlagSP == 1;
       } else {
         return true;
       }
     },
     presidenteFilter2: function(lista) {
       if (this.f2) {
-        return lista.Vacancia == 0;
+        return lista.Vacancia != 1;
       } else {
         return true;
       }
     },
     presidenteFilter3: function(lista) {
       if (this.f3) {
-        return lista.Escazu == 0;
+        return lista.Escazu != 0;
       } else {
         return true;
       }
     },
     presidenteFilter4: function(lista) {
       if (this.f4) {
-        return lista.FlagEs == 0;
+        return lista.FlagEs != 1;
       } else {
         return true;
       }
