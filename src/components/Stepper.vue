@@ -76,14 +76,6 @@
             v-model="f4"
             :label="
               `
-              Descartar candidatos sin educación universitaria
-              `
-            "
-          ></v-checkbox>
-          <v-checkbox
-            v-model="f5"
-            :label="
-              `
               Descartar partidos cuyas primarias fueron por delegados
               `
             "
