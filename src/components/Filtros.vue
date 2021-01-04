@@ -6,7 +6,7 @@
           <div>
             <img class="logo" src="../assets/logo.png" />
           </div>
-          <h1>Decide Bien en</h1>
+          <h1>Decide Bien: en</h1>
           <div class="region-selected">
             {{ currentRegion.region }}
           </div>
@@ -146,7 +146,7 @@
                       @change="updateURLQuery()"
                       color="info"
                       :label="
-                        `Descartar listas que lleven candidatos con sentencias`
+                        `Descartar listas con sentenciados`
                       "
                     ></v-checkbox>
                   </v-col>
@@ -175,8 +175,8 @@
 
             <v-expansion-panel>
               <v-expansion-panel-header
-                >Descartar listas que NO promuevan la equidad de
-                género</v-expansion-panel-header
+                >Descartar listas sin paridad (50%)
+                </v-expansion-panel-header
               >
               <v-expansion-panel-content>
                 <v-row>
@@ -185,7 +185,7 @@
                       v-model="f3"
                       @change="updateURLQuery()"
                       color="info"
-                      :label="`Descartar listas sin paridad (50%)`"
+                      :label="`Descartar listas que NO promuevan la equidad de género`"
                     ></v-checkbox>
                   </v-col>
                 </v-row>

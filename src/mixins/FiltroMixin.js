@@ -20,7 +20,7 @@ export default {
     },
     presidenteFilter3: function(lista) {
       if (this.f3) {
-        return lista.Escazu != 0;
+        return lista.Escazu != 1;
       } else {
         return true;
       }
