@@ -494,10 +494,10 @@ export default {
     restoreTablesValues() {
       const queryParams = this.$route.query;
       if (queryParams.candidatos) {
-        this.f1 = queryParams.f1 === "true";
-        this.f2 = queryParams.f2 === "true";
-        this.f3 = queryParams.f3 === "true";
-        this.f4 = queryParams.f4 === "true";
+        this.f1 = queryParams.f1.toString() === "true";
+        this.f2 = queryParams.f2.toString() === "true";
+        this.f3 = queryParams.f3.toString() === "true";
+        this.f4 = queryParams.f4.toString() === "true";
         this.sendToGA();
         this.reAttachTwitterButton();
       }
