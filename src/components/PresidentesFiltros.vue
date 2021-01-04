@@ -107,8 +107,7 @@
           <v-expansion-panels v-show="!$vuetify.breakpoint.xsOnly">
             <v-expansion-panel>
               <v-expansion-panel-header
-                >Descartar listas que lleven candidatos con
-                sentencias</v-expansion-panel-header
+                >Candidatos con sentencias</v-expansion-panel-header
               >
               <v-expansion-panel-content>
                 <v-row>
@@ -165,7 +164,7 @@
             </v-expansion-panel>
            <v-expansion-panel>
               <v-expansion-panel-header>
-                Educación:
+                Democracia Interna:
               </v-expansion-panel-header>
               <v-expansion-panel-content>
                 <v-row>
