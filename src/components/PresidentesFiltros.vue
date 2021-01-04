@@ -162,7 +162,7 @@
                 </v-row>
               </v-expansion-panel-content>
             </v-expansion-panel>
-           <v-expansion-panel>
+            <v-expansion-panel>
               <v-expansion-panel-header>
                 Democracia Interna:
               </v-expansion-panel-header>
@@ -198,29 +198,29 @@
               xs="4"
             >
               <h2 class="candidato-name">{{ candidato.Nombre }}</h2>
-              <h4 class="candidato-filter text-center" :class="`filter-${candidato.filter}`">
+              <h4
+                class="candidato-filter text-center"
+                :class="`filter-${candidato.filter}`"
+              >
                 {{ candidato.filter ? "Pasó el filtro" : "No pasó el filtro" }}
                 <v-icon>
                   {{
-                    candidato.filter ? "mdi-checkbox-marked-circle" : "mdi-cancel"
+                    candidato.filter
+                      ? "mdi-checkbox-marked-circle"
+                      : "mdi-cancel"
                   }}
                 </v-icon>
               </h4>
               <v-img
-                :src="
-                  require(`../assets/presidenciales/${candidato.ID}.png`)
-                "
+                :src="require(`../assets/presidenciales/${candidato.ID}.png`)"
                 height="175"
                 class="text-right pa-2"
               >
               </v-img>
               <v-img
-                :src="
-                  require(`../assets/partidos/${candidato.idOrgPol}.png`)
-                "
+                :src="require(`../assets/partidos/${candidato.idOrgPol}.png`)"
                 class="text-right"
               >
-              
               </v-img>
             </v-col>
           </v-row>
@@ -237,24 +237,19 @@
             >
               <h2 class="candidato-name">{{ candidato.Nombre }}</h2>
               <v-img
-                :src="
-                  require(`../assets/presidenciales/${candidato.ID}.png`)
-                "
+                :src="require(`../assets/presidenciales/${candidato.ID}.png`)"
                 height="175"
                 class="text-right pa-2"
               >
               </v-img>
               <v-img
-                :src="
-                  require(`../assets/partidos/${candidato.idOrgPol}.png`)
-                "
+                :src="require(`../assets/partidos/${candidato.idOrgPol}.png`)"
                 class="text-right"
               >
-              
               </v-img>
             </v-col>
           </v-row>
-          
+
           <h2>Los que no pasaron el filtro</h2>
           <v-row>
             <v-col
@@ -267,20 +262,15 @@
             >
               <h2 class="candidato-name">{{ candidato.Nombre }}</h2>
               <v-img
-                :src="
-                  require(`../assets/presidenciales/${candidato.ID}.png`)
-                "
+                :src="require(`../assets/presidenciales/${candidato.ID}.png`)"
                 height="175"
                 class="text-right pa-2"
               >
               </v-img>
               <v-img
-                :src="
-                  require(`../assets/partidos/${candidato.idOrgPol}.png`)
-                "
+                :src="require(`../assets/partidos/${candidato.idOrgPol}.png`)"
                 class="text-right"
               >
-              
               </v-img>
             </v-col>
           </v-row>
@@ -353,15 +343,15 @@ export default {
     candidatesFavs() {
       let favs = this.$route.query.candidatos.split(",");
       return filter(this.listas, item => {
-        if(favs.indexOf(item.ID) > -1) {
-          if(this.idsCandidatosFilter.indexOf(item.ID) == -1) {
+        if (favs.indexOf(item.ID) > -1) {
+          if (this.idsCandidatosFilter.indexOf(item.ID) == -1) {
             item.filter = 0;
           } else {
             item.filter = 1;
           }
-          return item
+          return item;
         }
-      })
+      });
     },
     idsCandidatosFilter() {
       return map(this.listasFiltered, "ID");
@@ -369,9 +359,9 @@ export default {
     others() {
       let favs = this.$route.query.candidatos.split(",");
       return filter(this.listas, item => {
-        if(this.idsCandidatosFilter.indexOf(item.ID) == -1) {
-          if(favs.indexOf(item.ID) == -1) {
-            return item
+        if (this.idsCandidatosFilter.indexOf(item.ID) == -1) {
+          if (favs.indexOf(item.ID) == -1) {
+            return item;
           }
         }
       });
@@ -380,15 +370,16 @@ export default {
       return this.uniqueFilter(
         this.listas
           .filter(this.presidenteFilter1)
-          .filter(this.presidenteFilter2),
+          .filter(this.presidenteFilter2)
+          .filter(this.presidenteFilter3)
+          .filter(this.presidenteFilter4),
         "Partido"
       );
     },
     filtroTabla1() {
       let favs = this.$route.query.candidatos.split(",");
       return filter(this.listasFiltered, item => {
-        if(favs.indexOf(item.ID) == -1)
-          return item
+        if (favs.indexOf(item.ID) == -1) return item;
       });
     },
     filtroTabla2() {
@@ -457,7 +448,7 @@ export default {
         this.f1 === true ||
         this.f1 === false ||
         this.f2 === true ||
-        this.f2 === false || 
+        this.f2 === false ||
         this.f3 === true ||
         this.f3 === false ||
         this.f4 === true ||
@@ -502,7 +493,7 @@ export default {
     // Usamos esto para poder compartir 'resultados' usando el url
     restoreTablesValues() {
       const queryParams = this.$route.query;
-      if(queryParams.candidatos) {
+      if (queryParams.candidatos) {
         this.f1 = queryParams.f1 === "true";
         this.f2 = queryParams.f2 === "true";
         this.f3 = queryParams.f3 === "true";
