@@ -1,7 +1,7 @@
 <template>
   <div>
     <h4>
-      Somos una herramienta crearte para ayudarte a tomar una mejor decision.<br />Conoce
+      Somos una herramienta creada para ayudarte a tomar una mejor decision.<br />Conoce
       a los candidatos que apoyan tus luchas y pasan tus filtros.
     </h4>
 

@@ -4,7 +4,7 @@
       <v-stepper v-model="e6" vertical>
         <v-stepper-step :complete="e6 > 1" step="1">
           Elige a tus candidatos
-          <small>¿Cuáles son tus candidatos favoritos?</small>
+          <small>¿Cuáles son l@s candidatos que más te interesan?</small>
         </v-stepper-step>
 
         <v-stepper-content step="1">
@@ -48,7 +48,7 @@
 
         <v-stepper-step :complete="e6 > 2" step="2">
           Preferencias sobre tu candidato o partido
-          <small>Excluye a los partidos poco transparentes</small>
+          <small>Aplicar los siguientes filtros</small>
         </v-stepper-step>
 
         <v-stepper-content step="2">
@@ -60,7 +60,7 @@
             v-model="f2"
             :label="
               `
-              Descartar candidatos de partidos que votaron por la vacancia
+              Descartar candidatos de partidos que votaron por la vacancia presidencial
               `
             "
           ></v-checkbox>
@@ -68,7 +68,7 @@
             v-model="f3"
             :label="
               `
-              Descartar candidatos de partidos que votaron contra la ratificación de Escazú
+              Descartar candidatos de partidos que votaron contra la ratificación de Acuerdo de Escazú
               `
             "
           ></v-checkbox>
@@ -76,7 +76,7 @@
             v-model="f4"
             :label="
               `
-              Descartar partidos cuyas primarias fueron por delegados
+              Descartar partidos cuyas primarias fueron por delegados y no por voto universal-directo
               `
             "
           ></v-checkbox>

@@ -42,7 +42,7 @@
         </v-stepper-content>
 
         <v-stepper-step :complete="e6 > 2" step="2">
-          Elige a tus partidos
+          Selecciona a tus partidos
           <small>¿Cuáles son tus partidos favoritos?</small>
         </v-stepper-step>
 
@@ -99,13 +99,13 @@
         <v-stepper-content step="3">
           <v-checkbox
             v-model="f1"
-            :label="`Descartar listas que lleven candidatos con sentencias`"
+            :label="`Descartar listas que lleven candidatos con sentencias judicial`"
           ></v-checkbox>
           <v-checkbox
             v-model="f2"
             :label="
               `
-            Descartar partidos que votaron por la vacancia (Noviembre 2019)
+            Descartar partidos que votaron por la vacancia presidencial (Noviembre 2019)
             `
             "
           ></v-checkbox>
@@ -121,7 +121,7 @@
           ></v-checkbox>
           <v-checkbox
             v-model="f5"
-            :label="`Descartar listas cuyas primarias fueron por delegados`"
+            :label="`Descartar listas cuyas primarias fueron por delegados y no por voto universal-directo`"
           ></v-checkbox>
           <v-btn form="check-candidatos" type="submit" color="primary">
             Ver partidos

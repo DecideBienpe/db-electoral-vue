@@ -1,7 +1,7 @@
 <template>
   <div class="grid-partidos mt-5 pt-5">
     <h2 class="text-center">
-      Partidos que participan en estás elecciones
+      Partidos que participan en estas elecciones
     </h2>
     <h3 class="text-center">
       Conoce su lista a la presidencia y sus candidatos al congreso
