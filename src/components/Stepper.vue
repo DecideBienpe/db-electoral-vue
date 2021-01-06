@@ -23,7 +23,7 @@
                         :src="
                           require(`../assets/presidenciales/${candidato.ID}.png`)
                         "
-                        height="85"
+                        height="70"
                         class="text-right pa-2"
                         @click="toggle"
                       >

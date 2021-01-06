@@ -3,11 +3,11 @@
     <v-row>
       <v-item-group v-model="favoritos" multiple>
         <v-row>
-          <v-col v-for="(candidato, i) in candidatos" :key="i" cols="12" md="2">
+          <v-col v-for="(candidato, i) in candidatos" :key="i" cols="12" md="3">
             <v-item v-slot="{ active, toggle }">
               <v-img
                 :src="require(`../assets/presidenciales/${candidato.ID}.png`)"
-                height="85"
+                height="80"
                 class="text-right pa-2"
                 @click="toggle"
               >

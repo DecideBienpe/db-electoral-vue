@@ -93,7 +93,7 @@ export default {
       return uniq(
         map(
           filter(
-            this.$store.state.presidentials,
+            this.$store.state.presidentes,
             item => slugify(item.Partido).toLowerCase() == this.idPartido
           ),
           "Partido"
@@ -103,7 +103,7 @@ export default {
     presidencial() {
       return groupBy(
         filter(
-          this.$store.state.presidentials,
+          this.$store.state.presidentes,
           item => slugify(item.Partido).toLowerCase() == this.idPartido
         ),
         "Partido"
