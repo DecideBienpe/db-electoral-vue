@@ -3,37 +3,46 @@
     <v-row class="decidebien-partido pb-5">
       <v-col md="3" lg="3" cols="12">
         <h2 class="text-center mb-5">
-          {{ partido }}
+          {{ idPartido.Partido }}
+          <v-img
+            :src="require(`../assets/partidos/${idPartido.Imagen}`)"
+            class="text-right pa-2"
+          >
+          </v-img>
         </h2>
       </v-col>
-      <v-col md="9" lg="6" cols="12 align-self-center">
+      <v-col cols="12" md="9" class="align-self-center">
         <v-row>
           <v-col>
-            Plancha presidencial
+            <b>Plancha presidencial</b>
           </v-col>
         </v-row>
-        <v-row>
+        <v-row class="mb-5">
           <v-col
-            v-for="(p, i) in presidencial[partido]"
+            v-for="(p, i) in presidencial"
             :key="i"
             cols="12"
             md="4"
           >
+            <div class="candidate-image">
+              <v-img
+                :src="require(`../assets/presidenciales/${p.ID}.png`)"
+                class="text-right pa-2"
+              >
+              </v-img>
+            </div>
             <div class="presidente">{{ p.Nombre }}</div>
-            <div>{{ p.Cargo }}</div>
+            <div class="cargo">{{ p.Cargo }}</div>
           </v-col>
         </v-row>
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col>
-        <v-row>
+        
+        <v-row class="mt-5">
           <v-col>
-            Lista congresal
+            <b>Lista congresal</b>
           </v-col>
         </v-row>
         <v-row>
-          <v-col cols="4">
+          <v-col cols="12" md="4">
             <v-select
               v-model="currentRegion"
               :items="regiones"
@@ -44,27 +53,33 @@
         </v-row>
         <v-row>
           <v-col
-            v-for="(p, i) in congresistas[partido]"
+            v-for="(p, i) in congresistas"
             :key="i"
             cols="12"
             md="3"
           >
+            <div class="region">
+              {{ p.Region }}
+            </div>
             <div class="congresistas">
               <span>{{ p.Numero }}</span>
               {{ p.Nombre }}
             </div>
-            <div class="region">
-              {{ p.Region }}
-            </div>
           </v-col>
         </v-row>
+
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col>
+
       </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script>
-import { groupBy, filter, map, uniq } from "lodash";
+import { find, filter, map, uniq } from "lodash";
 import slugify from "slugify";
 
 export default {
@@ -72,8 +87,8 @@ export default {
   computed: {
     idPartido() {
       return find(
-        this.$store.state.listas,
-        item => slugify(item.Partido) == this.$route.params.partido
+        this.$store.state.partidos,
+        item => slugify(item.Partido).toLowerCase() == this.$route.params.partido
       );
     },
     regiones() {
@@ -81,52 +96,43 @@ export default {
         map(
           filter(
             this.$store.state.listas,
-            item => slugify(item.Partido).toLowerCase() == this.idPartido
+            item => {
+              if(item.idOrgPol == this.idPartido.IDPartido)
+                return item;
+            }
           ),
           "Region"
         )
       );
+      
+      regiones.sort();
+      
       regiones.unshift("Todos las regiones");
+
       return regiones;
     },
-    partido() {
-      return uniq(
-        map(
-          filter(
-            this.$store.state.presidentes,
-            item => slugify(item.Partido).toLowerCase() == this.idPartido
-          ),
-          "Partido"
-        )
-      ).join("");
-    },
     presidencial() {
-      return groupBy(
-        filter(
+      return filter(
           this.$store.state.presidentes,
-          item => slugify(item.Partido).toLowerCase() == this.idPartido
-        ),
-        "Partido"
-      );
+          item => item.idOrgPol == this.idPartido.IDPartido
+        );
     },
     congresistas() {
-      return groupBy(
-        filter(this.$store.state.listas, item => {
-          if (slugify(item.Partido).toLowerCase() == this.idPartido) {
-            if (
-              this.currentRegion != "Todos las regiones" &&
-              item.Region == this.currentRegion
-            ) {
-              return item;
-            }
-
-            if (this.currentRegion == "Todos las regiones") {
-              return item;
-            }
+      return filter(this.$store.state.listas, item => {
+        if(item.idOrgPol == this.idPartido.IDPartido) {
+          console.log(item)
+          if (
+            this.currentRegion != "Todos las regiones" &&
+            item.Region == this.currentRegion
+          ) {
+            return item;
           }
-        }),
-        "Partido"
-      );
+
+          if (this.currentRegion == "Todos las regiones") {
+            return item;
+          }
+        }
+      });
     }
   },
   data() {
