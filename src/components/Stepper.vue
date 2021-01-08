@@ -54,7 +54,9 @@
         <v-stepper-content step="2">
           <v-checkbox
             v-model="f1"
-            :label="`Descartar planchas con candidatos con sentencias declaradas`"
+            :label="
+              `Descartar planchas con candidatos con sentencias declaradas`
+            "
           ></v-checkbox>
           <v-checkbox
             v-model="f2"

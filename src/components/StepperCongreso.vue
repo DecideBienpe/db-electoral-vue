@@ -94,12 +94,17 @@
 
         <v-stepper-step :complete="e6 > 3" step="3">
           Aplicar los siguientes filtros
-          <small>listas con sentenciados, equidad de género, partidos que apoyaron la vacancia, etc.</small>
+          <small
+            >listas con sentenciados, equidad de género, partidos que apoyaron
+            la vacancia, etc.</small
+          >
         </v-stepper-step>
         <v-stepper-content step="3">
           <v-checkbox
             v-model="f1"
-            :label="`Descartar listas que lleven candidatos con sentencias judicial`"
+            :label="
+              `Descartar listas que lleven candidatos con sentencias judicial`
+            "
           ></v-checkbox>
           <v-checkbox
             v-model="f2"
@@ -121,7 +126,9 @@
           ></v-checkbox>
           <v-checkbox
             v-model="f5"
-            :label="`Descartar listas cuyas primarias fueron por delegados y no por voto universal-directo`"
+            :label="
+              `Descartar listas cuyas primarias fueron por delegados y no por voto universal-directo`
+            "
           ></v-checkbox>
           <v-btn form="check-candidatos" type="submit" color="primary">
             Ver partidos
