@@ -26,8 +26,7 @@ Luego aprovechamos [Workbox](https://developers.google.com/web/tools/workbox) pa
 Visual Code (y otros IDEs similares) pueden extender su funcionalidad instalando extensiones. Aquí algunas recomendables:
 
 - [Gitlens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) : Brinda mejor integración con Git
-- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) : Corrige errores comunes de estilo visualmente
-- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) : Formatea documentos
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) : Corrige errores comunes de estilo visualmente. Nota: Extiende reglas de Prettier (sin usar Prettier).
 
 ### NPM Scripts útiles:
 

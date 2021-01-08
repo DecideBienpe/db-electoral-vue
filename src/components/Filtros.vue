@@ -145,9 +145,7 @@
                       v-model="f1"
                       @change="updateURLQuery()"
                       color="info"
-                      :label="
-                        `Descartar listas con sentenciados`
-                      "
+                      :label="`Descartar listas con sentenciados`"
                     ></v-checkbox>
                   </v-col>
                 </v-row>
@@ -176,8 +174,7 @@
             <v-expansion-panel>
               <v-expansion-panel-header
                 >Descartar listas sin paridad (50%)
-                </v-expansion-panel-header
-              >
+              </v-expansion-panel-header>
               <v-expansion-panel-content>
                 <v-row>
                   <v-col>
@@ -185,7 +182,9 @@
                       v-model="f3"
                       @change="updateURLQuery()"
                       color="info"
-                      :label="`Descartar listas que NO promuevan la equidad de género`"
+                      :label="
+                        `Descartar listas que NO promuevan la equidad de género`
+                      "
                     ></v-checkbox>
                   </v-col>
                 </v-row>
