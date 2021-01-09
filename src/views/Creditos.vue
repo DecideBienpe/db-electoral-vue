@@ -3,24 +3,7 @@
     <v-flex xs12 md6 pt-4>
       <v-card height="100%">
         <v-card-text class="px-4">
-          <h4>Auspiciadores</h4>
-          <p>Este app está en línea gracias al auspicio de:</p>
-          <ul>
-            <li>
-              <a
-                href="https://fnst.org/content/la-fundacion-friedrich-naumann-para-la-libertad"
-                target="_blank"
-                >Fundación Friedrich Naumann</a
-              >
-            </li>
-            <li>
-              <a
-                href="https://www.idea.int/our-work/where-we-work/latin-america-caribbean/peru"
-                target="_blank"
-                >IDEA Internacional</a
-              >
-            </li>
-          </ul>
+        <br><br>
           <h4>Responsables</h4>
           <p>
             Esta plataforma fue iniciada por
@@ -44,6 +27,22 @@
               <a href="https://www.joseincio.com" target="_blank"
                 >José Incio
               </a>
+            </li>
+          </ul>
+          <h4>Auspiciadores</h4>
+          <p>Este app está en línea gracias al auspicio de:</p>
+          <ul>
+            <li>
+            <a href="https://fnst.org/content/la-fundacion-friedrich-naumann-para-la-libertad"><img alt="Qries" src="../assets/logo_FNF.png" 
+            width="100%">
+            </a>
+            </li>
+            <li>
+              <a
+                href="https://www.idea.int/our-work/where-we-work/latin-america-caribbean/peru"
+                target="_blank"
+                >IDEA Internacional</a
+              >
             </li>
           </ul>
         </v-card-text>

@@ -1,4 +1,4 @@
-<template>
+<template> 
   <div class="grid-presidencial">
     <form @submit.prevent="filterPresidentesClicked" id="check-presidentes">
       <v-stepper v-model="e6" vertical>
@@ -85,7 +85,7 @@
           <v-btn form="check-presidentes" type="submit" color="primary">
             Ver partidos
           </v-btn>
-          <v-btn text>
+          <v-btn text @click="e6 = 1">
             Volver
           </v-btn>
         </v-stepper-content>
