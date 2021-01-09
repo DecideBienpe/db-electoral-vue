@@ -121,7 +121,7 @@ export default {
   methods: {
     filterPresidentesClicked() {
       this.$router.push({
-        name: "presidentes",
+        name: "presidencia",
         query: {
           f1: this.f1,
           f2: this.f2,

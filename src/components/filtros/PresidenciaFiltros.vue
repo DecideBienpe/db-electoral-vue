@@ -489,7 +489,7 @@ export default {
     updateURLParams() {
       if (this.currentRegion.region) {
         this.$router.push({
-          name: "presidentes",
+          name: "presidencia",
           query: {
             f1: this.f1,
             f2: this.f2,
