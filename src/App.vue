@@ -153,7 +153,6 @@ export default {
     // cuando se hace click in filtros estando en filtros...
     items: [
       { icon: "mdi-home", text: "Inicio", path: "/" },
-      // { icon: "mdi-filter", text: "Filtrar", path: "/filtros" },
       // {
       //   icon: "mdi-file-document-box",
       //   text: "Resúmen General",

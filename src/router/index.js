@@ -12,31 +12,31 @@ const routes = [
     component: Home
   },
   {
-    path: "/filtros",
+    path: "/congreso",
     component: () =>
-      import(/* webpackChunkName: "filtros" */ "../views/Filtros.vue")
+      import(/* webpackChunkName: "congreso" */ "../views/Congreso.vue")
   },
   {
-    path: "/filtros/:departamento",
-    name: "filtros",
+    path: "/congreso/:departamento",
+    name: "congreso",
     // route level code-splitting
-    // this generates a separate chunk (filtros.[hash].js) for this route
+    // this generates a separate chunk (congreso.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "filtros" */ "../views/Filtros.vue")
+      import(/* webpackChunkName: "filtros" */ "../views/Congreso.vue")
   },
   {
-    path: "/presidentes",
-    name: "presidentes",
-    // route level code-splitting
-    // this generates a separate chunk (filtros.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
+    path: "/presidencia",
+    name: "presidencia",
     component: () =>
-      import(/* webpackChunkName: "filtros" */ "../views/Presidentes.vue")
+      import(/* webpackChunkName: "filtros" */ "../views/Presidencia.vue")
   },
   {
     path: "/partidos/:partido",
     name: "partidos",
+    // route level code-splitting
+    // this generates a separate chunk (partidos.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "partidos" */ "../views/Partidos.vue")
   },

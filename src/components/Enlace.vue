@@ -1,6 +1,6 @@
 <template>
   <div>
-    <span v-if="item.path != '/filtros'">
+    <span v-if="item.path != '/congreso'">
       <v-list-item :key="item.text" link :to="{ path: item.path }">
         <v-list-item-action>
           <v-icon>{{ item.icon }}</v-icon>
@@ -12,7 +12,7 @@
         </v-list-item-content>
       </v-list-item>
     </span>
-    <span v-if="item.path == '/filtros'">
+    <span v-if="item.path == '/congreso'">
       <v-list-item
         :key="item.text"
         @click="handleRoute"
@@ -39,19 +39,19 @@ export default {
     return {};
   },
   methods: {
-    // Basicamente, si estamos en la pagina de filtros y hacemos click in Filtros,
+    // Basicamente, si estamos en la pagina de congreso y hacemos click in Filtros,
     // No hacemos nada para no perder el url/state existente.
-    // Si estamos en otra pagina, vamos a filtros normalmente.
+    // Si estamos en otra pagina, vamos a congreso normalmente.
     handleRoute() {
-      if (this.$route.path.includes("filtros")) {
+      if (this.$route.path.includes("congreso")) {
         return;
       } else {
-        this.$router.push("/filtros");
+        this.$router.push("/congreso");
       }
     },
     // Al no usar 'link' tenemos que activar/desactivar la clase manualmente
     isActive() {
-      return this.$route.path.includes("filtros");
+      return this.$route.path.includes("congreso");
     }
   }
 };

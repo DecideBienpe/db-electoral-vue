@@ -4,7 +4,7 @@
       <v-col cols="12">
         <div class="intro">
           <div>
-            <img class="logo" src="../assets/logo.png" />
+            <img class="logo" src="../../assets/logo.png" />
           </div>
           <h1>Decide Bien</h1>
           <div class="region-selected">
@@ -212,13 +212,17 @@
                 </v-icon>
               </h4>
               <v-img
-                :src="require(`../assets/presidenciales/${candidato.ID}.png`)"
+                :src="
+                  require(`../../assets/presidenciales/${candidato.ID}.png`)
+                "
                 height="175"
                 class="text-right pa-2"
               >
               </v-img>
               <v-img
-                :src="require(`../assets/partidos/${candidato.idOrgPol}.png`)"
+                :src="
+                  require(`../../assets/partidos/${candidato.idOrgPol}.png`)
+                "
                 class="text-right"
               >
               </v-img>
@@ -237,13 +241,17 @@
             >
               <h2 class="candidato-name">{{ candidato.Nombre }}</h2>
               <v-img
-                :src="require(`../assets/presidenciales/${candidato.ID}.png`)"
+                :src="
+                  require(`../../assets/presidenciales/${candidato.ID}.png`)
+                "
                 height="175"
                 class="text-right pa-2"
               >
               </v-img>
               <v-img
-                :src="require(`../assets/partidos/${candidato.idOrgPol}.png`)"
+                :src="
+                  require(`../../assets/partidos/${candidato.idOrgPol}.png`)
+                "
                 class="text-right"
               >
               </v-img>
@@ -262,13 +270,17 @@
             >
               <h2 class="candidato-name">{{ candidato.Nombre }}</h2>
               <v-img
-                :src="require(`../assets/presidenciales/${candidato.ID}.png`)"
+                :src="
+                  require(`../../assets/presidenciales/${candidato.ID}.png`)
+                "
                 height="175"
                 class="text-right pa-2"
               >
               </v-img>
               <v-img
-                :src="require(`../assets/partidos/${candidato.idOrgPol}.png`)"
+                :src="
+                  require(`../../assets/partidos/${candidato.idOrgPol}.png`)
+                "
                 class="text-right"
               >
               </v-img>
@@ -282,14 +294,14 @@
 
 <script>
 import axios from "axios";
-import Twitter from "../components/Twitter.vue";
+import Twitter from "../../components/Twitter.vue";
 import Vue from "vue";
-import { EventBus } from "../eventbus";
-import FiltroMixin from "../mixins/FiltroMixin";
+import { EventBus } from "../../eventbus";
+import FiltroMixin from "../../mixins/FiltroMixin";
 import { filter, map } from "lodash";
 
 export default {
-  name: "presidentesFiltros",
+  name: "presidenciaFiltros",
   mixins: [FiltroMixin],
   // TODO: cambiar el nombre de checkbox a algo mas chico para que el url sea mas corto
   // envolverlos en un objecto, por ex: checkboxes: {}
@@ -477,7 +489,7 @@ export default {
     updateURLParams() {
       if (this.currentRegion.region) {
         this.$router.push({
-          name: "presidentes",
+          name: "presidencia",
           query: {
             f1: this.f1,
             f2: this.f2,

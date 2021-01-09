@@ -4,7 +4,7 @@
       <v-col cols="12">
         <div class="intro">
           <div>
-            <img class="logo" src="../assets/logo.png" />
+            <img class="logo" src="../../assets/logo.png" />
           </div>
           <h1>Decide Bien: en</h1>
           <div class="region-selected">
@@ -34,7 +34,7 @@
             <v-fab-transition>
               <v-btn
                 v-show="
-                  $vuetify.breakpoint.xsOnly && $route.path.includes('filtros')
+                  $vuetify.breakpoint.xsOnly && $route.path.includes('congreso')
                 "
                 @click="filterButtonClicked()"
                 color="orange darken-4"
@@ -238,14 +238,14 @@
 
 <script>
 import axios from "axios";
-import Resultados from "../components/Resultados.vue";
-import Twitter from "../components/Twitter.vue";
+import Resultados from "../../components/Resultados.vue";
+import Twitter from "../../components/Twitter.vue";
 import Vue from "vue";
-import { EventBus } from "../eventbus";
-import FiltroMixin from "../mixins/FiltroMixin";
+import { EventBus } from "../../eventbus";
+import FiltroMixin from "../../mixins/FiltroMixin";
 
 export default {
-  name: "filtros",
+  name: "congresoFiltros",
   components: {
     Resultados
   },
@@ -401,7 +401,7 @@ export default {
         // .push bota un error en el console cuando se trata ir al mismo route existente,
         this.$router
           .push({
-            name: "filtros",
+            name: "congreso",
             params: {
               departamento: this.currentRegion.region
             },
@@ -427,7 +427,7 @@ export default {
     updateURLParams() {
       if (this.currentRegion.region) {
         this.$router.push({
-          name: "filtros",
+          name: "congreso",
           params: { departamento: this.currentRegion.region },
           query: {
             f1: this.f1,
