@@ -4,14 +4,11 @@
       <v-col cols="12">
         <div class="intro">
           <div>
-            <img class="logo" src="../assets/logo.png" />
+            <img class="logo" src="../../assets/logo.png" />
           </div>
-          <h1>Decide Bien: en</h1>
+          <h1>Decide Bien</h1>
           <div class="region-selected">
-            {{ currentRegion.region }}
-          </div>
-          <div class="curul-selected">
-            Se eligiran {{ currentRegion.curul }} congresistas
+            Candidatos a Presidente
           </div>
         </div>
       </v-col>
@@ -19,17 +16,6 @@
     <v-row>
       <v-flex md4 class="mb-2">
         <v-card class="pa-2 mx-2 grey lighten-4" shaped>
-          <v-select
-            :items="regiones"
-            item-text="region"
-            item-value="codigo"
-            label="Elije tu departamento:"
-            v-model="currentRegion"
-            prepend-icon="mdi-map"
-            color="secondary"
-            :return-object="true"
-            v-on:change="updateURLParams"
-          ></v-select>
           <v-layout text-xs-center align-center justify-center>
             <v-fab-transition>
               <v-btn
@@ -97,7 +83,7 @@
               updateURLQuery();
             "
           >
-            <v-icon left>mdi-alert</v-icon>Paridad
+            <v-icon left>mdi-alert</v-icon>Escazú
           </v-chip>
           <v-chip
             v-if="f4"
@@ -108,18 +94,7 @@
               updateURLQuery();
             "
           >
-            <v-icon left>mdi-alert</v-icon>Militantes
-          </v-chip>
-          <v-chip
-            v-if="f5"
-            class="ma-2"
-            close
-            @click:close="
-              f5 = false;
-              updateURLQuery();
-            "
-          >
-            <v-icon left>mdi-alert</v-icon>D.Interna
+            <v-icon left>mdi-alert</v-icon>DemoInterna
           </v-chip>
           <v-divider v-show="!$vuetify.breakpoint.xsOnly" />
           <h3
@@ -129,14 +104,10 @@
             ¿Qué filtros deseas aplicar?
           </h3>
           <!-- TODO -->
-          <v-expansion-panels
-            v-bind:disabled="!noRegionSelected"
-            v-show="!$vuetify.breakpoint.xsOnly"
-          >
+          <v-expansion-panels v-show="!$vuetify.breakpoint.xsOnly">
             <v-expansion-panel>
               <v-expansion-panel-header
-                >Descartar listas que lleven candidatos con
-                sentencias</v-expansion-panel-header
+                >Candidatos con sentencias</v-expansion-panel-header
               >
               <v-expansion-panel-content>
                 <v-row>
@@ -145,7 +116,9 @@
                       v-model="f1"
                       @change="updateURLQuery()"
                       color="info"
-                      :label="`Descartar listas con sentenciados`"
+                      :label="
+                        `Descartar planchas con candidatos con sentencias declaradas`
+                      "
                     ></v-checkbox>
                   </v-col>
                 </v-row>
@@ -163,17 +136,16 @@
                       @change="updateURLQuery()"
                       color="info"
                       :label="
-                        `Descartar partidos que votaron por la vacancia (Noviembre 2019)`
+                        `Descartar candidatos de partidos que votaron por la vacancia`
                       "
                     ></v-checkbox>
                   </v-col>
                 </v-row>
               </v-expansion-panel-content>
             </v-expansion-panel>
-
             <v-expansion-panel>
-              <v-expansion-panel-header
-                >Descartar listas sin paridad (50%)
+              <v-expansion-panel-header>
+                Medio Ambiente-Acuerdo de Escazú:
               </v-expansion-panel-header>
               <v-expansion-panel-content>
                 <v-row>
@@ -183,19 +155,17 @@
                       @change="updateURLQuery()"
                       color="info"
                       :label="
-                        `Descartar listas que NO promuevan la equidad de género`
+                        `Descartar candidatos de partidos que votaron contra la ratificación de Escazú`
                       "
                     ></v-checkbox>
                   </v-col>
                 </v-row>
               </v-expansion-panel-content>
             </v-expansion-panel>
-
             <v-expansion-panel>
-              <v-expansion-panel-header
-                >Descartar listas que NO promuevan democracia
-                interna</v-expansion-panel-header
-              >
+              <v-expansion-panel-header>
+                Democracia Interna:
+              </v-expansion-panel-header>
               <v-expansion-panel-content>
                 <v-row>
                   <v-col>
@@ -204,15 +174,7 @@
                       @change="updateURLQuery()"
                       color="info"
                       :label="
-                        `Descartar listas donde el número 1 no fue electo en democracia interna`
-                      "
-                    ></v-checkbox>
-                    <v-checkbox
-                      v-model="f5"
-                      @change="updateURLQuery()"
-                      color="info"
-                      :label="
-                        `Descartar listas cuyas primarias fueron por delegados`
+                        `Descartar candidatos de partidos que eligieron candidatos a través de delegados`
                       "
                     ></v-checkbox>
                   </v-col>
@@ -224,13 +186,107 @@
       </v-flex>
       <!-- TODO -->
       <v-flex md8>
-        <transition name="fade" appear>
-          <resultados
-            :current-region="currentRegion"
-            :data-table1="filtroTabla1"
-            :data-table2="filtroTabla2"
-          ></resultados>
-        </transition>
+        <v-card class="presidentes">
+          <h2>Candidatos favoritos</h2>
+          <v-row class="mb-5">
+            <v-col
+              v-for="(candidato, i) in candidatesFavs"
+              :key="i"
+              cols="4"
+              md="2"
+              sm="4"
+              xs="4"
+            >
+              <h2 class="candidato-name">{{ candidato.Nombre }}</h2>
+              <h4
+                class="candidato-filter text-center"
+                :class="`filter-${candidato.filter}`"
+              >
+                {{ candidato.filter ? "Pasó el filtro" : "No pasó el filtro" }}
+                <v-icon>
+                  {{
+                    candidato.filter
+                      ? "mdi-checkbox-marked-circle"
+                      : "mdi-cancel"
+                  }}
+                </v-icon>
+              </h4>
+              <v-img
+                :src="
+                  require(`../../assets/presidenciales/${candidato.ID}.png`)
+                "
+                height="175"
+                class="text-right pa-2"
+              >
+              </v-img>
+              <v-img
+                :src="
+                  require(`../../assets/partidos/${candidato.idOrgPol}.png`)
+                "
+                class="text-right"
+              >
+              </v-img>
+            </v-col>
+          </v-row>
+
+          <h2>Otros candidatos que pasaron el filtro</h2>
+          <v-row class="mb-5">
+            <v-col
+              v-for="(candidato, i) in filtroTabla1"
+              :key="i"
+              cols="4"
+              md="2"
+              sm="4"
+              xs="4"
+            >
+              <h2 class="candidato-name">{{ candidato.Nombre }}</h2>
+              <v-img
+                :src="
+                  require(`../../assets/presidenciales/${candidato.ID}.png`)
+                "
+                height="175"
+                class="text-right pa-2"
+              >
+              </v-img>
+              <v-img
+                :src="
+                  require(`../../assets/partidos/${candidato.idOrgPol}.png`)
+                "
+                class="text-right"
+              >
+              </v-img>
+            </v-col>
+          </v-row>
+
+          <h2>Los que no pasaron el filtro</h2>
+          <v-row>
+            <v-col
+              v-for="(candidato, i) in others"
+              :key="i"
+              cols="4"
+              md="2"
+              sm="4"
+              xs="4"
+            >
+              <h2 class="candidato-name">{{ candidato.Nombre }}</h2>
+              <v-img
+                :src="
+                  require(`../../assets/presidenciales/${candidato.ID}.png`)
+                "
+                height="175"
+                class="text-right pa-2"
+              >
+              </v-img>
+              <v-img
+                :src="
+                  require(`../../assets/partidos/${candidato.idOrgPol}.png`)
+                "
+                class="text-right"
+              >
+              </v-img>
+            </v-col>
+          </v-row>
+        </v-card>
       </v-flex>
     </v-row>
   </div>
@@ -238,17 +294,14 @@
 
 <script>
 import axios from "axios";
-import Resultados from "../components/Resultados.vue";
-import Twitter from "../components/Twitter.vue";
+import Twitter from "../../components/Twitter.vue";
 import Vue from "vue";
-import { EventBus } from "../eventbus";
-import FiltroMixin from "../mixins/FiltroMixin";
+import { EventBus } from "../../eventbus";
+import FiltroMixin from "../../mixins/FiltroMixin";
+import { filter, map } from "lodash";
 
 export default {
-  name: "filtros",
-  components: {
-    Resultados
-  },
+  name: "presidenciaFiltros",
   mixins: [FiltroMixin],
   // TODO: cambiar el nombre de checkbox a algo mas chico para que el url sea mas corto
   // envolverlos en un objecto, por ex: checkboxes: {}
@@ -293,41 +346,60 @@ export default {
         this.$store.commit("updateFiltro4", value);
       }
     },
-    f5: {
-      get() {
-        return this.$store.state.filtros.f5;
-      },
-      set(value) {
-        this.$store.commit("updateFiltro5", value);
-      }
-    },
-    noRegionSelected() {
-      return !!this.currentRegion.region;
-    },
-    regiones() {
-      return this.$store.state.regiones;
-    },
     listas() {
-      return this.$store.state.listas;
+      return filter(this.$store.state.presidentes, [
+        "Cargo",
+        "PRESIDENTE DE LA REPÚBLICA"
+      ]);
     },
-    filtroTabla1() {
+    candidatesFavs() {
+      let favs = this.$route.query.candidatos.split(",");
+      return filter(this.listas, item => {
+        if (favs.indexOf(item.ID) > -1) {
+          if (this.idsCandidatosFilter.indexOf(item.ID) == -1) {
+            item.filter = 0;
+          } else {
+            item.filter = 1;
+          }
+          return item;
+        }
+      });
+    },
+    idsCandidatosFilter() {
+      return map(this.listasFiltered, "ID");
+    },
+    others() {
+      let favs = this.$route.query.candidatos.split(",");
+      return filter(this.listas, item => {
+        if (this.idsCandidatosFilter.indexOf(item.ID) == -1) {
+          if (favs.indexOf(item.ID) == -1) {
+            return item;
+          }
+        }
+      });
+    },
+    listasFiltered() {
       return this.uniqueFilter(
         this.listas
-          .filter(this.sentencia1Filter)
-          .filter(this.sentencia2Filter)
-          .filter(this.genero1Filter)
-          .filter(this.militantesFilter)
-          .filter(this.agendaFilter),
+          .filter(this.presidenteFilter1)
+          .filter(this.presidenteFilter2)
+          .filter(this.presidenteFilter3)
+          .filter(this.presidenteFilter4),
         "Partido"
       );
     },
+    filtroTabla1() {
+      let favs = this.$route.query.candidatos.split(",");
+      return filter(this.listasFiltered, item => {
+        if (favs.indexOf(item.ID) == -1) return item;
+      });
+    },
     filtroTabla2() {
       return this.listas
-        .filter(this.sentencia1Filter)
-        .filter(this.sentencia2Filter)
-        .filter(this.genero1Filter)
-        .filter(this.militantesFilter)
-        .filter(this.agendaFilter);
+        .filter(this.presidenteFilter1)
+        .filter(this.presidenteFilter2)
+        .filter(this.presidenteFilter3)
+        .filter(this.presidenteFilter4);
     }
   },
   methods: {
@@ -368,8 +440,7 @@ export default {
         this.f1 == false &&
         this.f2 == false &&
         this.f3 == false &&
-        this.f4 == false &&
-        this.f5 == false
+        this.f4 == false
       ) {
         return;
       } else {
@@ -377,7 +448,6 @@ export default {
         this.f2 = false;
         this.f3 = false;
         this.f4 = false;
-        this.f5 = false;
         this.updateURLQuery();
       }
     },
@@ -394,26 +464,18 @@ export default {
         this.f3 === true ||
         this.f3 === false ||
         this.f4 === true ||
-        this.f4 === false ||
-        this.f5 === true
+        this.f4 === false
       ) {
         // TODO: refactorizar para evitar el error. Baja prioridad.
         // .push bota un error en el console cuando se trata ir al mismo route existente,
         this.$router
           .push({
-            name: "filtros",
-            params: {
-              departamento: this.currentRegion.region
-            },
             query: {
               f1: this.f1,
               f2: this.f2,
               f3: this.f3,
               f4: this.f4,
-              f5: this.f5,
-              favs: this.$route.query.favs,
-              candidatos: this.$route.query.candidatos,
-              stepper: this.$route.query.stepper
+              candidatos: this.$route.query.candidatos
             }
           })
           .catch(err => {
@@ -427,14 +489,12 @@ export default {
     updateURLParams() {
       if (this.currentRegion.region) {
         this.$router.push({
-          name: "filtros",
-          params: { departamento: this.currentRegion.region },
+          name: "presidentes",
           query: {
             f1: this.f1,
             f2: this.f2,
             f3: this.f3,
-            f4: this.f4,
-            f5: this.f5
+            f4: this.f4
           }
         });
       }
@@ -444,24 +504,14 @@ export default {
     // Este metodo recibe un route (url) y parsea sus params y query
     // Usamos esto para poder compartir 'resultados' usando el url
     restoreTablesValues() {
-      const urlDepto = this.$route.params.departamento;
       const queryParams = this.$route.query;
-
-      if (urlDepto) {
-        const newDefault = this.regiones.filter(
-          region => region.region == urlDepto
-        );
-
-        if (newDefault && newDefault[0].region) {
-          this.currentRegion = newDefault[0];
-          this.f1 = queryParams.f1.toString() === "true";
-          this.f2 = queryParams.f2.toString() === "true";
-          this.f3 = queryParams.f3.toString() === "true";
-          this.f4 = queryParams.f4.toString() === "true";
-          this.f5 = queryParams.f5.toString() === "true";
-          this.sendToGA();
-          this.reAttachTwitterButton();
-        }
+      if (queryParams.candidatos) {
+        this.f1 = queryParams.f1.toString() === "true";
+        this.f2 = queryParams.f2.toString() === "true";
+        this.f3 = queryParams.f3.toString() === "true";
+        this.f4 = queryParams.f4.toString() === "true";
+        this.sendToGA();
+        this.reAttachTwitterButton();
       }
     },
     // Mandar la pagina visitada a Google Analytics como un custom event

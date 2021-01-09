@@ -18,12 +18,7 @@
           </v-col>
         </v-row>
         <v-row class="mb-5">
-          <v-col
-            v-for="(p, i) in presidencial"
-            :key="i"
-            cols="12"
-            md="4"
-          >
+          <v-col v-for="(p, i) in presidencial" :key="i" cols="12" md="4">
             <div class="candidate-image">
               <v-img
                 :src="require(`../assets/presidenciales/${p.ID}.png`)"
@@ -35,7 +30,7 @@
             <div class="cargo">{{ p.Cargo }}</div>
           </v-col>
         </v-row>
-        
+
         <v-row class="mt-5">
           <v-col>
             <b>Lista congresal</b>
@@ -52,12 +47,7 @@
           </v-col>
         </v-row>
         <v-row>
-          <v-col
-            v-for="(p, i) in congresistas"
-            :key="i"
-            cols="12"
-            md="3"
-          >
+          <v-col v-for="(p, i) in congresistas" :key="i" cols="12" md="3">
             <div class="region">
               {{ p.Region }}
             </div>
@@ -67,13 +57,10 @@
             </div>
           </v-col>
         </v-row>
-
       </v-col>
     </v-row>
     <v-row>
-      <v-col>
-
-      </v-col>
+      <v-col> </v-col>
     </v-row>
   </v-container>
 </template>
@@ -88,39 +75,36 @@ export default {
     idPartido() {
       return find(
         this.$store.state.partidos,
-        item => slugify(item.Partido).toLowerCase() == this.$route.params.partido
+        item =>
+          slugify(item.Partido).toLowerCase() == this.$route.params.partido
       );
     },
     regiones() {
       let regiones = uniq(
         map(
-          filter(
-            this.$store.state.listas,
-            item => {
-              if(item.idOrgPol == this.idPartido.IDPartido)
-                return item;
-            }
-          ),
+          filter(this.$store.state.listas, item => {
+            if (item.idOrgPol == this.idPartido.IDPartido) return item;
+          }),
           "Region"
         )
       );
-      
+
       regiones.sort();
-      
+
       regiones.unshift("Todos las regiones");
 
       return regiones;
     },
     presidencial() {
       return filter(
-          this.$store.state.presidentes,
-          item => item.idOrgPol == this.idPartido.IDPartido
-        );
+        this.$store.state.presidentes,
+        item => item.idOrgPol == this.idPartido.IDPartido
+      );
     },
     congresistas() {
       return filter(this.$store.state.listas, item => {
-        if(item.idOrgPol == this.idPartido.IDPartido) {
-          console.log(item)
+        if (item.idOrgPol == this.idPartido.IDPartido) {
+          console.log(item);
           if (
             this.currentRegion != "Todos las regiones" &&
             item.Region == this.currentRegion

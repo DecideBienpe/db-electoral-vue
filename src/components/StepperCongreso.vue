@@ -184,7 +184,7 @@ export default {
     filterButtonClicked() {
       if (this.currentRegion.region) {
         this.$router.push({
-          name: "filtros",
+          name: "congreso",
           params: { departamento: this.currentRegion.region },
           query: {
             f1: this.f1,
