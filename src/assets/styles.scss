@@ -67,17 +67,37 @@ html, body {
 }
 
 .grid-presidencial {
-  width: 85%;
+  width: 100%;
   max-width: 980px;
   margin: 0 auto;
 
-  .v-stepper--vertical .v-stepper__content {
-    padding: 16px 60px 16px 23px;
-    width: auto;
+  @media (max-width: 720px) {
+    .container-grid {
+      height: 60vh;
+      overflow-y: scroll;
+      overflow-x: hidden;
+    }
   }
 
-  .v-application--is-ltr .v-stepper--vertical .v-stepper__content {
-    margin: -8px -39px -16px 16px;
+  .v-stepper__content {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .candidato {
+    display: inline-block;
+    width: 120px;
+    margin: 10px;
+
+    @media (max-width: 1024px) {
+      width: 85px;
+      margin: 10px;
+    }
+
+    @media (max-width: 600px) {
+      width: 65px;
+      margin: 10px;
+    }
   }
 
   .theme--dark.v-overlay {
@@ -109,7 +129,7 @@ html, body {
 
 .decidebien-partido {
   .presidente {
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 900;
   }
 

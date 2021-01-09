@@ -8,42 +8,38 @@
         </v-stepper-step>
 
         <v-stepper-content step="1">
-          <div>
+          <div class="container-grid">
             <v-row>
               <v-item-group v-model="candidatosFavs" multiple>
-                <v-row>
-                  <v-col
-                    v-for="(candidato, i) in candidatos"
-                    :key="i"
-                    cols="12"
-                    md="2"
-                  >
-                    <v-item :value="candidato.ID" v-slot="{ active, toggle }">
-                      <v-img
-                        :src="
-                          require(`../assets/presidenciales/${candidato.ID}.png`)
-                        "
-                        height="70"
-                        class="text-right pa-2"
-                        @click="toggle"
-                      >
-                        <v-btn class="selection" icon dark>
-                          <v-icon>
-                            {{
-                              active
-                                ? "mdi-checkbox-marked-circle"
-                                : "mdi-checkbox-marked-circle-outline"
-                            }}
-                          </v-icon>
-                        </v-btn>
-                      </v-img>
-                    </v-item>
-                  </v-col>
-                </v-row>
+                <div
+                  v-for="(candidato, i) in candidatos"
+                  :key="i"
+                  class="candidato"
+                >
+                  <v-item :value="candidato.ID" v-slot="{ active, toggle }">
+                    <v-img
+                      :src="
+                        require(`../assets/presidenciales/${candidato.ID}.png`)
+                      "
+                      class="text-right pa-2"
+                      @click="toggle"
+                    >
+                      <v-btn class="selection" icon dark>
+                        <v-icon>
+                          {{
+                            active
+                              ? "mdi-checkbox-marked-circle"
+                              : "mdi-checkbox-marked-circle-outline"
+                          }}
+                        </v-icon>
+                      </v-btn>
+                    </v-img>
+                  </v-item>
+                </div>
               </v-item-group>
             </v-row>
           </div>
-          <v-btn color="primary" @click="e6 = 2"> Seleccionar </v-btn>
+          <v-btn class="mt-3" color="primary" @click="e6 = 2"> Seleccionar </v-btn>
         </v-stepper-content>
 
         <v-stepper-step :complete="e6 > 2" step="2">
