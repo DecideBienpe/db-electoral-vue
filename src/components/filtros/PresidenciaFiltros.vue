@@ -186,107 +186,150 @@
       </v-flex>
       <!-- TODO -->
       <v-flex md8>
-        <v-card class="presidentes">
-          <h2>Candidatos favoritos</h2>
-          <v-row class="mb-5">
-            <v-col
-              v-for="(candidato, i) in candidatesFavs"
-              :key="i"
-              cols="4"
-              md="2"
-              sm="4"
-              xs="4"
-            >
-              <h2 class="candidato-name">{{ candidato.Nombre }}</h2>
-              <h4
-                class="candidato-filter text-center"
-                :class="`filter-${candidato.filter}`"
-              >
-                {{ candidato.filter ? "Pasó el filtro" : "No pasó el filtro" }}
-                <v-icon>
-                  {{
-                    candidato.filter
-                      ? "mdi-checkbox-marked-circle"
-                      : "mdi-cancel"
-                  }}
-                </v-icon>
-              </h4>
-              <v-img
-                :src="
-                  require(`../../assets/presidenciales/${candidato.ID}.png`)
-                "
-                height="175"
-                class="text-right pa-2"
-              >
-              </v-img>
-              <v-img
-                :src="
-                  require(`../../assets/partidos/${candidato.idOrgPol}.png`)
-                "
-                class="text-right"
-              >
-              </v-img>
-            </v-col>
-          </v-row>
+        <v-tabs
+          centered
+          v-model="tabs"
+          :vertical="this.$vuetify.breakpoint.xsOnly"
+        >
+          <v-tabs-slider></v-tabs-slider>
+          <v-tab class="">Cadidatos:</v-tab>
+          <v-tab class="">Detalles:</v-tab>
+        </v-tabs>
+        <v-tabs-items v-model="tabs">
+          <v-tab-item>
+            <v-card class="presidentes">
+              <h2>Candidatos favoritos</h2>
+              <v-row class="mb-5">
+                <v-col
+                  v-for="(candidato, i) in candidatesFavs"
+                  :key="i"
+                  cols="4"
+                  md="2"
+                  sm="4"
+                  xs="4"
+                >
+                  <h2 class="candidato-name">{{ candidato.Nombre }}</h2>
+                  <h4
+                    class="candidato-filter text-center"
+                    :class="`filter-${candidato.filter}`"
+                  >
+                    {{
+                      candidato.filter ? "Pasó el filtro" : "No pasó el filtro"
+                    }}
+                    <v-icon>
+                      {{
+                        candidato.filter
+                          ? "mdi-checkbox-marked-circle"
+                          : "mdi-cancel"
+                      }}
+                    </v-icon>
+                  </h4>
+                  <v-img
+                    :src="
+                      require(`../../assets/presidenciales/${candidato.ID}.png`)
+                    "
+                    height="175"
+                    class="text-right pa-2"
+                  >
+                  </v-img>
+                  <v-img
+                    :src="
+                      require(`../../assets/partidos/${candidato.idOrgPol}.png`)
+                    "
+                    class="text-right"
+                  >
+                  </v-img>
+                </v-col>
+              </v-row>
 
-          <h2>Otros candidatos que pasaron el filtro</h2>
-          <v-row class="mb-5">
-            <v-col
-              v-for="(candidato, i) in filtroTabla1"
-              :key="i"
-              cols="4"
-              md="2"
-              sm="4"
-              xs="4"
-            >
-              <h2 class="candidato-name">{{ candidato.Nombre }}</h2>
-              <v-img
-                :src="
-                  require(`../../assets/presidenciales/${candidato.ID}.png`)
-                "
-                height="175"
-                class="text-right pa-2"
-              >
-              </v-img>
-              <v-img
-                :src="
-                  require(`../../assets/partidos/${candidato.idOrgPol}.png`)
-                "
-                class="text-right"
-              >
-              </v-img>
-            </v-col>
-          </v-row>
+              <h2>Otros candidatos que pasaron el filtro</h2>
+              <v-row class="mb-5">
+                <v-col
+                  v-for="(candidato, i) in filtroTabla1"
+                  :key="i"
+                  cols="4"
+                  md="2"
+                  sm="4"
+                  xs="4"
+                >
+                  <h2 class="candidato-name">{{ candidato.Nombre }}</h2>
+                  <v-img
+                    :src="
+                      require(`../../assets/presidenciales/${candidato.ID}.png`)
+                    "
+                    height="175"
+                    class="text-right pa-2"
+                  >
+                  </v-img>
+                  <v-img
+                    :src="
+                      require(`../../assets/partidos/${candidato.idOrgPol}.png`)
+                    "
+                    class="text-right"
+                  >
+                  </v-img>
+                </v-col>
+              </v-row>
 
-          <h2>Los que no pasaron el filtro</h2>
-          <v-row>
-            <v-col
-              v-for="(candidato, i) in others"
-              :key="i"
-              cols="4"
-              md="2"
-              sm="4"
-              xs="4"
-            >
-              <h2 class="candidato-name">{{ candidato.Nombre }}</h2>
-              <v-img
-                :src="
-                  require(`../../assets/presidenciales/${candidato.ID}.png`)
-                "
-                height="175"
-                class="text-right pa-2"
+              <h2>Los que no pasaron el filtro</h2>
+              <v-row>
+                <v-col
+                  v-for="(candidato, i) in others"
+                  :key="i"
+                  cols="4"
+                  md="2"
+                  sm="4"
+                  xs="4"
+                >
+                  <h2 class="candidato-name">{{ candidato.Nombre }}</h2>
+                  <v-img
+                    :src="
+                      require(`../../assets/presidenciales/${candidato.ID}.png`)
+                    "
+                    height="175"
+                    class="text-right pa-2"
+                  >
+                  </v-img>
+                  <v-img
+                    :src="
+                      require(`../../assets/partidos/${candidato.idOrgPol}.png`)
+                    "
+                    class="text-right"
+                  >
+                  </v-img>
+                </v-col>
+              </v-row>
+            </v-card>
+          </v-tab-item>
+          <v-tab-item>
+            <v-card>
+              <v-card-title>
+                <v-text-field
+                  v-model="searchOtros"
+                  label="Buscar"
+                  single-line
+                  hide-details
+                ></v-text-field>
+                <v-spacer />
+              </v-card-title>
+              <v-data-table
+                :headers="headers2"
+                :items="filtroTablaDetalles"
+                :search="searchOtros"
               >
-              </v-img>
-              <v-img
-                :src="
-                  require(`../../assets/partidos/${candidato.idOrgPol}.png`)
-                "
-                class="text-right"
-              >
-              </v-img>
-            </v-col>
-          </v-row>
-        </v-card>
+                <template v-slot:item.Sentencia="{ item }">
+                  <v-chip
+                    class="ma-2"
+                    text-color="white"
+                    :color="getColor(item.Sentencia)"
+                  >
+                    {{ item.Sentencia }}
+                  </v-chip>
+                </template>
+              </v-data-table>
+            </v-card>
+          </v-tab-item>
+        </v-tabs-items>
       </v-flex>
     </v-row>
   </div>
@@ -303,11 +346,27 @@ import { filter, map } from "lodash";
 export default {
   name: "presidenciaFiltros",
   mixins: [FiltroMixin],
+  props: {
+    searchOtros: {
+      type: String,
+      default: ""
+    }
+  },
   // TODO: cambiar el nombre de checkbox a algo mas chico para que el url sea mas corto
   // envolverlos en un objecto, por ex: checkboxes: {}
   data() {
     return {
+      tabs: 0,
       dialog: false,
+      headers2: [
+        { text: "Partido", value: "Partido" },
+        { text: "Candidato", value: "Nombre" },
+        { text: "Sexo", value: "Sexo" },
+        { text: "Edad", value: "Edad" },
+        { text: "Con Sentencia", value: "Sentencia" },
+        { text: "Experiencia Politica", value: "Experiencia" },
+        { text: "Estudios", value: "Estudios" }
+      ],
       currentRegion: {
         default: {}
       }
@@ -394,6 +453,12 @@ export default {
         if (favs.indexOf(item.ID) == -1) return item;
       });
     },
+    filtroTablaDetalles() {
+      return filter(this.listasFiltered, item => {
+        console.log("item", item);
+        return item;
+      });
+    },
     filtroTabla2() {
       return this.listas
         .filter(this.presidenteFilter1)
@@ -403,6 +468,10 @@ export default {
     }
   },
   methods: {
+    getColor(field) {
+      if (field == "Sin Sentencia") return "#a0a0a0";
+      return "red";
+    },
     filterButtonClicked() {
       EventBus.$emit("button-clicked");
     },
