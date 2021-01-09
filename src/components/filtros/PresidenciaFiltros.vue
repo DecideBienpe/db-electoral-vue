@@ -20,7 +20,8 @@
             <v-fab-transition>
               <v-btn
                 v-show="
-                  $vuetify.breakpoint.xsOnly && $route.path.includes('filtros')
+                  $vuetify.breakpoint.xsOnly &&
+                    $route.path.includes('presidencia')
                 "
                 @click="filterButtonClicked()"
                 color="orange darken-4"
