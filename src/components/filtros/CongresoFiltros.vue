@@ -481,10 +481,14 @@ export default {
     // LLamada al API para tener las regiones, actualizar el store y luego restaurar la tabla de filtros.
     // Problema original es que esta funcion se llama antes que el store termine de conseguir la data de los partidos.
     // TODO: quizas hay manera de remover esta llamada.
-    axios.get("https://api.keines.net/regiones").then(response => {
-      this.$store.commit("SET_REGIONES", response.data);
-      this.restoreTablesValues();
-    });
+    axios
+      .get(
+        "https://us-central1-zettai-tools.cloudfunctions.net/decidebien-api/regiones"
+      )
+      .then(response => {
+        this.$store.commit("SET_REGIONES", response.data);
+        this.restoreTablesValues();
+      });
   }
 };
 </script>

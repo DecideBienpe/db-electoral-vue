@@ -1,4 +1,4 @@
-<template> 
+<template>
   <div class="grid-presidencial">
     <form @submit.prevent="filterPresidentesClicked" id="check-presidentes">
       <v-stepper v-model="e6" vertical>
@@ -39,7 +39,9 @@
               </v-item-group>
             </v-row>
           </div>
-          <v-btn class="mt-3" color="primary" @click="e6 = 2"> Seleccionar </v-btn>
+          <v-btn class="mt-3" color="primary" @click="e6 = 2">
+            Seleccionar
+          </v-btn>
         </v-stepper-content>
 
         <v-stepper-step :complete="e6 > 2" step="2">

@@ -10,7 +10,10 @@ const db = require("./models");
 const app = express();
 // const PORT = process.env.PORT;
 
-var whitelist = ["http://localhost:3000"];
+var whitelist = [
+  "http://localhost:3000",
+  "https://decidebienrepo.netlify.app/"
+];
 var corsOptions = {
   origin: function(origin, callback) {
     if (whitelist.indexOf(origin) !== -1) {

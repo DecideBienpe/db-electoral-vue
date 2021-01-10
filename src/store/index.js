@@ -44,24 +44,40 @@ const getters = {};
 //to handle actions
 const actions = {
   getRegiones({ commit }) {
-    axios.get("https://api.keines.net/regiones").then(response => {
-      commit("SET_REGIONES", response.data);
-    });
+    axios
+      .get(
+        "https://us-central1-zettai-tools.cloudfunctions.net/decidebien-api/regiones"
+      )
+      .then(response => {
+        commit("SET_REGIONES", response.data);
+      });
   },
   getPartidos({ commit }) {
-    axios.get("https://api.keines.net/partidos").then(response => {
-      commit("SET_PARTIDOS", response.data);
-    });
+    axios
+      .get(
+        "https://us-central1-zettai-tools.cloudfunctions.net/decidebien-api/partidos"
+      )
+      .then(response => {
+        commit("SET_PARTIDOS", response.data);
+      });
   },
   getListas({ commit }) {
-    axios.get("https://api.keines.net/congreso/candidatos").then(response => {
-      commit("SET_LISTAS", response.data);
-    });
+    axios
+      .get(
+        "https://us-central1-zettai-tools.cloudfunctions.net/decidebien-api/congreso/candidatos"
+      )
+      .then(response => {
+        commit("SET_LISTAS", response.data);
+      });
   },
   getPresidentes({ commit }) {
-    axios.get("https://api.keines.net/presidente/candidatos").then(response => {
-      commit("SET_PRESIDENTES", response.data);
-    });
+    axios
+      .get(
+        "https://us-central1-zettai-tools.cloudfunctions.net/decidebien-api/presidente/candidatos"
+      )
+      .then(response => {
+        commit("SET_PRESIDENTES", response.data);
+      });
   }
 };
 
