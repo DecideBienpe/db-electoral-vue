@@ -9,8 +9,16 @@ const db = require("./models");
 
 const app = express();
 // const PORT = process.env.PORT;
-let corsOptions = {
-  origin: "https://decidebienrepo.netlify.app/",
+
+var whitelist = ["https://decidebienrepo.netlify.app", "http://localhost"];
+var corsOptions = {
+  origin: function(origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 
