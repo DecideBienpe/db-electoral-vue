@@ -1,0 +1,13 @@
+steps:
+- name: 'gcr.io/cloud-builders/npm'  
+  args: ['install']
+  dir: 'api-functions'
+- name: "gcr.io/cloud-builders/gcloud"  
+  args: 
+    - functions
+    - deploy
+    - decidebien-api
+    - --entry-point=helloGCS
+    - --runtime=nodejs12
+    - --source=api-functions
+    - --trigger-http
