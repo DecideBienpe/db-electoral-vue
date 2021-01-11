@@ -44,6 +44,7 @@ export default {
     this.$store.dispatch("getRegiones");
     this.$store.dispatch("getListas");
     this.$store.dispatch("getPresidentes");
+    this.$store.dispatch("getResumen");
   },
   methods: {
     filterChanged() {

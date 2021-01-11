@@ -3,7 +3,6 @@ import axios from "axios";
 import Vuex from "vuex";
 import Vue from "vue";
 // import regiones from "./regiones.json"; // copia backup local para debugging
-import resumen from "./resumen.json";
 import t1 from "./t1.json";
 import t2 from "./t2.json";
 import t3 from "./t3.json";
@@ -18,7 +17,7 @@ const state = {
   presidentes: [],
   partidos: [],
   regiones: [],
-  resumen: resumen,
+  resumen: [],
   t1: t1,
   t2: t2,
   t3: t3,
@@ -43,6 +42,15 @@ const getters = {};
 
 //to handle actions
 const actions = {
+  getResumen({ commit }) {
+    axios
+      .get(
+        "https://us-central1-zettai-tools.cloudfunctions.net/decidebien-api/resumen-partido"
+      )
+      .then(response => {
+        commit("SET_RESUMEN", response.data);
+      });
+  },
   getRegiones({ commit }) {
     axios
       .get(
@@ -83,6 +91,9 @@ const actions = {
 
 //to handle mutations
 const mutations = {
+  SET_RESUMEN(state, resumen) {
+    state.resumen = resumen;
+  },
   SET_PARTIDOS(state, partidos) {
     state.partidos = partidos;
   },
