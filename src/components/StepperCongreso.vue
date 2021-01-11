@@ -47,42 +47,40 @@
         </v-stepper-step>
 
         <v-stepper-content step="2">
-          <v-row>
-            <v-item-group v-model="partidosFavoritos" multiple>
-              <v-row>
-                <v-col
-                  v-for="partido in partidos"
-                  :key="partido.codigo"
-                  cols="4"
-                  md="3"
-                  sm="1"
+          <v-item-group v-model="partidosFavoritos" multiple>
+            <div class="partidos-stepper">
+              <div
+              class="partido-selector"
+              v-for="partido in partidos"
+              :key="partido.codigo"
+              cols="6"
+              md="3"
+              sm="1"
+            >
+              <v-item
+                :value="partido.IDPartido"
+                v-slot="{ active, toggle }"
+              >
+                <v-img
+                  :value="partido.codigo"
+                  :src="require(`../assets/partidos/${partido.Imagen}`)"
+                  class="text-right pa-2"
+                  @click="toggle"
                 >
-                  <v-item
-                    :value="partido.IDPartido"
-                    v-slot="{ active, toggle }"
-                  >
-                    <v-img
-                      :value="partido.codigo"
-                      :src="require(`../assets/partidos/${partido.Imagen}`)"
-                      height="85"
-                      class="text-right pa-2"
-                      @click="toggle"
-                    >
-                      <v-btn class="selection" icon dark>
-                        <v-icon>
-                          {{
-                            active
-                              ? "mdi-checkbox-marked-circle"
-                              : "mdi-checkbox-marked-circle-outline"
-                          }}
-                        </v-icon>
-                      </v-btn>
-                    </v-img>
-                  </v-item>
-                </v-col>
-              </v-row>
-            </v-item-group>
-          </v-row>
+                  <v-btn class="selection" icon dark>
+                    <v-icon>
+                      {{
+                        active
+                          ? "mdi-checkbox-marked-circle"
+                          : "mdi-checkbox-marked-circle-outline"
+                      }}
+                    </v-icon>
+                  </v-btn>
+                </v-img>
+              </v-item>
+            </div>
+            </div>
+          </v-item-group>
           <v-btn color="primary" @click="e6 = 3">
             Seleccionar
           </v-btn>

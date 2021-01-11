@@ -66,7 +66,7 @@
               </v-img>
             </v-col>
           </v-row>
-          <h2 class="mt-5 mb-5 text-center">
+          <h2 v-if="partiesOthers.length > 0" class="mt-5 mb-5 text-center">
             Otros partidos que pasaron el filtro
           </h2>
           <v-item-group>
@@ -89,7 +89,7 @@
               </v-col>
             </v-row>
           </v-item-group>
-          <h2 class="mt-5 mb-5 text-center">Los que no pasaron los filtros</h2>
+          <h2 v-if="others.length > 0" class="mt-5 mb-5 text-center">Los que no pasaron los filtros</h2>
           <v-item-group>
             <v-row>
               <v-col

@@ -7,11 +7,10 @@
       Conoce su lista a la presidencia y sus candidatos al congreso
     </h3>
     <v-row>
-      <v-col v-for="(partido, i) in partidos" :key="i" sm="3" md="2" lg="2">
+      <v-col v-for="(partido, i) in partidos" :key="i" cols="4" md="2" lg="2">
         <a :href="`#/partidos/${render_logo(partido.Partido)}`">
           <v-img
             :src="require(`../assets/partidos/${partido.Imagen}`)"
-            height="85"
             class="text-right pa-2"
           >
           </v-img>

@@ -243,7 +243,7 @@
                 </v-col>
               </v-row>
 
-              <h2>Otros candidatos que pasaron el filtro</h2>
+              <h2 v-if="filtroTabla1.length > 0">Otros candidatos que pasaron el filtro</h2>
               <v-row class="mb-5">
                 <v-col
                   v-for="(candidato, i) in filtroTabla1"
@@ -272,7 +272,7 @@
                 </v-col>
               </v-row>
 
-              <h2>Los que no pasaron el filtro</h2>
+              <h2 v-if="others.length > 0">Los que no pasaron el filtro</h2>
               <v-row>
                 <v-col
                   v-for="(candidato, i) in others"
