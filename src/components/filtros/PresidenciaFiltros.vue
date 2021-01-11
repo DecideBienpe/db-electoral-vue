@@ -193,7 +193,7 @@
           :vertical="this.$vuetify.breakpoint.xsOnly"
         >
           <v-tabs-slider></v-tabs-slider>
-          <v-tab class="">Cadidatos:</v-tab>
+          <v-tab class="">Candidatos:</v-tab>
           <v-tab class="">Detalles:</v-tab>
         </v-tabs>
         <v-tabs-items v-model="tabs">
