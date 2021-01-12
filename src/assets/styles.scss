@@ -5,6 +5,15 @@ html, body {
   background-color: #333333;
 }
 
+.logo-text {
+  display: flex;
+  align-items: center;
+}
+
+.v-application a {
+  text-decoration: none;
+}
+
 .v-application .red {
   background-color: $red !important;
   border-color: $red !important;

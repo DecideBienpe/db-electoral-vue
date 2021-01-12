@@ -36,8 +36,8 @@
                 v-show="
                   $vuetify.breakpoint.xsOnly && $route.path.includes('congreso')
                 "
-                @click="filterButtonClicked()"
-                color="orange darken-4"
+                @click="drawerRight=!drawerRight"
+                color="red darken-4"
                 dark
               >
                 <span class="white--text pl-2">Filtra Aquí</span
@@ -131,7 +131,7 @@
           <!-- TODO -->
           <v-expansion-panels
             v-bind:disabled="!noRegionSelected"
-            v-show="!$vuetify.breakpoint.xsOnly"
+            v-show="!$vuetify.breakpoint.xsOnly || drawerRight"
           >
             <v-expansion-panel>
               <v-expansion-panel-header
@@ -255,6 +255,7 @@ export default {
   // envolverlos en un objecto, por ex: checkboxes: {}
   data() {
     return {
+      drawerRight: false,
       dialog: false,
       currentRegion: {
         default: {}
