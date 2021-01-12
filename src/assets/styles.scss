@@ -86,7 +86,7 @@ html, body {
 
   .candidato {
     display: inline-block;
-    width: 120px;
+    width: 100px;
     margin: 10px;
 
     @media (max-width: 1024px) {
@@ -95,7 +95,7 @@ html, body {
     }
 
     @media (max-width: 600px) {
-      width: 65px;
+      width: 23.5%;
       margin: 10px;
     }
   }
@@ -377,5 +377,26 @@ html, body {
     .v-image__image--cover {
       background-size: contain;
     }
+  }
+}
+
+.filters-container {
+  padding: 15px 25px;
+  max-height: 320px;
+  overflow-y: scroll;
+
+  .v-messages {
+    display: none !important;
+  }
+}
+
+.item-info {
+  margin-bottom: 15px;
+  font-size: 15px;
+
+  h4 {
+    font-size: 12px;
+    width: 175px;
+    color: #bb0723;
   }
 }

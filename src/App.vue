@@ -44,6 +44,7 @@ export default {
     this.$store.dispatch("getRegiones");
     this.$store.dispatch("getListas");
     this.$store.dispatch("getPresidentes");
+    this.$store.dispatch("getResumen");
   },
   methods: {
     filterChanged() {
@@ -148,7 +149,7 @@ export default {
   },
   data: () => ({
     drawerRight: null,
-    drawer: null,
+    drawer: false,
     // TODO: Mover esta logica en un componente al que podamos decidir si es 'link' o si bloqueamos el click/re-direct
     // cuando se hace click in filtros estando en filtros...
     items: [

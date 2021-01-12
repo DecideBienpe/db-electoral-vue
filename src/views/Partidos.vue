@@ -10,6 +10,29 @@
           >
           </v-img>
         </h2>
+        <div class="item-info">
+          <h4>Democracia interna</h4>
+          <div>{{ resumen.TipoDemocracia }}</div>
+        </div>
+        <div class="item-info">
+          <h4>Rango de edad</h4>
+          <div>Promedio: {{ resumen.PromedioEdad }} años</div>
+          <div>El más joven: {{ resumen.Joven }} años</div>
+          <div>El mayor: {{ resumen.Mayor }} años.</div>
+        </div>
+        <div class="item-info">
+          <h4>Los candidatos de está lista ganan en promedio</h4>
+          <div>S/.{{ resumen.PromedioIngr.toFixed(2) }}</div>
+        </div>
+        <div class="item-info">
+          <h4>Paridad</h4>
+          <div>El {{ resumen.Pmujeres }}% son mujeres</div>
+        </div>
+        <div class="item-info">
+          <h4>Estudios</h4>
+          <div>El {{ resumen.PEstudios }}% tiene estudios superiores</div>
+        </div>
+
       </v-col>
       <v-col cols="12" md="9" class="align-self-center">
         <v-row>
@@ -79,6 +102,9 @@ export default {
           slugify(item.Partido).toLowerCase() == this.$route.params.partido
       );
     },
+    resumen() {
+      return find(this.$store.state.resumen, ['Partido', this.idPartido.Partido]);
+    },
     regiones() {
       let regiones = uniq(
         map(
@@ -104,7 +130,6 @@ export default {
     congresistas() {
       return filter(this.$store.state.listas, item => {
         if (item.idOrgPol == this.idPartido.IDPartido) {
-          console.log(item);
           if (
             this.currentRegion != "Todos las regiones" &&
             item.Region == this.currentRegion

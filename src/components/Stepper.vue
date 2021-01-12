@@ -50,7 +50,8 @@
         </v-stepper-step>
 
         <v-stepper-content step="2">
-          <v-checkbox
+          <div class="filters-container">
+            <v-checkbox
             v-model="f1"
             :label="
               `Descartar planchas con candidatos con sentencias declaradas`
@@ -80,6 +81,7 @@
               `
             "
           ></v-checkbox>
+          </div>
           <v-btn form="check-presidentes" type="submit" color="primary">
             Ver partidos
           </v-btn>

@@ -324,6 +324,7 @@ export default {
     },
     filtroTabla2() {
       return this.listas
+        .filter(this.regionFilter)
         .filter(this.sentencia1Filter)
         .filter(this.sentencia2Filter)
         .filter(this.genero1Filter)

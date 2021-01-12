@@ -98,7 +98,9 @@
           >
         </v-stepper-step>
         <v-stepper-content step="3">
-          <v-checkbox
+
+          <div class="filters-container">
+            <v-checkbox
             v-model="f1"
             :label="
               `Descartar listas que lleven candidatos con sentencias judicial`
@@ -128,6 +130,7 @@
               `Descartar listas cuyas primarias fueron por delegados y no por voto universal-directo`
             "
           ></v-checkbox>
+          </div>
           <v-btn form="check-candidatos" type="submit" color="primary">
             Ver partidos
           </v-btn>
