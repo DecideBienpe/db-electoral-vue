@@ -66,14 +66,6 @@
             "
           ></v-checkbox>
           <v-checkbox
-            v-model="f3"
-            :label="
-              `
-              Descartar candidatos de partidos que votaron contra la ratificación de Acuerdo de Escazú
-              `
-            "
-          ></v-checkbox>
-          <v-checkbox
             v-model="f4"
             :label="
               `

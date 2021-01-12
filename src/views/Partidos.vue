@@ -21,7 +21,7 @@
           <div>El mayor: {{ resumen.Mayor }} años.</div>
         </div>
         <div class="item-info">
-          <h4>Los candidatos de está lista ganan en promedio</h4>
+          <h4>Promedio de ingresos anuales (candidatos al congreso)</h4>
           <div>S/.{{ resumen.PromedioIngr.toFixed(2) }}</div>
         </div>
         <div class="item-info">

@@ -174,7 +174,7 @@
 
             <v-expansion-panel>
               <v-expansion-panel-header
-                >Descartar listas sin paridad (50%)
+                >Filtro: participacion mujer
               </v-expansion-panel-header>
               <v-expansion-panel-content>
                 <v-row>
@@ -184,7 +184,7 @@
                       @change="updateURLQuery()"
                       color="info"
                       :label="
-                        `Descartar listas que NO promuevan la equidad de género`
+                        `Descartar listas cuya cabeza de lista NO es mujer`
                       "
                     ></v-checkbox>
                   </v-col>
@@ -213,7 +213,7 @@
                       @change="updateURLQuery()"
                       color="info"
                       :label="
-                        `Descartar listas cuyas primarias fueron por delegados`
+                        `Descartar listas cuyas elecciones internas fueron por delegados`
                       "
                     ></v-checkbox>
                   </v-col>

@@ -116,7 +116,7 @@
           ></v-checkbox>
           <v-checkbox
             v-model="f3"
-            :label="`Descartar listas sin paridad (50%)`"
+            :label="`Descartar listas cuya cabeza de lista NO es mujer`"
           ></v-checkbox>
           <v-checkbox
             v-model="f4"

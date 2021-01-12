@@ -102,7 +102,7 @@
             class="subheading font-weight-regular mb-2 mt2"
             v-show="!$vuetify.breakpoint.xsOnly"
           >
-            ¿Qué filtros deseas aplicar? <a href="www.joseincio.com">info</a>
+            ¿Qué filtros deseas aplicar? <a href="https://github.com/DecideBienpe/db-electoral-vue/blob/main/README.md">info</a>
           </h3>
           <!-- TODO -->
           <v-expansion-panels v-show="!$vuetify.breakpoint.xsOnly">
@@ -141,25 +141,6 @@
                       "
                     ></v-checkbox>
                     <small>Partidos donde la mayoría de su bancada voto por la vacancia</small>
-                  </v-col>
-                </v-row>
-              </v-expansion-panel-content>
-            </v-expansion-panel>
-            <v-expansion-panel>
-              <v-expansion-panel-header>
-                Medio Ambiente-Acuerdo de Escazú:
-              </v-expansion-panel-header>
-              <v-expansion-panel-content>
-                <v-row>
-                  <v-col>
-                    <v-checkbox
-                      v-model="f3"
-                      @change="updateURLQuery()"
-                      color="info"
-                      :label="
-                        `Descartar candidatos de partidos que votaron contra la ratificación de Escazú`
-                      "
-                    ></v-checkbox>
                   </v-col>
                 </v-row>
               </v-expansion-panel-content>
