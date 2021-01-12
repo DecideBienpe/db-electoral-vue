@@ -119,14 +119,14 @@
               updateURLQuery();
             "
           >
-            <v-icon left>mdi-alert</v-icon>D.Interna
+            <v-icon left>mdi-alert</v-icon>DemoInterna
           </v-chip>
           <v-divider v-show="!$vuetify.breakpoint.xsOnly" />
           <h3
             class="subheading font-weight-regular mb-2 mt2"
             v-show="!$vuetify.breakpoint.xsOnly"
           >
-            ¿Qué filtros deseas aplicar?
+            ¿Qué filtros deseas aplicar? <a href="https://github.com/DecideBienpe/db-electoral-vue/blob/main/README.md">info</a>
           </h3>
           <!-- TODO -->
           <v-expansion-panels
@@ -153,7 +153,7 @@
             </v-expansion-panel>
             <v-expansion-panel>
               <v-expansion-panel-header>
-                Descartar partidos que votaron por la vacancia:
+                Filtro-Vacancia:
               </v-expansion-panel-header>
               <v-expansion-panel-content>
                 <v-row>
@@ -166,6 +166,7 @@
                         `Descartar partidos que votaron por la vacancia (Noviembre 2019)`
                       "
                     ></v-checkbox>
+                    <small>Partidos donde la mayoría de su bancada voto por la vacancia</small>
                   </v-col>
                 </v-row>
               </v-expansion-panel-content>

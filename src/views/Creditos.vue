@@ -14,14 +14,14 @@
           <h4>Información y código</h4>
           <p>
             Para mayor información sobre la aplicación, filtros, e información
-            ingresa aquí
+            ingresa <a href="https://github.com/DecideBienpe/db-electoral-vue/blob/main/README.md">aquí</a>
           </p>
           <h4>Desarrolladores:</h4>
           <h5>Vue version</h5>
           <ul>
-            <li><a href="" target="_blank">Luis Salas (Github: zettai )</a></li>
+            <li><a href="https://github.com/zettai" target="_blank">Luis Salas (Github: zettai )</a></li>
             <li>
-              <a href="" target="_blank">Antonio Cucho (Github: antoniocuga)</a>
+              <a href="https://github.com/antoniocuga" target="_blank">Antonio Cucho (Github: antoniocuga)</a>
             </li>
             <li>
               <a href="https://www.joseincio.com" target="_blank"

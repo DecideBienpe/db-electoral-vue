@@ -10,6 +10,7 @@
     + Excluimos sentencias: Donde se disuelve el vínculo matrimonial o el candidato fue declarado absuelto.
 
 **Descartar listas de partidos que votaron por la vacancia**:
+- Consideramos que un partido votó por la vacancia cuando más de la mitad de su bancada en el congreso voto por la misma. 
 - Descartar partidos que votaron por la vacancia (Noviembre 2019):
     + field en la tabla: Vacancia. Valores: 1 = TRUE , 0|2 = FALSE
 

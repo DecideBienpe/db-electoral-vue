@@ -102,7 +102,7 @@
             class="subheading font-weight-regular mb-2 mt2"
             v-show="!$vuetify.breakpoint.xsOnly"
           >
-            ¿Qué filtros deseas aplicar?
+            ¿Qué filtros deseas aplicar? <a href="www.joseincio.com">info</a>
           </h3>
           <!-- TODO -->
           <v-expansion-panels v-show="!$vuetify.breakpoint.xsOnly">
@@ -127,7 +127,7 @@
             </v-expansion-panel>
             <v-expansion-panel>
               <v-expansion-panel-header>
-                Descartar partidos que votaron por la vacancia:
+                Filtro-Vacancia:
               </v-expansion-panel-header>
               <v-expansion-panel-content>
                 <v-row>
@@ -137,9 +137,10 @@
                       @change="updateURLQuery()"
                       color="info"
                       :label="
-                        `Descartar candidatos de partidos que votaron por la vacancia`
+                        `Descartar candidatos de partidos que votaron por la vacancia (Nov 2019)`
                       "
                     ></v-checkbox>
+                    <small>Partidos donde la mayoría de su bancada voto por la vacancia</small>
                   </v-col>
                 </v-row>
               </v-expansion-panel-content>
