@@ -10,19 +10,11 @@ const db = require("./models");
 const app = express();
 // const PORT = process.env.PORT;
 
-var whitelist = [
-  "http://localhost:3000",
-  "decidebienrepo.netlify.app",
-  "decidebien.pe"
-];
-
 function checkOrigin(origin) {
-  if (!origin) {
-    return true;
-  }
-  whitelist.forEach(item => {
-    if (origin.indexOf(item) > -1) return true;
-  });
+  if (!origin) return true;
+  if (origin.indexOf("localhost") > -1) return true;
+  if (origin.indexOf("decidebienrepo.netlify.app") > -1) return true;
+  if (origin.indexOf("decidebien.pe") > -1) return true;
   return false;
 }
 
