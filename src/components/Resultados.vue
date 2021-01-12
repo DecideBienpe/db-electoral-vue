@@ -1,7 +1,7 @@
 <template>
   <v-card class="pa-2 mx-2" v-show="currentRegion.region">
     <p class="text-center mt-5">
-      Revisa las siguientes listas que pasaron tus filtros
+      Revisa las listas que pasaron tus filtros
       <span @click.stop="dialog = true"
         ><v-icon left>mdi-information</v-icon>:
       </span>
@@ -28,11 +28,14 @@
       </v-dialog>
     </v-row>
 
-    <v-tabs centered v-model="tabs" :vertical="this.$vuetify.breakpoint.xsOnly">
-      <v-tabs-slider></v-tabs-slider>
-      <v-tab class="">Por Organización Política:</v-tab>
-      <v-tab class="">Candidatos por {{ showRegion }}:</v-tab>
-    </v-tabs>
+    <v-row>
+      <v-col>
+        <v-tabs grow v-model="tabs">
+          <v-tab class="">Por Organización Política:</v-tab>
+          <v-tab class="">Candidatos por {{ showRegion }}:</v-tab>
+        </v-tabs>    
+      </v-col>
+    </v-row>
 
     <v-tabs-items v-model="tabs">
       <v-tab-item>
@@ -57,13 +60,15 @@
                   }}
                 </v-icon>
               </h4>
-              <v-img contain
-                :src="require(`../assets/partidos/${partido.Imagen}`)"
-                height="95"
-                class="text-right pa-2"
-                :class="`filter-${partido.filter}`"
-              >
-              </v-img>
+              <a :href="`#/partidos/${render_url(partido.Partido)}`">
+                <v-img contain
+                  :src="require(`../assets/partidos/${partido.Imagen}`)"
+                  width="100%"
+                  class="text-right pa-2"
+                  :class="`filter-${partido.filter}`"
+                >
+                </v-img>
+              </a>
             </v-col>
           </v-row>
           <h2 v-if="partiesOthers.length > 0" class="mt-5 mb-5 text-center">
@@ -79,12 +84,14 @@
                 sm="2"
               >
                 <v-item>
-                  <v-img contain
-                    :src="require(`../assets/partidos/${partido.idOrgPol}.png`)"
-                    height="95"
-                    class="text-right pa-2"
-                  >
-                  </v-img>
+                  <a :href="`#/partidos/${render_url(partido.Partido)}`">
+                    <v-img contain
+                      :src="require(`../assets/partidos/${partido.idOrgPol}.png`)"
+                      width="100%"
+                      class="text-right pa-2"
+                    >
+                    </v-img>
+                  </a>
                 </v-item>
               </v-col>
             </v-row>
@@ -100,12 +107,14 @@
                 sm="2"
               >
                 <v-item>
-                  <v-img contain
-                    :src="require(`../assets/partidos/${partido.Imagen}`)"
-                    height="95"
-                    class="text-right pa-2"
-                  >
-                  </v-img>
+                  <a :href="`#/partidos/${render_url(partido.Partido)}`">
+                    <v-img contain
+                      :src="require(`../assets/partidos/${partido.Imagen}`)"
+                      width="100%"
+                      class="text-right pa-2"
+                    >
+                    </v-img>
+                  </a>
                 </v-item>
               </v-col>
             </v-row>
@@ -147,6 +156,7 @@
 
 <script>
 import { filter, map } from "lodash";
+import slugify from "slugify";
 
 export default {
   name: "resultados",
@@ -188,6 +198,9 @@ export default {
     getColor(field) {
       if (field == "Sin Sentencia") return "#a0a0a0";
       return "red";
+    },
+    render_url(partido) {
+      return slugify(partido).toLowerCase();
     }
   },
   computed: {

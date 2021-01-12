@@ -23,8 +23,8 @@
                   $vuetify.breakpoint.xsOnly &&
                     $route.path.includes('presidencia')
                 "
-                @click="filterButtonClicked()"
-                color="orange darken-4"
+                @click="drawerRight=!drawerRight"
+                color="red darken-4"
                 dark
               >
                 <span class="white--text pl-2">Filtra Aquí</span
@@ -98,14 +98,14 @@
             <v-icon left>mdi-alert</v-icon>DemoInterna
           </v-chip>
           <v-divider v-show="!$vuetify.breakpoint.xsOnly" />
-          <h3
-            class="subheading font-weight-regular mb-2 mt2"
+          <h4
+            class="mt-5 subheading font-weight-regular mb-2 mt2"
             v-show="!$vuetify.breakpoint.xsOnly"
           >
             ¿Qué filtros deseas aplicar? <a href="https://github.com/DecideBienpe/db-electoral-vue/blob/main/README.md">info</a>
-          </h3>
+          </h4>
           <!-- TODO -->
-          <v-expansion-panels v-show="!$vuetify.breakpoint.xsOnly">
+          <v-expansion-panels v-show="!$vuetify.breakpoint.xsOnly || drawerRight">
             <v-expansion-panel>
               <v-expansion-panel-header
                 >Candidatos con sentencias</v-expansion-panel-header
@@ -319,6 +319,7 @@ export default {
   // envolverlos en un objecto, por ex: checkboxes: {}
   data() {
     return {
+      drawerRight: false,
       tabs: 0,
       dialog: false,
       headers2: [

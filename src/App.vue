@@ -3,9 +3,9 @@
     <v-app-bar app clipped-right color="red">
       <v-app-bar-nav-icon class="white--text" @click.stop="drawer = !drawer" />
       <v-toolbar-title class="mr-12 align-center">
-        <a href="#/" class="text-decoration-none">
-          <span class="white--text title">
-            <img src="./assets/logo.png" width="40px" />decidebien.pe
+        <a href="#/">
+          <span class="white--text logo-text title">
+            <img src="./assets/logo.png" width="40px" /><span>decidebien.pe</span>
           </span>
         </a>
       </v-toolbar-title>

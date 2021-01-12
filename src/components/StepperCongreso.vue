@@ -169,9 +169,6 @@ export default {
       f5: false
     };
   },
-  created() {
-    this.$store.dispatch("getPartidos");
-  },
   methods: {
     filterPartidos(partido) {
       return (

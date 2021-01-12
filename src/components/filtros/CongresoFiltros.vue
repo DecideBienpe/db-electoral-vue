@@ -36,8 +36,8 @@
                 v-show="
                   $vuetify.breakpoint.xsOnly && $route.path.includes('congreso')
                 "
-                @click="filterButtonClicked()"
-                color="orange darken-4"
+                @click="drawerRight = !drawerRight"
+                color="red darken-4"
                 dark
               >
                 <span class="white--text pl-2">Filtra Aquí</span
@@ -126,12 +126,16 @@
             class="subheading font-weight-regular mb-2 mt2"
             v-show="!$vuetify.breakpoint.xsOnly"
           >
-            ¿Qué filtros deseas aplicar? <a href="https://github.com/DecideBienpe/db-electoral-vue/blob/main/README.md">info</a>
+            ¿Qué filtros deseas aplicar?
+            <a
+              href="https://github.com/DecideBienpe/db-electoral-vue/blob/main/README.md"
+              >info</a
+            >
           </h3>
           <!-- TODO -->
           <v-expansion-panels
             v-bind:disabled="!noRegionSelected"
-            v-show="!$vuetify.breakpoint.xsOnly"
+            v-show="!$vuetify.breakpoint.xsOnly || drawerRight"
           >
             <v-expansion-panel>
               <v-expansion-panel-header
@@ -166,7 +170,10 @@
                         `Descartar partidos que votaron por la vacancia (Noviembre 2019)`
                       "
                     ></v-checkbox>
-                    <small>Partidos donde la mayoría de su bancada voto por la vacancia</small>
+                    <small
+                      >Partidos donde la mayoría de su bancada voto por la
+                      vacancia</small
+                    >
                   </v-col>
                 </v-row>
               </v-expansion-panel-content>
@@ -255,6 +262,7 @@ export default {
   // envolverlos en un objecto, por ex: checkboxes: {}
   data() {
     return {
+      drawerRight: false,
       dialog: false,
       currentRegion: {
         default: {}
@@ -314,6 +322,7 @@ export default {
     filtroTabla1() {
       return this.uniqueFilter(
         this.listas
+          .filter(this.regionFilter)
           .filter(this.sentencia1Filter)
           .filter(this.sentencia2Filter)
           .filter(this.genero1Filter)
@@ -436,7 +445,9 @@ export default {
             f2: this.f2,
             f3: this.f3,
             f4: this.f4,
-            f5: this.f5
+            f5: this.f5,
+            favs: this.$route.query.favs,
+            candidatos: this.$route.query.candidatos
           }
         });
       }
