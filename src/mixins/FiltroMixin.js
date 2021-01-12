@@ -48,7 +48,7 @@ export default {
     },
     genero1Filter: function(lista) {
       if (this.f3) {
-        return lista.Pmujeres != 1;
+        return lista.Pmujeres == 1;
       } else {
         return true;
       }
