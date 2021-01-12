@@ -1,9 +1,8 @@
 <template>
   <v-container>
-    <v-flex xs12 md6 pt-4>
+    <v-flex xs12 md6 pt-4 mx-auto>
       <v-card height="100%">
-        <v-card-text class="px-4">
-          <br /><br />
+        <v-card-text class="px-4 pt-5">
           <h4>Responsables</h4>
           <p>
             Esta plataforma fue iniciada por
@@ -49,7 +48,7 @@
         </v-card-text>
       </v-card>
     </v-flex>
-    <v-flex xs12 md6 pt-4>
+    <v-flex xs12 md6 pt-4 mx-auto>
       <v-card height="100%">
         <v-card-title primary-title>
           <div>

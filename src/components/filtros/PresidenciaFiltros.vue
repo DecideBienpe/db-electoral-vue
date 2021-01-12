@@ -169,31 +169,21 @@
       </v-flex>
       <!-- TODO -->
       <v-flex md8>
-        <v-tabs
-          centered
-          v-model="tabs"
-          :vertical="this.$vuetify.breakpoint.xsOnly"
-        >
-          <v-tabs-slider></v-tabs-slider>
+        <v-tabs centered v-model="tabs">
           <v-tab class="">Candidatos:</v-tab>
           <v-tab class="">Detalles:</v-tab>
         </v-tabs>
-        <v-tabs-items v-model="tabs">
+        <v-tabs-items v-model="tabs" class="mt-5">
           <v-tab-item>
             <v-card class="presidentes">
               <h2>Candidatos favoritos</h2>
               <v-row class="mb-5">
                 <v-col
                   v-for="(candidato, i) in candidatesFavs"
-                  :key="i"
-                  cols="4"
-                  md="2"
-                  sm="4"
-                  xs="4"
-                >
-                  <h2 class="candidato-name">{{ candidato.Nombre }}</h2>
+                  :key="i" cols="6" lg="2" md="4">
+                  <h2 class="candidato-name text-center">{{ candidato.Nombre }}</h2>
                   <h4
-                    class="candidato-filter text-center"
+                    class="candidato-filter text-center my-3 py-1"
                     :class="`filter-${candidato.filter}`"
                   >
                     {{
@@ -207,7 +197,7 @@
                       }}
                     </v-icon>
                   </h4>
-                  <v-img
+                  <v-img contain
                     :src="
                       require(`../../assets/presidenciales/${candidato.ID}.png`)
                     "
@@ -215,11 +205,11 @@
                     class="text-right pa-2"
                   >
                   </v-img>
-                  <v-img
+                  <v-img contain
                     :src="
                       require(`../../assets/partidos/${candidato.idOrgPol}.png`)
                     "
-                    class="text-right"
+                    class="mt-2 mx-2"
                   >
                   </v-img>
                 </v-col>
@@ -229,14 +219,9 @@
               <v-row class="mb-5">
                 <v-col
                   v-for="(candidato, i) in filtroTabla1"
-                  :key="i"
-                  cols="4"
-                  md="2"
-                  sm="4"
-                  xs="4"
-                >
-                  <h2 class="candidato-name">{{ candidato.Nombre }}</h2>
-                  <v-img
+                  :key="i" cols="6" lg="2" md="4">
+                  <h2 class="candidato-name text-center">{{ candidato.Nombre }}</h2>
+                  <v-img contain
                     :src="
                       require(`../../assets/presidenciales/${candidato.ID}.png`)
                     "
@@ -244,11 +229,11 @@
                     class="text-right pa-2"
                   >
                   </v-img>
-                  <v-img
+                  <v-img contain
                     :src="
                       require(`../../assets/partidos/${candidato.idOrgPol}.png`)
                     "
-                    class="text-right"
+                    class="mt-2 mx-2"
                   >
                   </v-img>
                 </v-col>
@@ -258,14 +243,9 @@
               <v-row>
                 <v-col
                   v-for="(candidato, i) in others"
-                  :key="i"
-                  cols="4"
-                  md="2"
-                  sm="4"
-                  xs="4"
-                >
-                  <h2 class="candidato-name">{{ candidato.Nombre }}</h2>
-                  <v-img
+                  :key="i" cols="6" lg="2" md="4">
+                  <h2 class="candidato-name text-center">{{ candidato.Nombre }}</h2>
+                  <v-img contain
                     :src="
                       require(`../../assets/presidenciales/${candidato.ID}.png`)
                     "
@@ -273,11 +253,11 @@
                     class="text-right pa-2"
                   >
                   </v-img>
-                  <v-img
+                  <v-img contain 
                     :src="
                       require(`../../assets/partidos/${candidato.idOrgPol}.png`)
                     "
-                    class="text-right"
+                    class="mt-2 mx-2"
                   >
                   </v-img>
                 </v-col>
@@ -438,7 +418,6 @@ export default {
     },
     filtroTablaDetalles() {
       return filter(this.listasFiltered, item => {
-        console.log("item", item);
         return item;
       });
     },

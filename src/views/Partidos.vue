@@ -22,7 +22,7 @@
         </div>
         <div class="item-info">
           <h4>Promedio de ingresos anuales (candidatos al congreso)</h4>
-          <div>S/.{{ resumen.PromedioIngr.toFixed(2) }}</div>
+          <div>S/ {{ resumen.PromedioIngr.toFixed(2) }}</div>
         </div>
         <div class="item-info">
           <h4>Paridad</h4>
@@ -34,7 +34,7 @@
         </div>
 
       </v-col>
-      <v-col cols="12" md="9" class="align-self-center">
+      <v-col cols="12" md="9">
         <v-row>
           <v-col>
             <b>Plancha presidencial</b>

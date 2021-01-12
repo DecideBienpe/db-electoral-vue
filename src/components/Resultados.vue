@@ -57,7 +57,7 @@
                   }}
                 </v-icon>
               </h4>
-              <v-img
+              <v-img contain
                 :src="require(`../assets/partidos/${partido.Imagen}`)"
                 height="95"
                 class="text-right pa-2"
@@ -79,7 +79,7 @@
                 sm="2"
               >
                 <v-item>
-                  <v-img
+                  <v-img contain
                     :src="require(`../assets/partidos/${partido.idOrgPol}.png`)"
                     height="95"
                     class="text-right pa-2"
@@ -100,7 +100,7 @@
                 sm="2"
               >
                 <v-item>
-                  <v-img
+                  <v-img contain
                     :src="require(`../assets/partidos/${partido.Imagen}`)"
                     height="95"
                     class="text-right pa-2"
