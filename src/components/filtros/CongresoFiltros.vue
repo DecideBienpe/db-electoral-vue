@@ -36,7 +36,7 @@
                 v-show="
                   $vuetify.breakpoint.xsOnly && $route.path.includes('congreso')
                 "
-                @click="drawerRight=!drawerRight"
+                @click="drawerRight = !drawerRight"
                 color="red darken-4"
                 dark
               >
@@ -126,7 +126,11 @@
             class="subheading font-weight-regular mb-2 mt2"
             v-show="!$vuetify.breakpoint.xsOnly"
           >
-            ¿Qué filtros deseas aplicar? <a href="https://github.com/DecideBienpe/db-electoral-vue/blob/main/README.md">info</a>
+            ¿Qué filtros deseas aplicar?
+            <a
+              href="https://github.com/DecideBienpe/db-electoral-vue/blob/main/README.md"
+              >info</a
+            >
           </h3>
           <!-- TODO -->
           <v-expansion-panels
@@ -166,7 +170,10 @@
                         `Descartar partidos que votaron por la vacancia (Noviembre 2019)`
                       "
                     ></v-checkbox>
-                    <small>Partidos donde la mayoría de su bancada voto por la vacancia</small>
+                    <small
+                      >Partidos donde la mayoría de su bancada voto por la
+                      vacancia</small
+                    >
                   </v-col>
                 </v-row>
               </v-expansion-panel-content>
@@ -438,7 +445,9 @@ export default {
             f2: this.f2,
             f3: this.f3,
             f4: this.f4,
-            f5: this.f5
+            f5: this.f5,
+            favs: this.$route.query.favs,
+            candidatos: this.$route.query.candidatos
           }
         });
       }
