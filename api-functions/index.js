@@ -12,13 +12,24 @@ const app = express();
 
 var whitelist = [
   "http://localhost:3000",
-  "https://decidebienrepo.netlify.app",
-  "https://decidebien.pe"
+  "decidebienrepo.netlify.app",
+  "decidebien.pe"
 ];
+
+function checkOrigin(origin) {
+  if (!origin) {
+    return true;
+  }
+  whitelist.forEach(item => {
+    if (origin.indexOf(item) > -1) return true;
+  });
+  return false;
+}
+
 var corsOptions = {
   origin: function(origin, callback) {
     console.log("origin", origin);
-    if (whitelist.indexOf(origin) !== -1 || !origin) {
+    if (checkOrigin(origin)) {
       callback(null, true);
     } else {
       callback(new Error("Not allowed by CORS"));
