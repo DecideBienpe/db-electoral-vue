@@ -137,7 +137,7 @@
                       @change="updateURLQuery()"
                       color="info"
                       :label="
-                        `Descartar candidatos de partidos que votaron por la vacancia (Nov 2019)`
+                        `Descartar candidatos de partidos que votaron por la vacancia (Nov 2020)`
                       "
                     ></v-checkbox>
                     <small>Partidos donde la mayoría de su bancada voto por la vacancia</small>
