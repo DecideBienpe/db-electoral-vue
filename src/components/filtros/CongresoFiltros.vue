@@ -11,7 +11,7 @@
             {{ currentRegion.region }}
           </div>
           <div class="curul-selected">
-            Se eligiran {{ currentRegion.curul }} congresistas
+            Se eligirán {{ currentRegion.curul }} congresistas
           </div>
         </div>
       </v-col>
