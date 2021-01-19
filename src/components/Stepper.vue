@@ -61,7 +61,7 @@
             v-model="f2"
             :label="
               `
-              Descartar candidatos de partidos que votaron por la vacancia presidencial (Noviembre 2019)
+              Descartar candidatos de partidos que votaron por la vacancia presidencial (Noviembre 2020)
               `
             "
           ></v-checkbox>

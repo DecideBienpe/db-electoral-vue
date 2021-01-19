@@ -167,7 +167,7 @@
                       @change="updateURLQuery()"
                       color="info"
                       :label="
-                        `Descartar partidos que votaron por la vacancia (Noviembre 2019)`
+                        `Descartar partidos que votaron por la vacancia (Noviembre 2020)`
                       "
                     ></v-checkbox>
                     <small
