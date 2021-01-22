@@ -106,6 +106,18 @@
               `Descartar listas que lleven candidatos con sentencias judicial`
             "
           ></v-checkbox>
+            <v-checkbox
+            v-model="f6"
+            :label="
+              `Descartar listas que tengan deudas con la SUNAT (coactivas)`
+            "
+          ></v-checkbox>
+            <v-checkbox
+            v-model="f7"
+            :label="
+              `Descartar listas con candidatos con dirección en otra region`
+            "
+          ></v-checkbox>
           <v-checkbox
             v-model="f2"
             :label="
