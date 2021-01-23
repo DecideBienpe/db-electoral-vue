@@ -202,6 +202,7 @@ export default {
             f3: this.f3,
             f4: this.f4,
             f5: this.f5,
+            f6: this.f6,
             favs: this.partidosFavoritos.join(","),
             stepper: "congreso"
           }
