@@ -76,7 +76,7 @@
             </div>
             <div class="congresistas">
               <span>{{ p.Numero }}</span>
-              <div @click="openInfo(p)">{{ p.Nombre }}</div>
+              <div class="name" @click="openInfo(p)">{{ p.Nombre }}</div>
             </div>
           </v-col>
         </v-row>
