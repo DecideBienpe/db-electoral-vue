@@ -178,7 +178,9 @@ export default {
       f2: false,
       f3: false,
       f4: false,
-      f5: false
+      f5: false,
+      f6: false,
+      f7: false
     };
   },
   methods: {
@@ -203,6 +205,7 @@ export default {
             f4: this.f4,
             f5: this.f5,
             f6: this.f6,
+            f7: this.f7,
             favs: this.partidosFavoritos.join(","),
             stepper: "congreso"
           }

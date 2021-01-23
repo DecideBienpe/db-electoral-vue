@@ -71,14 +71,14 @@ export default {
     },
     sunatFilter: function(lista) {
       if (this.f6) {
-        return lista.DS == 1;
+        return lista.DS == 0;
       } else {
         return true;
       }
     },
     golondrinosFilter: function(lista) {
       if (this.f7) {
-        return lista.Dom == 1;
+        return lista.Dom == 0;
       } else {
         return true;
       }
