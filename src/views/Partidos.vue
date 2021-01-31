@@ -114,7 +114,7 @@
 </template>
 
 <script>
-import { find, filter, map, uniq } from "lodash";
+import { find, filter, map, sortBy, uniq } from "lodash";
 import slugify from "slugify";
 
 export default {
@@ -153,7 +153,7 @@ export default {
       );
     },
     congresistas() {
-      return filter(this.$store.state.listas, item => {
+      return sortBy(filter(this.$store.state.listas, item => {
         if (item.idOrgPol == this.idPartido.IDPartido) {
           if (
             this.currentRegion != "Todos las regiones" &&
@@ -166,7 +166,7 @@ export default {
             return item;
           }
         }
-      });
+      }), 'Numero');
     }
   },
   methods: {
