@@ -201,9 +201,18 @@ export default {
     },
     render_url(partido) {
       return slugify(partido).toLowerCase();
+    },
+    filterPartidos(partido) {
+      return (
+        this.currentRegion.idOrgPol &&
+        this.currentRegion.idOrgPol.includes(partido.IDPartido.toString())
+      );
     }
   },
   computed: {
+    partidosFiltered() {
+      return this.$store.state.partidos.filter(this.filterPartidos);
+    },
     showRegion() {
       return this.currentRegion.region;
     },
@@ -214,7 +223,7 @@ export default {
       if (!this.$route.query.favs) return false;
 
       let partidos = this.$route.query.favs.split(",");
-      return filter(this.$store.state.partidos, item => {
+      return filter(this.partidosFiltered, item => {
         if (partidos.indexOf(`${item.IDPartido}`) > -1) {
           return item;
         }
@@ -235,7 +244,7 @@ export default {
     },
     partiesSelectedNoFilter() {
       let partidos = this.$route.query.favs.split(",");
-      return filter(this.$store.state.partidos, item => {
+      return filter(this.partidosFiltered, item => {
         if (partidos.indexOf(`${item.IDPartido}`) > -1) {
           return item;
         }
@@ -251,7 +260,7 @@ export default {
     },
     others() {
       let partidos = this.$route.query.favs.split(",");
-      return filter(this.$store.state.partidos, item => {
+      return filter(this.partidosFiltered, item => {
         if (this.idsPartidosFilter.indexOf(`${item.IDPartido}`) == -1) {
           if (partidos.indexOf(`${item.IDPartido}`) == -1) return item;
         }

@@ -76,20 +76,45 @@
             </div>
             <div class="congresistas">
               <span>{{ p.Numero }}</span>
-              {{ p.Nombre }}
+              <div class="name" @click="openInfo(p)">{{ p.Nombre }}</div>
             </div>
           </v-col>
         </v-row>
       </v-col>
     </v-row>
-    <v-row>
-      <v-col> </v-col>
-    </v-row>
+    <v-dialog
+    v-model="dialog"
+    width="500"    
+    >
+      <v-card class="dialog-candidate">
+        <v-card-title class="grey lighten-2">
+         <h3>{{ currentCandidate.Numero }} - {{ currentCandidate.Nombre }}</h3>
+         <h5>{{ currentCandidate.Region }}</h5>
+        </v-card-title>
+        <v-card-text>
+          <div class="p-3">Edad: {{ currentCandidate.Edad }}</div>
+          <div>Estudios: {{ currentCandidate.Estudios }}</div>
+          <div>Experiencia: {{ currentCandidate.Experiencia }}</div>
+          <div>Tipo democracia: {{ currentCandidate.TipoDemocracia }}</div>
+          <div>Sentencia: {{ currentCandidate.Sentencia }}</div>
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn
+            color="primary"
+            text
+            @click="dialog = false"
+          >
+            Cerrar
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </v-container>
 </template>
 
 <script>
-import { find, filter, map, uniq } from "lodash";
+import { find, filter, map, sortBy, uniq } from "lodash";
 import slugify from "slugify";
 
 export default {
@@ -128,7 +153,7 @@ export default {
       );
     },
     congresistas() {
-      return filter(this.$store.state.listas, item => {
+      return sortBy(filter(this.$store.state.listas, item => {
         if (item.idOrgPol == this.idPartido.IDPartido) {
           if (
             this.currentRegion != "Todos las regiones" &&
@@ -141,11 +166,19 @@ export default {
             return item;
           }
         }
-      });
+      }), 'Numero');
+    }
+  },
+  methods: {
+    openInfo(p) {
+      this.dialog = true;
+      this.currentCandidate = p
     }
   },
   data() {
     return {
+      dialog: false,
+      currentCandidate: {},
       currentRegion: "Todos las regiones"
     };
   }

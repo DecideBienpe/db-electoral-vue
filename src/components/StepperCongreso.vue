@@ -106,6 +106,18 @@
               `Descartar listas que lleven candidatos con sentencias judicial`
             "
           ></v-checkbox>
+            <v-checkbox
+            v-model="f6"
+            :label="
+              `Descartar listas que tengan deudas con la SUNAT (coactivas)`
+            "
+          ></v-checkbox>
+            <v-checkbox
+            v-model="f7"
+            :label="
+              `Descartar listas con candidatos con dirección en otra region`
+            "
+          ></v-checkbox>
           <v-checkbox
             v-model="f2"
             :label="
@@ -166,7 +178,9 @@ export default {
       f2: false,
       f3: false,
       f4: false,
-      f5: false
+      f5: false,
+      f6: false,
+      f7: false
     };
   },
   methods: {
@@ -190,6 +204,8 @@ export default {
             f3: this.f3,
             f4: this.f4,
             f5: this.f5,
+            f6: this.f6,
+            f7: this.f7,
             favs: this.partidosFavoritos.join(","),
             stepper: "congreso"
           }

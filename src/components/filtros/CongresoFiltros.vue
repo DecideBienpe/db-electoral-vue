@@ -11,7 +11,7 @@
             {{ currentRegion.region }}
           </div>
           <div class="curul-selected">
-            Se eligiran {{ currentRegion.curul }} congresistas
+            Se eligirán {{ currentRegion.curul }} congresistas
           </div>
         </div>
       </v-col>
@@ -97,7 +97,7 @@
               updateURLQuery();
             "
           >
-            <v-icon left>mdi-alert</v-icon>Paridad
+            <v-icon left>mdi-alert</v-icon>Genero
           </v-chip>
           <v-chip
             v-if="f4"
@@ -121,16 +121,37 @@
           >
             <v-icon left>mdi-alert</v-icon>DemoInterna
           </v-chip>
+          <v-chip
+            v-if="f6"
+            class="ma-2"
+            close
+            @click:close="
+              f6 = false;
+              updateURLQuery();
+            "
+          >
+            <v-icon left>mdi-alert</v-icon>Deudores
+          </v-chip>
+          <v-chip
+            v-if="f7"
+            class="ma-2"
+            close
+            @click:close="
+              f7 = false;
+              updateURLQuery();
+            "
+          >
+            <v-icon left>mdi-alert</v-icon>Golondrinos
+          </v-chip>
           <v-divider v-show="!$vuetify.breakpoint.xsOnly" />
           <h3
             class="subheading font-weight-regular mb-2 mt2"
             v-show="!$vuetify.breakpoint.xsOnly"
           >
             ¿Qué filtros deseas aplicar?
-            <a
-              href="https://github.com/DecideBienpe/db-electoral-vue/blob/main/README.md"
-              >info</a
-            >
+            <a 
+            href="https://github.com/DecideBienpe/db-electoral-vue/blob/main/README.md">
+            info</a>
           </h3>
           <!-- TODO -->
           <v-expansion-panels
@@ -139,8 +160,8 @@
           >
             <v-expansion-panel>
               <v-expansion-panel-header
-                >Descartar listas que lleven candidatos con
-                sentencias</v-expansion-panel-header
+                >Filtro: candidatos con:
+                sentenciados, deudores y golondrinos</v-expansion-panel-header
               >
               <v-expansion-panel-content>
                 <v-row>
@@ -153,11 +174,32 @@
                     ></v-checkbox>
                   </v-col>
                 </v-row>
+                <v-row>
+                  <v-col>
+                    <v-checkbox
+                      v-model="f6"
+                      @change="updateURLQuery()"
+                      color="info"
+                      :label="`Descartar listas con deudores a SUNAT`"
+                    ></v-checkbox>
+                    <small>fuente: informe de <a href="https://elcomercio.pe/elecciones-2020/elecciones-2020-hay-106-candidatos-que-son-deudores-coactivos-de-sunat-congreso-noticia/" target="_blank">El Comercio</a></small>
+                  </v-col>
+                </v-row>
+                <v-row>
+                  <v-col>
+                    <v-checkbox
+                      v-model="f7"
+                      @change="updateURLQuery()"
+                      color="info"
+                      :label="`Descartar listas con candidatos con residencia en otro departamento`"
+                    ></v-checkbox>
+                  </v-col>
+                </v-row>
               </v-expansion-panel-content>
             </v-expansion-panel>
             <v-expansion-panel>
               <v-expansion-panel-header>
-                Filtro-Vacancia:
+                Filtro: Vacancia, Democracia Interna:
               </v-expansion-panel-header>
               <v-expansion-panel-content>
                 <v-row>
@@ -174,6 +216,26 @@
                       >Partidos donde la mayoría de su bancada voto por la
                       vacancia</small
                     >
+                  </v-col>
+                  </v-row>
+                  <v-row>
+                  <v-col>
+                    <v-checkbox
+                      v-model="f4"
+                      @change="updateURLQuery()"
+                      color="info"
+                      :label="
+                        `Descartar listas donde el número 1 no fue electo en democracia interna`
+                      "
+                    ></v-checkbox>
+                    <v-checkbox
+                      v-model="f5"
+                      @change="updateURLQuery()"
+                      color="info"
+                      :label="
+                        `Descartar listas cuyas elecciones internas fueron por delegados`
+                      "
+                    ></v-checkbox>
                   </v-col>
                 </v-row>
               </v-expansion-panel-content>
@@ -192,35 +254,6 @@
                       color="info"
                       :label="
                         `Descartar listas cuya cabeza de lista NO es mujer`
-                      "
-                    ></v-checkbox>
-                  </v-col>
-                </v-row>
-              </v-expansion-panel-content>
-            </v-expansion-panel>
-
-            <v-expansion-panel>
-              <v-expansion-panel-header
-                >Descartar listas que NO promuevan democracia
-                interna</v-expansion-panel-header
-              >
-              <v-expansion-panel-content>
-                <v-row>
-                  <v-col>
-                    <v-checkbox
-                      v-model="f4"
-                      @change="updateURLQuery()"
-                      color="info"
-                      :label="
-                        `Descartar listas donde el número 1 no fue electo en democracia interna`
-                      "
-                    ></v-checkbox>
-                    <v-checkbox
-                      v-model="f5"
-                      @change="updateURLQuery()"
-                      color="info"
-                      :label="
-                        `Descartar listas cuyas elecciones internas fueron por delegados`
                       "
                     ></v-checkbox>
                   </v-col>
@@ -310,6 +343,22 @@ export default {
         this.$store.commit("updateFiltro5", value);
       }
     },
+    f6: {
+      get() {
+        return this.$store.state.filtros.f6;
+      },
+      set(value) {
+        this.$store.commit("updateFiltro6", value);
+      }
+    },
+    f7: {
+      get() {
+        return this.$store.state.filtros.f7;
+      },
+      set(value) {
+        this.$store.commit("updateFiltro7", value);
+      }
+    },
     noRegionSelected() {
       return !!this.currentRegion.region;
     },
@@ -327,7 +376,9 @@ export default {
           .filter(this.sentencia2Filter)
           .filter(this.genero1Filter)
           .filter(this.militantesFilter)
-          .filter(this.agendaFilter),
+          .filter(this.agendaFilter)
+          .filter(this.sunatFilter)
+          .filter(this.golondrinosFilter),
         "Partido"
       );
     },
@@ -338,7 +389,9 @@ export default {
         .filter(this.sentencia2Filter)
         .filter(this.genero1Filter)
         .filter(this.militantesFilter)
-        .filter(this.agendaFilter);
+        .filter(this.agendaFilter)
+        .filter(this.sunatFilter)
+        .filter(this.golondrinosFilter);
     }
   },
   methods: {
@@ -380,7 +433,9 @@ export default {
         this.f2 == false &&
         this.f3 == false &&
         this.f4 == false &&
-        this.f5 == false
+        this.f5 == false &&
+        this.f6 == false &&
+        this.f7 == false
       ) {
         return;
       } else {
@@ -389,11 +444,13 @@ export default {
         this.f3 = false;
         this.f4 = false;
         this.f5 = false;
+        this.f6 = false;
+        this.f7 = false;
         this.updateURLQuery();
       }
     },
     noFiltrosUsed() {
-      return this.f1 || this.f2 || this.f3 || this.f4 || this.f5;
+      return this.f1 || this.f2 || this.f3 || this.f4 || this.f5 || this.f6 || this.f7;
     },
     // Este metodo actualiza el url cuando los checkboxes cambian
     updateURLQuery() {
@@ -406,7 +463,11 @@ export default {
         this.f3 === false ||
         this.f4 === true ||
         this.f4 === false ||
-        this.f5 === true
+        this.f5 === true ||
+        this.f5 === false ||
+        this.f6 === true ||
+        this.f6 === false ||
+        this.f7 === true
       ) {
         // TODO: refactorizar para evitar el error. Baja prioridad.
         // .push bota un error en el console cuando se trata ir al mismo route existente,
@@ -422,6 +483,8 @@ export default {
               f3: this.f3,
               f4: this.f4,
               f5: this.f5,
+              f6: this.f6,
+              f7: this.f7,
               favs: this.$route.query.favs,
               candidatos: this.$route.query.candidatos,
               stepper: this.$route.query.stepper
@@ -446,6 +509,8 @@ export default {
             f3: this.f3,
             f4: this.f4,
             f5: this.f5,
+            f6: this.f6,
+            f7: this.f7,
             favs: this.$route.query.favs,
             candidatos: this.$route.query.candidatos
           }
@@ -472,6 +537,8 @@ export default {
           this.f3 = queryParams.f3.toString() === "true";
           this.f4 = queryParams.f4.toString() === "true";
           this.f5 = queryParams.f5.toString() === "true";
+          this.f6 = queryParams.f6.toString() === "true";
+          this.f7 = queryParams.f7.toString() === "true";
           this.sendToGA();
           this.reAttachTwitterButton();
         }
