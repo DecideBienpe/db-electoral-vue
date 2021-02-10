@@ -17,27 +17,21 @@
 
 **Descartar listas de partidos que votaron por la vacancia**:
 
-- Consideramos que un partido votó por la vacancia cuando más de la mitad de su bancada en el congreso voto por la misma. 
-- Descartar partidos que votaron por la vacancia (Noviembre- 2020):
+- Consideramos que un partido apoya o votó por la vacancia si se cumple una de estas dos condiciones: 
+    - Si más de la mitad de su bancada en el congreso voto por la misma. 
+    - Si el candidato presidencial se apoyó abierta y públicamente la vacancia presidencial ocurrida en Noviembre del 2020. Bajo esta condición hemos incluído a los partidos:
+        - ["Renovación Popular" !](https://peru21.pe/politica/martin-vizcarra-rafael-lopez-aliaga-renovacion-popular-exige-al-congreso-la-vacancia-presidencial-nndc-noticia/)
+        - ["APRA"](https://twitter.com/nidiavilchez/status/1325807437614559233)
     + campo en la tabla: Vacancia. Valores: 1 = TRUE , 0|2 = FALSE
 
 **Descartar listas que NO promuevan la equidad de género**
-- Descartar listas sin paridad (50%) (incluido): 
-    + campo en la tabla: Pmujeres.Valores:  <0.45 TRUE, Else FALSE
-- Descartar listas sin alternancia  
+- Descartar listas cuya cabeza de lista no es mujer: 
+    + campo en la tabla: Mujer1: 1 = TRUE, 0 = FALSE
 
 **Descartar listas que NO promuevan democracia interna**:  
 - Descartar listas donde el número 1 no fue electo en democracia interna.(incluido):
     + campo en la tabla: CABEZAD.Valores:  1 = TRUE, 0 FALSE
 - Descartar listas cuyas primarias fueron por delegados.
-
-### Filtros Pendientes:
-
-**Descartar listas de partidos que NO votaron por la reforma política**:
-- Descartar partidos que no apoyaron la reforma política
-
-**Descartar listas de partidos que NO apoyaron la reforma política**:
-- Partidos que no votaron por la ley XXX, Ley XXXX
 
 ## Presidenciales
 
@@ -50,9 +44,8 @@
 - Descartar candidatos de partidos que votaron por la vacancia:
     + campo en la tabla: Vacancia. Valores: 1 = TRUE , 0|2 = FALSE
 
-**Descartar candidatos de partidos que votaron contra la ratificación de escazú**
-- Descartar candidatos de partidos que votaron por la vacancia:
-    + campo en la tabla: Vacancia. Valores: 1 = TRUE , 0|2 = FALSE
-    
+**Descartar listas que NO promuevan democracia interna**:
+- Descartar listas cuyas primarias fueron por delegados.
+
     
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.
