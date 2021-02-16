@@ -4,6 +4,14 @@
       <v-card height="100%">
         <v-card-text class="px-4">
           <br /><br />
+          <h4>Fuentes</h4>
+          <p>
+          Toda la información utilizada proviene de:
+          <ul>
+          <li> <a href="https://plataformaelectoral.jne.gob.pe/ListaDeCandidatos/index" target="_blank">JNE</a></li>
+          <li> <a href="https://elcomercio.pe/elecciones-2020/elecciones-2020-hay-106-candidatos-que-son-deudores-coactivos-de-sunat-congreso-noticia/" target= "_blank">El Comercio</a></li>
+          </ul>
+          </p>
           <h4>Responsables</h4>
           <p>
             Esta plataforma fue iniciada por
