@@ -83,6 +83,13 @@ export default {
         return true;
       }
     },
+    vgateFilter: function(lista) {
+      if (this.f8) {
+        return lista.vgate == 0;
+      } else {
+        return true;
+      }
+    },
     regionFilter: function(lista) {
       return lista.Region === this.currentRegion.region;
     },

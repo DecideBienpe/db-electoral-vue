@@ -34,6 +34,8 @@ exports.getAllCandidatos = async (req, res, next) => {
       "Cod",
       "FlagSP",
       "DI",
+      "DS",
+      "Dom",
       "idOrgPol",
       "vgate"
     ],
