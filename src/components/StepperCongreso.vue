@@ -138,6 +138,12 @@
                 `Descartar listas cuyas primarias fueron por delegados y no por voto universal-directo`
               "
             ></v-checkbox>
+            <v-checkbox
+              v-model="f8"
+              :label="
+                `Descartar listas que lleven al menos un candidato vacunado irregularmente`
+              "
+            ></v-checkbox>
           </div>
           <v-btn form="check-candidatos" type="submit" color="primary">
             Ver partidos
@@ -176,7 +182,8 @@ export default {
       f4: false,
       f5: false,
       f6: false,
-      f7: false
+      f7: false,
+      f8: false
     };
   },
   methods: {
@@ -202,6 +209,7 @@ export default {
             f5: this.f5,
             f6: this.f6,
             f7: this.f7,
+            f8: this.f8,
             favs: this.partidosFavoritos.join(","),
             stepper: "congreso"
           }
