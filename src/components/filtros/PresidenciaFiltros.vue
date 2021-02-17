@@ -23,7 +23,7 @@
                   $vuetify.breakpoint.xsOnly &&
                     $route.path.includes('presidencia')
                 "
-                @click="drawerRight=!drawerRight"
+                @click="drawerRight = !drawerRight"
                 color="red darken-4"
                 dark
               >
@@ -102,10 +102,16 @@
             class="mt-5 subheading font-weight-regular mb-2 mt2"
             v-show="!$vuetify.breakpoint.xsOnly"
           >
-            ¿Qué filtros deseas aplicar? <a href="https://github.com/DecideBienpe/db-electoral-vue/blob/main/README.md">info</a>
+            ¿Qué filtros deseas aplicar?
+            <a
+              href="https://github.com/DecideBienpe/db-electoral-vue/blob/main/README.md"
+              >info</a
+            >
           </h4>
           <!-- TODO -->
-          <v-expansion-panels v-show="!$vuetify.breakpoint.xsOnly || drawerRight">
+          <v-expansion-panels
+            v-show="!$vuetify.breakpoint.xsOnly || drawerRight"
+          >
             <v-expansion-panel>
               <v-expansion-panel-header
                 >Candidatos con sentencias</v-expansion-panel-header
@@ -140,7 +146,10 @@
                         `Descartar candidatos de partidos que votaron por la vacancia (Nov 2020)`
                       "
                     ></v-checkbox>
-                    <small>Partidos donde la mayoría de su bancada voto por la vacancia</small>
+                    <small
+                      >Partidos donde la mayoría de su bancada voto por la
+                      vacancia</small
+                    >
                   </v-col>
                 </v-row>
               </v-expansion-panel-content>
@@ -225,7 +234,9 @@
                 </v-col>
               </v-row>
 
-              <h2 v-if="filtroTabla1.length > 0">Otros candidatos que pasaron el filtro</h2>
+              <h2 v-if="filtroTabla1.length > 0">
+                Otros candidatos que pasaron el filtro
+              </h2>
               <v-row class="mb-5">
                 <v-col
                   v-for="(candidato, i) in filtroTabla1"

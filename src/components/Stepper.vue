@@ -52,27 +52,27 @@
         <v-stepper-content step="2">
           <div class="filters-container">
             <v-checkbox
-            v-model="f1"
-            :label="
-              `Descartar planchas con candidatos con sentencias declaradas`
-            "
-          ></v-checkbox>
-          <v-checkbox
-            v-model="f2"
-            :label="
-              `
+              v-model="f1"
+              :label="
+                `Descartar planchas con candidatos con sentencias declaradas`
+              "
+            ></v-checkbox>
+            <v-checkbox
+              v-model="f2"
+              :label="
+                `
               Descartar candidatos de partidos que votaron por la vacancia presidencial (Noviembre 2020)
               `
-            "
-          ></v-checkbox>
-          <v-checkbox
-            v-model="f4"
-            :label="
-              `
+              "
+            ></v-checkbox>
+            <v-checkbox
+              v-model="f4"
+              :label="
+                `
               Descartar partidos cuyas primarias fueron por delegados y no por voto universal-directo
               `
-            "
-          ></v-checkbox>
+              "
+            ></v-checkbox>
           </div>
           <v-btn form="check-presidentes" type="submit" color="primary">
             Ver partidos

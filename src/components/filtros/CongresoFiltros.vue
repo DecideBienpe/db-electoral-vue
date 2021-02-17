@@ -149,9 +149,11 @@
             v-show="!$vuetify.breakpoint.xsOnly"
           >
             ¿Qué filtros deseas aplicar?
-            <a 
-            href="https://github.com/DecideBienpe/db-electoral-vue/blob/main/README.md">
-            info</a>
+            <a
+              href="https://github.com/DecideBienpe/db-electoral-vue/blob/main/README.md"
+            >
+              info</a
+            >
           </h3>
           <!-- TODO -->
           <v-expansion-panels
@@ -160,8 +162,8 @@
           >
             <v-expansion-panel>
               <v-expansion-panel-header
-                >Filtro: candidatos con:
-                sentenciados, deudores y golondrinos</v-expansion-panel-header
+                >Filtro: candidatos con: sentenciados, deudores y
+                golondrinos</v-expansion-panel-header
               >
               <v-expansion-panel-content>
                 <v-row>
@@ -182,7 +184,14 @@
                       color="info"
                       :label="`Descartar listas con deudores a SUNAT`"
                     ></v-checkbox>
-                    <small>fuente: informe de <a href="https://elcomercio.pe/elecciones-2020/elecciones-2020-hay-106-candidatos-que-son-deudores-coactivos-de-sunat-congreso-noticia/" target="_blank">El Comercio</a></small>
+                    <small
+                      >fuente: informe de
+                      <a
+                        href="https://elcomercio.pe/elecciones-2020/elecciones-2020-hay-106-candidatos-que-son-deudores-coactivos-de-sunat-congreso-noticia/"
+                        target="_blank"
+                        >El Comercio</a
+                      ></small
+                    >
                   </v-col>
                 </v-row>
                 <v-row>
@@ -191,7 +200,9 @@
                       v-model="f7"
                       @change="updateURLQuery()"
                       color="info"
-                      :label="`Descartar listas con candidatos con residencia en otro departamento`"
+                      :label="
+                        `Descartar listas con candidatos con residencia en otro departamento`
+                      "
                     ></v-checkbox>
                   </v-col>
                 </v-row>
@@ -217,8 +228,8 @@
                       vacancia</small
                     >
                   </v-col>
-                  </v-row>
-                  <v-row>
+                </v-row>
+                <v-row>
                   <v-col>
                     <v-checkbox
                       v-model="f4"
@@ -450,7 +461,15 @@ export default {
       }
     },
     noFiltrosUsed() {
-      return this.f1 || this.f2 || this.f3 || this.f4 || this.f5 || this.f6 || this.f7;
+      return (
+        this.f1 ||
+        this.f2 ||
+        this.f3 ||
+        this.f4 ||
+        this.f5 ||
+        this.f6 ||
+        this.f7
+      );
     },
     // Este metodo actualiza el url cuando los checkboxes cambian
     updateURLQuery() {

@@ -5,13 +5,25 @@
         <v-card-text class="px-4">
           <br /><br />
           <h4>Fuentes</h4>
-          <p>
-          Toda la información utilizada proviene de:
-          <ul>
-          <li> <a href="https://plataformaelectoral.jne.gob.pe/ListaDeCandidatos/index" target="_blank">JNE</a></li>
-          <li> <a href="https://elcomercio.pe/elecciones-2020/elecciones-2020-hay-106-candidatos-que-son-deudores-coactivos-de-sunat-congreso-noticia/" target= "_blank">El Comercio</a></li>
-          </ul>
-          </p>
+          <div>
+            Toda la información utilizada proviene de:
+            <ul>
+              <li>
+                <a
+                  href="https://plataformaelectoral.jne.gob.pe/ListaDeCandidatos/index"
+                  target="_blank"
+                  >JNE</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://elcomercio.pe/elecciones-2020/elecciones-2020-hay-106-candidatos-que-son-deudores-coactivos-de-sunat-congreso-noticia/"
+                  target="_blank"
+                  >El Comercio</a
+                >
+              </li>
+            </ul>
+          </div>
           <h4>Responsables</h4>
           <p>
             Esta plataforma fue iniciada por
@@ -22,14 +34,24 @@
           <h4>Información y código</h4>
           <p>
             Para mayor información sobre la aplicación, filtros, e información
-            ingresa <a href="https://github.com/DecideBienpe/db-electoral-vue/blob/main/README.md">aquí</a>
+            ingresa
+            <a
+              href="https://github.com/DecideBienpe/db-electoral-vue/blob/main/README.md"
+              >aquí</a
+            >
           </p>
           <h4>Desarrolladores:</h4>
           <h5>Vue version</h5>
           <ul>
-            <li><a href="https://github.com/zettai" target="_blank">Luis Salas (Github: zettai )</a></li>
             <li>
-              <a href="https://github.com/antoniocuga" target="_blank">Antonio Cucho (Github: antoniocuga)</a>
+              <a href="https://github.com/zettai" target="_blank"
+                >Luis Salas (Github: zettai )</a
+              >
+            </li>
+            <li>
+              <a href="https://github.com/antoniocuga" target="_blank"
+                >Antonio Cucho (Github: antoniocuga)</a
+              >
             </li>
             <li>
               <a href="https://www.joseincio.com" target="_blank"

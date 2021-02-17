@@ -32,7 +32,6 @@
           <h4>Estudios</h4>
           <div>El {{ resumen.PEstudios }}% tiene estudios superiores</div>
         </div>
-
       </v-col>
       <v-col cols="12" md="9" class="align-self-center">
         <v-row>
@@ -82,14 +81,11 @@
         </v-row>
       </v-col>
     </v-row>
-    <v-dialog
-    v-model="dialog"
-    width="500"    
-    >
+    <v-dialog v-model="dialog" width="500">
       <v-card class="dialog-candidate">
         <v-card-title class="grey lighten-2">
-         <h3>{{ currentCandidate.Numero }} - {{ currentCandidate.Nombre }}</h3>
-         <h5>{{ currentCandidate.Region }}</h5>
+          <h3>{{ currentCandidate.Numero }} - {{ currentCandidate.Nombre }}</h3>
+          <h5>{{ currentCandidate.Region }}</h5>
         </v-card-title>
         <v-card-text>
           <div class="p-3">Edad: {{ currentCandidate.Edad }}</div>
@@ -100,11 +96,7 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn
-            color="primary"
-            text
-            @click="dialog = false"
-          >
+          <v-btn color="primary" text @click="dialog = false">
             Cerrar
           </v-btn>
         </v-card-actions>
@@ -128,7 +120,10 @@ export default {
       );
     },
     resumen() {
-      return find(this.$store.state.resumen, ['Partido', this.idPartido.Partido]);
+      return find(this.$store.state.resumen, [
+        "Partido",
+        this.idPartido.Partido
+      ]);
     },
     regiones() {
       let regiones = uniq(
@@ -153,26 +148,29 @@ export default {
       );
     },
     congresistas() {
-      return sortBy(filter(this.$store.state.listas, item => {
-        if (item.idOrgPol == this.idPartido.IDPartido) {
-          if (
-            this.currentRegion != "Todos las regiones" &&
-            item.Region == this.currentRegion
-          ) {
-            return item;
-          }
+      return sortBy(
+        filter(this.$store.state.listas, item => {
+          if (item.idOrgPol == this.idPartido.IDPartido) {
+            if (
+              this.currentRegion != "Todos las regiones" &&
+              item.Region == this.currentRegion
+            ) {
+              return item;
+            }
 
-          if (this.currentRegion == "Todos las regiones") {
-            return item;
+            if (this.currentRegion == "Todos las regiones") {
+              return item;
+            }
           }
-        }
-      }), 'Numero');
+        }),
+        "Numero"
+      );
     }
   },
   methods: {
     openInfo(p) {
       this.dialog = true;
-      this.currentCandidate = p
+      this.currentCandidate = p;
     }
   },
   data() {

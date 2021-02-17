@@ -33,7 +33,7 @@
         <v-tabs grow v-model="tabs">
           <v-tab class="">Por Organización Política:</v-tab>
           <v-tab class="">Candidatos por {{ showRegion }}:</v-tab>
-        </v-tabs>    
+        </v-tabs>
       </v-col>
     </v-row>
 
@@ -86,7 +86,9 @@
                 <v-item>
                   <a :href="`#/partidos/${render_url(partido.Partido)}`">
                     <v-img
-                      :src="require(`../assets/partidos/${partido.idOrgPol}.png`)"
+                      :src="
+                        require(`../assets/partidos/${partido.idOrgPol}.png`)
+                      "
                       width="100%"
                       class="text-right pa-2"
                     >
@@ -96,7 +98,9 @@
               </v-col>
             </v-row>
           </v-item-group>
-          <h2 v-if="others.length > 0" class="mt-5 mb-5 text-center">Los que no pasaron los filtros</h2>
+          <h2 v-if="others.length > 0" class="mt-5 mb-5 text-center">
+            Los que no pasaron los filtros
+          </h2>
           <v-item-group>
             <v-row>
               <v-col
