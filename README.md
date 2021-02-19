@@ -33,6 +33,17 @@
     + campo en la tabla: CABEZAD.Valores:  1 = TRUE, 0 FALSE
 - Descartar listas cuyas primarias fueron por delegados.
 
+**Descartar listas que lleven al menos un candidato que haya vacunado irregularmente**
+
+- Debido al escándalo "vacunagate" hemos agregado este filtro. Hasta el momento tenemos información de 4 candidat@. Ver tabla: 
+
+|Region      |Nombre                              |Partido        |Fuente       |
+|:-----------|:-----------------------------------|:--------------|:------------|
+|JUNIN       |SILVANA EMPERATRIZ ROBLES ARAUJO    |PERU LIBRE     |rpp          |
+|LA LIBERTAD |MARIA DEL CARMEN OLORTEGUI RISCO    |FUERZA POPULAR |Wayka        |
+|LAMBAYEQUE  |ALEJANDRO AURELIO AGUINAGA RECUENCO |FUERZA POPULAR |PrimeraLista |
+|LIMA        |MARTIN ALBERTO VIZCARRA CORNEJO     |SOMOS PERU     |PrimeraLista |
+
 ## Presidenciales
 
 **Descartar listas que lleven candidatos con sentencias***:
