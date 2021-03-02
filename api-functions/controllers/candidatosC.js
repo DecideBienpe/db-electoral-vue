@@ -37,7 +37,9 @@ exports.getAllCandidatos = async (req, res, next) => {
       "DS",
       "Dom",
       "idOrgPol",
-      "vgate"
+      "vgate",
+      "EduSexual",
+      "VdeGenero"
     ],
     where: whereStatement
   });
