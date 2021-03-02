@@ -27,7 +27,9 @@ exports.getAllCandidatos = async (req, res, next) => {
       "Escazu",
       "VotoEscazu",
       "FlagSP",
-      "idOrgPol"
+      "idOrgPol",
+      "EduSexual",
+      "VdeGenero"
     ]
   });
   res.status(200).send(allCandidatos);
