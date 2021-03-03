@@ -44,6 +44,10 @@
 |LAMBAYEQUE  |ALEJANDRO AURELIO AGUINAGA RECUENCO |FUERZA POPULAR |PrimeraLista |
 |LIMA        |MARTIN ALBERTO VIZCARRA CORNEJO     |SOMOS PERU     |PrimeraLista |
 
+**Descartar lista sin propuestas sobre educación sexual, aborto o sin planes para enfrentar la violencia de género**
+
+El análisis de los planes de gobierno para la construcción de los filtros sobre derechos sexuales y reproductivos así como violencia de género lo realizó [Colectiva por la libre información](https://porlalibreinformacion.org/). La matriz de análisis la pueden encontrar [aquí](https://docs.google.com/spreadsheets/d/1f4u8QIQ_NDwhU0IN2dCGhvRTWIPFWKwz/edit#gid=1460509433" target="_blank)
+
 ## Presidenciales
 
 **Descartar listas que lleven candidatos con sentencias***:
