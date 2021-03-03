@@ -32,6 +32,20 @@ export default {
         return true;
       }
     },
+    presidenteFilter5: function(lista) {
+      if (this.f5) {
+        return lista.EduSexual != 0;
+      } else {
+        return true;
+      }
+    },
+    presidenteFilter6: function(lista) {
+      if (this.f6) {
+        return lista.VdeGenero != 0;
+      } else {
+        return true;
+      }
+    },
     sentencia1Filter: function(lista) {
       if (this.f1) {
         return lista.FlagSP == 0;
@@ -86,6 +100,20 @@ export default {
     vgateFilter: function(lista) {
       if (this.f8) {
         return lista.vgate == 0;
+      } else {
+        return true;
+      }
+    },
+    educFilter: function(lista) {
+      if (this.f9) {
+        return lista.EduSexual != 0;
+      } else {
+        return true;
+      }
+    },
+    vgeneroFilter: function(lista) {
+      if (this.f10) {
+        return lista.VdeGenero != 0;
       } else {
         return true;
       }

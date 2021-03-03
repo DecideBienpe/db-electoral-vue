@@ -144,6 +144,18 @@
                 `Descartar listas que lleven al menos un candidato vacunado irregularmente`
               "
             ></v-checkbox>
+            <v-checkbox
+              v-model="f9"
+              :label="
+                `Descartar partidos sin propuestas sobre educ sexual, métodos anticonceptivos y aborto en su plan de gobierno`
+              "
+            ></v-checkbox>
+            <v-checkbox
+              v-model="f10"
+              :label="
+                `Descartar partidos sin propuestas sobre educ sexual, métodos anticonceptivos y aborto en su plan de gobierno`
+              "
+            ></v-checkbox>
           </div>
           <v-btn form="check-candidatos" type="submit" color="primary">
             Ver partidos
@@ -183,7 +195,9 @@ export default {
       f5: false,
       f6: false,
       f7: false,
-      f8: false
+      f8: false,
+      f9: false,
+      f10: false
     };
   },
   methods: {
@@ -210,6 +224,8 @@ export default {
             f6: this.f6,
             f7: this.f7,
             f8: this.f8,
+            f9: this.f9,
+            f10: this.f10,
             favs: this.partidosFavoritos.join(","),
             stepper: "congreso"
           }

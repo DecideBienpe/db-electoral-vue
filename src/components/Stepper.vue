@@ -66,6 +66,22 @@
               "
             ></v-checkbox>
             <v-checkbox
+              v-model="f5"
+              :label="
+                `
+              Descartar partidos sin propuestas sobre educ sexual, métodos anticonceptivos y aborto en su plan de gobierno
+              `
+              "
+            ></v-checkbox>
+            <v-checkbox
+              v-model="f6"
+              :label="
+                `
+              Descartar partidos sin propuestas para enfrentar la violencia de género en su plan de gobierno
+              `
+              "
+            ></v-checkbox>
+            <v-checkbox
               v-model="f4"
               :label="
                 `
@@ -107,7 +123,8 @@ export default {
       f2: false,
       f3: false,
       f4: false,
-      f5: false
+      f5: false,
+      f6: false
     };
   },
   methods: {
@@ -120,6 +137,7 @@ export default {
           f3: this.f3,
           f4: this.f4,
           f5: this.f5,
+          f6: this.f6,
           candidatos: this.candidatosFavs.join(",")
         }
       });

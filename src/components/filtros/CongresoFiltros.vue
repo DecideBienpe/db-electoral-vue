@@ -154,6 +154,28 @@
           >
             <v-icon left>mdi-alert</v-icon>vacunagate
           </v-chip>
+          <v-chip
+            v-if="f9"
+            class="ma-2"
+            close
+            @click:close="
+              f8 = false;
+              updateURLQuery();
+            "
+          >
+            <v-icon left>mdi-alert</v-icon>edusexual
+          </v-chip>
+          <v-chip
+            v-if="f10"
+            class="ma-2"
+            close
+            @click:close="
+              f8 = false;
+              updateURLQuery();
+            "
+          >
+            <v-icon left>mdi-alert</v-icon>vdegenero
+          </v-chip>
           <v-divider v-show="!$vuetify.breakpoint.xsOnly" />
           <h3
             class="subheading font-weight-regular mb-2 mt2"
@@ -277,7 +299,7 @@
 
             <v-expansion-panel>
               <v-expansion-panel-header
-                >Filtro: participacion mujer
+                >Filtro: posturas-planes de gob
               </v-expansion-panel-header>
               <v-expansion-panel-content>
                 <v-row>
@@ -290,6 +312,36 @@
                         `Descartar listas cuya cabeza de lista NO es mujer`
                       "
                     ></v-checkbox>
+                  </v-col>
+                </v-row>
+                <v-row>
+                  <v-col>
+                    <v-checkbox
+                      v-model="f9"
+                      @change="updateURLQuery()"
+                      color="info"
+                      :label="
+                        `Descartar partidos sin propuestas sobre educ sexual, métodos anticonceptivos y aborto en su plan de gobierno`
+                      "
+                    ></v-checkbox>
+                    <small
+                      >Fuente: <a https="https://porlalibreinformacion.org/">porlalibreinformacion.org</a></small
+                    >
+                  </v-col>
+                </v-row>
+                <v-row>
+                  <v-col>
+                    <v-checkbox
+                      v-model="f10"
+                      @change="updateURLQuery()"
+                      color="info"
+                      :label="
+                        `Descartar partidos sin propuestas sobre educ sexual, métodos anticonceptivos y aborto en su plan de gobierno`
+                      "
+                    ></v-checkbox>
+                    <small
+                      >Fuente: <a https="https://porlalibreinformacion.org/">porlalibreinformacion.org</a></small
+                    >
                   </v-col>
                 </v-row>
               </v-expansion-panel-content>
@@ -401,6 +453,22 @@ export default {
         this.$store.commit("updateFiltro8", value);
       }
     },
+    f9: {
+      get() {
+        return this.$store.state.filtros.f9;
+      },
+      set(value) {
+        this.$store.commit("updateFiltro9", value);
+      }
+    },
+    f10: {
+      get() {
+        return this.$store.state.filtros.f10;
+      },
+      set(value) {
+        this.$store.commit("updateFiltro10", value);
+      }
+    },
     noRegionSelected() {
       return !!this.currentRegion.region;
     },
@@ -421,7 +489,9 @@ export default {
           .filter(this.agendaFilter)
           .filter(this.sunatFilter)
           .filter(this.golondrinosFilter)
-          .filter(this.vgateFilter),
+          .filter(this.vgateFilter)
+          .filter(this.educFilter)
+          .filter(this.vgeneroFilter),
         "Partido"
       );
     },
@@ -435,7 +505,9 @@ export default {
         .filter(this.agendaFilter)
         .filter(this.sunatFilter)
         .filter(this.golondrinosFilter)
-        .filter(this.vgateFilter);
+        .filter(this.vgateFilter)
+        .filter(this.educFilter)
+        .filter(this.vgeneroFilter);
     }
   },
   methods: {
@@ -480,7 +552,9 @@ export default {
         this.f5 == false &&
         this.f6 == false &&
         this.f7 == false &&
-        this.f8 == false
+        this.f8 == false &&
+        this.f9 == false &&
+        this.f10 == false
       ) {
         return;
       } else {
@@ -492,6 +566,8 @@ export default {
         this.f6 = false;
         this.f7 = false;
         this.f8 = false;
+        this.f9 = false;
+        this.f10 = false;
         this.updateURLQuery();
       }
     },
@@ -504,7 +580,9 @@ export default {
         this.f5 ||
         this.f6 ||
         this.f7 ||
-        this.f8
+        this.f8 ||
+        this.f9 ||
+        this.f10
       );
     },
     // Este metodo actualiza el url cuando los checkboxes cambian
@@ -525,7 +603,11 @@ export default {
         this.f7 === true ||
         this.f7 === false ||
         this.f8 === true ||
-        this.f8 === false 
+        this.f8 === false ||
+        this.f9 === true ||
+        this.f9 === false ||
+        this.f10 === true ||
+        this.f10 === false 
       ) {
         // TODO: refactorizar para evitar el error. Baja prioridad.
         // .push bota un error en el console cuando se trata ir al mismo route existente,
@@ -544,6 +626,8 @@ export default {
               f6: this.f6,
               f7: this.f7,
               f8: this.f8,
+              f9: this.f9,
+              f10: this.f10,
               favs: this.$route.query.favs,
               candidatos: this.$route.query.candidatos,
               stepper: this.$route.query.stepper
@@ -571,6 +655,8 @@ export default {
             f6: this.f6,
             f7: this.f7,
             f8: this.f8,
+            f9: this.f9,
+            f10: this.f10,
             favs: this.$route.query.favs,
             candidatos: this.$route.query.candidatos
           }
@@ -600,6 +686,8 @@ export default {
           this.f6 = queryParams.f6.toString() === "true";
           this.f7 = queryParams.f7.toString() === "true";
           this.f8 = queryParams.f8.toString() === "true";
+          this.f9 = queryParams.f9.toString() === "true";
+          this.f10 = queryParams.f10.toString() === "true";
           this.sendToGA();
           this.reAttachTwitterButton();
         }

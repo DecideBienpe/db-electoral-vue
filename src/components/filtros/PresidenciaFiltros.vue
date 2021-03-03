@@ -97,6 +97,28 @@
           >
             <v-icon left>mdi-alert</v-icon>DemoInterna
           </v-chip>
+          <v-chip
+            v-if="f5"
+            class="ma-2"
+            close
+            @click:close="
+              f4 = false;
+              updateURLQuery();
+            "
+          >
+            <v-icon left>mdi-alert</v-icon>EducSexual
+          </v-chip>
+          <v-chip
+            v-if="f6"
+            class="ma-2"
+            close
+            @click:close="
+              f4 = false;
+              updateURLQuery();
+            "
+          >
+            <v-icon left>mdi-alert</v-icon>EducSexual
+          </v-chip>
           <v-divider v-show="!$vuetify.breakpoint.xsOnly" />
           <h4
             class="mt-5 subheading font-weight-regular mb-2 mt2"
@@ -133,7 +155,7 @@
             </v-expansion-panel>
             <v-expansion-panel>
               <v-expansion-panel-header>
-                Filtro-Vacancia:
+                Filtro: Posturas-Plan de Gobierno:
               </v-expansion-panel-header>
               <v-expansion-panel-content>
                 <v-row>
@@ -147,8 +169,39 @@
                       "
                     ></v-checkbox>
                     <small
-                      >Partidos donde la mayoría de su bancada voto por la
-                      vacancia</small
+                      >Fuente:votación de bancada y postura de candidato P</small
+                    >
+                  </v-col>
+                </v-row>
+              </v-expansion-panel-content>
+              <v-expansion-panel-content>
+                <v-row>
+                  <v-col>
+                    <v-checkbox
+                      v-model="f5"
+                      @change="updateURLQuery()"
+                      color="info"
+                      :label="
+                        `Descartar partidos sin propuestas sobre educ sexual, métodos anticonceptivos y aborto en su plan de gobierno`
+                      "
+                    ></v-checkbox>
+                    <small
+                      >Fuente: <a https="https://porlalibreinformacion.org/">porlalibreinformacion.org</a></small
+                    >
+                  </v-col>
+                </v-row>
+                <v-row>
+                  <v-col>
+                    <v-checkbox
+                      v-model="f6"
+                      @change="updateURLQuery()"
+                      color="info"
+                      :label="
+                        `Descartar partidos sin propuestas para enfrentar la violencia de género en su plan de gobierno`
+                      "
+                    ></v-checkbox>
+                    <small
+                      >Fuente: <a https="https://porlalibreinformacion.org/">porlalibreinformacion.org</a></small
                     >
                   </v-col>
                 </v-row>
@@ -166,7 +219,7 @@
                       @change="updateURLQuery()"
                       color="info"
                       :label="
-                        `Descartar candidatos de partidos que eligieron candidatos a través de delegados`
+                        `Descartar listas que eligieron candidatos a través de delegados`
                       "
                     ></v-checkbox>
                   </v-col>
@@ -400,6 +453,22 @@ export default {
         this.$store.commit("updateFiltro4", value);
       }
     },
+    f5: {
+      get() {
+        return this.$store.state.filtros.f5;
+      },
+      set(value) {
+        this.$store.commit("updateFiltro5", value);
+      }
+    },
+    f6: {
+      get() {
+        return this.$store.state.filtros.f6;
+      },
+      set(value) {
+        this.$store.commit("updateFiltro6", value);
+      }
+    },
     listas() {
       return filter(this.$store.state.presidentes, [
         "Cargo",
@@ -438,7 +507,9 @@ export default {
           .filter(this.presidenteFilter1)
           .filter(this.presidenteFilter2)
           .filter(this.presidenteFilter3)
-          .filter(this.presidenteFilter4),
+          .filter(this.presidenteFilter4)
+          .filter(this.presidenteFilter5)
+          .filter(this.presidenteFilter6),
         "Partido"
       );
     },
@@ -458,7 +529,9 @@ export default {
         .filter(this.presidenteFilter1)
         .filter(this.presidenteFilter2)
         .filter(this.presidenteFilter3)
-        .filter(this.presidenteFilter4);
+        .filter(this.presidenteFilter4)
+        .filter(this.presidenteFilter5)
+        .filter(this.presidenteFilter6);
     }
   },
   methods: {
@@ -503,7 +576,9 @@ export default {
         this.f1 == false &&
         this.f2 == false &&
         this.f3 == false &&
-        this.f4 == false
+        this.f4 == false &&
+        this.f5 == false &&
+        this.f6 == false
       ) {
         return;
       } else {
@@ -511,11 +586,13 @@ export default {
         this.f2 = false;
         this.f3 = false;
         this.f4 = false;
+        this.f5 = false;
+        this.f6 = false;
         this.updateURLQuery();
       }
     },
     noFiltrosUsed() {
-      return this.f1 || this.f2 || this.f3 || this.f4 || this.f5;
+      return this.f1 || this.f2 || this.f3 || this.f4 || this.f5 || this.f6;
     },
     // Este metodo actualiza el url cuando los checkboxes cambian
     updateURLQuery() {
@@ -527,7 +604,11 @@ export default {
         this.f3 === true ||
         this.f3 === false ||
         this.f4 === true ||
-        this.f4 === false
+        this.f4 === false ||
+        this.f5 === true ||
+        this.f5 === false ||
+        this.f6 === true ||
+        this.f6 === false
       ) {
         // TODO: refactorizar para evitar el error. Baja prioridad.
         // .push bota un error en el console cuando se trata ir al mismo route existente,
@@ -538,6 +619,8 @@ export default {
               f2: this.f2,
               f3: this.f3,
               f4: this.f4,
+              f5: this.f5,
+              f6: this.f6,
               candidatos: this.$route.query.candidatos
             }
           })
@@ -557,7 +640,9 @@ export default {
             f1: this.f1,
             f2: this.f2,
             f3: this.f3,
-            f4: this.f4
+            f4: this.f4,
+            f5: this.f5,
+            f6: this.f6
           }
         });
       }
@@ -573,6 +658,8 @@ export default {
         this.f2 = queryParams.f2.toString() === "true";
         this.f3 = queryParams.f3.toString() === "true";
         this.f4 = queryParams.f4.toString() === "true";
+        this.f5 = queryParams.f5.toString() === "true";
+        this.f6 = queryParams.f6.toString() === "true";
         this.sendToGA();
         this.reAttachTwitterButton();
       }

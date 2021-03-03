@@ -22,6 +22,12 @@
                   >El Comercio</a
                 >
               </li>
+              <li> El análisis de los planes de gobierno para la construcción de los filtros sobre derechos sexuales y reproductivos así como violencia de género lo realizó: 
+                <a
+                  href="https://porlalibreinformacion.org/"
+                  >Colectiva por la libre información</a
+                >.La matríz de análisis la pueden encontrar <a href= "" target="_blank">aquí</a>
+              </li>
             </ul>
           </div>
           <h4>Responsables</h4>
