@@ -157,7 +157,7 @@
             <v-checkbox
               v-model="f10"
               :label="
-                `Descartar partidos sin propuestas sobre educ sexual, métodos anticonceptivos y aborto en su plan de gobierno`
+                `Descartar partidos sin propuestas para enfrentar la violencia de género en su plan de gobierno`
               "
             ></v-checkbox>
           </div>

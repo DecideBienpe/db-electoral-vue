@@ -152,29 +152,29 @@
               updateURLQuery();
             "
           >
-            <v-icon left>mdi-alert</v-icon>vacunagate
+            <v-icon left>mdi-alert</v-icon>Vacunagate
           </v-chip>
           <v-chip
             v-if="f9"
             class="ma-2"
             close
             @click:close="
-              f8 = false;
+              f9 = false;
               updateURLQuery();
             "
           >
-            <v-icon left>mdi-alert</v-icon>edusexual
+            <v-icon left>mdi-alert</v-icon>EduSexual
           </v-chip>
           <v-chip
             v-if="f10"
             class="ma-2"
             close
             @click:close="
-              f8 = false;
+              f10 = false;
               updateURLQuery();
             "
           >
-            <v-icon left>mdi-alert</v-icon>vdegenero
+            <v-icon left>mdi-alert</v-icon>VDeGenero
           </v-chip>
           <v-divider v-show="!$vuetify.breakpoint.xsOnly" />
           <h3
@@ -326,8 +326,8 @@
                     ></v-checkbox>
                     <small
                       >Fuente:
-                      <a https="https://porlalibreinformacion.org/"
-                        >porlalibreinformacion.org</a
+                      <a href="https://porlalibreinformacion.org/"
+                        target="_blank" rel="noopener noreferrer">porlalibreinformacion.org</a
                       ></small
                     >
                   </v-col>
@@ -339,13 +339,13 @@
                       @change="updateURLQuery()"
                       color="info"
                       :label="
-                        `Descartar partidos sin propuestas sobre educ sexual, métodos anticonceptivos y aborto en su plan de gobierno`
+                        `Descartar partidos sin propuestas para enfrentar la violencia de género en su plan de gobierno`
                       "
                     ></v-checkbox>
                     <small
                       >Fuente:
-                      <a https="https://porlalibreinformacion.org/"
-                        >porlalibreinformacion.org</a
+                      <a href="https://porlalibreinformacion.org/"
+                        target="_blank" rel="noopener noreferrer">porlalibreinformacion.org</a
                       ></small
                     >
                   </v-col>
