@@ -61,7 +61,7 @@
                 </v-icon>
               </h4>
               <a :href="`#/partidos/${render_url(partido.Partido)}`">
-                <v-img
+                <v-img contain
                   :src="require(`../assets/partidos/${partido.Imagen}`)"
                   width="100%"
                   class="text-right pa-2"
@@ -85,10 +85,8 @@
               >
                 <v-item>
                   <a :href="`#/partidos/${render_url(partido.Partido)}`">
-                    <v-img
-                      :src="
-                        require(`../assets/partidos/${partido.idOrgPol}.png`)
-                      "
+                    <v-img contain
+                      :src="require(`../assets/partidos/${partido.idOrgPol}.png`)"
                       width="100%"
                       class="text-right pa-2"
                     >
@@ -112,7 +110,7 @@
               >
                 <v-item>
                   <a :href="`#/partidos/${render_url(partido.Partido)}`">
-                    <v-img
+                    <v-img contain
                       :src="require(`../assets/partidos/${partido.Imagen}`)"
                       width="100%"
                       class="text-right pa-2"

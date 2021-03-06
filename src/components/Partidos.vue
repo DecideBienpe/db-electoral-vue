@@ -9,7 +9,7 @@
     <v-row>
       <v-col v-for="(partido, i) in partidos" :key="i" cols="4" md="2" lg="2">
         <a :href="`#/partidos/${render_logo(partido.Partido)}`">
-          <v-img
+          <v-img contain
             :src="require(`../assets/partidos/${partido.Imagen}`)"
             class="text-right pa-2"
           >

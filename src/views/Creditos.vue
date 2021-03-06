@@ -1,8 +1,8 @@
 <template>
   <v-container>
-    <v-flex xs12 md6 pt-4>
+    <v-flex xs12 md6 pt-4 mx-auto>
       <v-card height="100%">
-        <v-card-text class="px-4">
+        <v-card-text class="px-4 pt-5">
           <br /><br />
           <h4>Fuentes</h4>
           <div>
@@ -92,7 +92,7 @@
         </v-card-text>
       </v-card>
     </v-flex>
-    <v-flex xs12 md6 pt-4>
+    <v-flex xs12 md6 pt-4 mx-auto>
       <v-card height="100%">
         <v-card-title primary-title>
           <div>
