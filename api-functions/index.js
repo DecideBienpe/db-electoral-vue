@@ -41,12 +41,14 @@ const partidosRouter = require("./routes/partidos");
 const congresoRouter = require("./routes/candidatosC");
 const presidenteRouter = require("./routes/candidatosP");
 const resumentPartidoRouter = require("./routes/resumenPartido");
+const resumentPartido2Router = require("./routes/resumenPartido2");
 
 app.use("/regiones", regionesRouter);
 app.use("/partidos", partidosRouter);
 app.use("/congreso/candidatos", congresoRouter);
 app.use("/presidente/candidatos", presidenteRouter);
 app.use("/resumen-partido", resumentPartidoRouter);
+app.use("/resumen-partido2", resumentPartido2Router);
 
 db.sequelize
   .sync()

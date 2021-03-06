@@ -36,7 +36,11 @@
             required
           ></v-select>
 
-          <v-btn color="primary" @click="e6 = 2">
+          <v-btn
+            color="primary"
+            :disabled="currentRegion === ''"
+            @click="e6 = 2"
+          >
             Seleccionar
           </v-btn>
         </v-stepper-content>

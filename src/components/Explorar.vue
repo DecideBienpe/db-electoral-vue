@@ -14,7 +14,7 @@
     </v-btn>
 
     <v-overlay :value="overlay">
-      <stepper></stepper>
+      <stepper v-on:close-stepper="overlay = false"></stepper>
     </v-overlay>
 
     <v-overlay :value="overlayCongreso">
