@@ -10,15 +10,18 @@ const db = require("./models");
 const app = express();
 // const PORT = process.env.PORT;
 
-var whitelist = [
-  "http://localhost:3000",
-  "https://decidebienrepo.netlify.app",
-  "https://decidebien.pe"
-];
+function checkOrigin(origin) {
+  if (!origin) return true;
+  if (origin.indexOf("localhost") > -1) return true;
+  if (origin.indexOf("decidebienrepo.netlify.app") > -1) return true;
+  if (origin.indexOf("decidebien.pe") > -1) return true;
+  return false;
+}
+
 var corsOptions = {
   origin: function(origin, callback) {
     console.log("origin", origin);
-    if (whitelist.indexOf(origin) !== -1 || !origin) {
+    if (checkOrigin(origin)) {
       callback(null, true);
     } else {
       callback(new Error("Not allowed by CORS"));

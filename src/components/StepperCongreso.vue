@@ -50,35 +50,32 @@
           <v-item-group v-model="partidosFavoritos" multiple>
             <div class="partidos-stepper">
               <div
-              class="partido-selector"
-              v-for="partido in partidos"
-              :key="partido.codigo"
-              cols="6"
-              md="3"
-              sm="1"
-            >
-              <v-item
-                :value="partido.IDPartido"
-                v-slot="{ active, toggle }"
+                class="partido-selector"
+                v-for="partido in partidos"
+                :key="partido.codigo"
+                cols="6"
+                md="3"
+                sm="1"
               >
-                <v-img
-                  :value="partido.codigo"
-                  :src="require(`../assets/partidos/${partido.Imagen}`)"
-                  class="text-right pa-2"
-                  @click="toggle"
-                >
-                  <v-btn class="selection" icon dark>
-                    <v-icon>
-                      {{
-                        active
-                          ? "mdi-checkbox-marked-circle"
-                          : "mdi-checkbox-marked-circle-outline"
-                      }}
-                    </v-icon>
-                  </v-btn>
-                </v-img>
-              </v-item>
-            </div>
+                <v-item :value="partido.IDPartido" v-slot="{ active, toggle }">
+                  <v-img
+                    :value="partido.codigo"
+                    :src="require(`../assets/partidos/${partido.Imagen}`)"
+                    class="text-right pa-2"
+                    @click="toggle"
+                  >
+                    <v-btn class="selection" icon dark>
+                      <v-icon>
+                        {{
+                          active
+                            ? "mdi-checkbox-marked-circle"
+                            : "mdi-checkbox-marked-circle-outline"
+                        }}
+                      </v-icon>
+                    </v-btn>
+                  </v-img>
+                </v-item>
+              </div>
             </div>
           </v-item-group>
           <v-btn color="primary" @click="e6 = 3">
@@ -98,38 +95,67 @@
           >
         </v-stepper-step>
         <v-stepper-content step="3">
-
           <div class="filters-container">
             <v-checkbox
-            v-model="f1"
-            :label="
-              `Descartar listas que lleven candidatos con sentencias judicial`
-            "
-          ></v-checkbox>
-          <v-checkbox
-            v-model="f2"
-            :label="
-              `
-            Descartar partidos que votaron por la vacancia presidencial (Noviembre 2019)
+              v-model="f1"
+              :label="
+                `Descartar listas que lleven candidatos con sentencias judicial`
+              "
+            ></v-checkbox>
+            <v-checkbox
+              v-model="f6"
+              :label="
+                `Descartar listas que tengan deudas con la SUNAT (coactivas)`
+              "
+            ></v-checkbox>
+            <v-checkbox
+              v-model="f7"
+              :label="
+                `Descartar listas con candidatos con dirección en otra region`
+              "
+            ></v-checkbox>
+            <v-checkbox
+              v-model="f2"
+              :label="
+                `
+            Descartar partidos que votaron por la vacancia presidencial (Noviembre 2020)
             `
-            "
-          ></v-checkbox>
-          <v-checkbox
-            v-model="f3"
-            :label="`Descartar listas cuya cabeza de lista NO es mujer`"
-          ></v-checkbox>
-          <v-checkbox
-            v-model="f4"
-            :label="
-              `Descartar listas donde el número 1 no fue electo en democracia interna`
-            "
-          ></v-checkbox>
-          <v-checkbox
-            v-model="f5"
-            :label="
-              `Descartar listas cuyas primarias fueron por delegados y no por voto universal-directo`
-            "
-          ></v-checkbox>
+              "
+            ></v-checkbox>
+            <v-checkbox
+              v-model="f3"
+              :label="`Descartar listas cuya cabeza de lista NO es mujer`"
+            ></v-checkbox>
+            <v-checkbox
+              v-model="f4"
+              :label="
+                `Descartar listas donde el número 1 no fue electo en democracia interna`
+              "
+            ></v-checkbox>
+            <v-checkbox
+              v-model="f5"
+              :label="
+                `Descartar listas cuyas primarias fueron por delegados y no por voto universal-directo`
+              "
+            ></v-checkbox>
+            <v-checkbox
+              v-model="f8"
+              :label="
+                `Descartar listas que lleven al menos un candidato vacunado irregularmente`
+              "
+            ></v-checkbox>
+            <v-checkbox
+              v-model="f9"
+              :label="
+                `Descartar partidos sin propuestas sobre educ sexual, métodos anticonceptivos y aborto en su plan de gobierno`
+              "
+            ></v-checkbox>
+            <v-checkbox
+              v-model="f10"
+              :label="
+                `Descartar partidos sin propuestas sobre educ sexual, métodos anticonceptivos y aborto en su plan de gobierno`
+              "
+            ></v-checkbox>
           </div>
           <v-btn form="check-candidatos" type="submit" color="primary">
             Ver partidos
@@ -166,7 +192,12 @@ export default {
       f2: false,
       f3: false,
       f4: false,
-      f5: false
+      f5: false,
+      f6: false,
+      f7: false,
+      f8: false,
+      f9: false,
+      f10: false
     };
   },
   methods: {
@@ -190,6 +221,11 @@ export default {
             f3: this.f3,
             f4: this.f4,
             f5: this.f5,
+            f6: this.f6,
+            f7: this.f7,
+            f8: this.f8,
+            f9: this.f9,
+            f10: this.f10,
             favs: this.partidosFavoritos.join(","),
             stepper: "congreso"
           }

@@ -5,7 +5,9 @@
       <v-toolbar-title class="mr-12 align-center">
         <a href="#/">
           <span class="white--text logo-text title">
-            <img src="./assets/logo.png" width="40px" /><span>decidebien.pe</span>
+            <img src="./assets/logo.png" width="40px" /><span
+              >decidebien.pe</span
+            >
           </span>
         </a>
       </v-toolbar-title>

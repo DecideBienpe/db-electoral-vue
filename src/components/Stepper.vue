@@ -52,27 +52,43 @@
         <v-stepper-content step="2">
           <div class="filters-container">
             <v-checkbox
-            v-model="f1"
-            :label="
-              `Descartar planchas con candidatos con sentencias declaradas`
-            "
-          ></v-checkbox>
-          <v-checkbox
-            v-model="f2"
-            :label="
+              v-model="f1"
+              :label="
+                `Descartar planchas con candidatos con sentencias declaradas`
+              "
+            ></v-checkbox>
+            <v-checkbox
+              v-model="f2"
+              :label="
+                `
+              Descartar candidatos de partidos que votaron por la vacancia presidencial (Noviembre 2020)
               `
-              Descartar candidatos de partidos que votaron por la vacancia presidencial (Noviembre 2019)
+              "
+            ></v-checkbox>
+            <v-checkbox
+              v-model="f5"
+              :label="
+                `
+              Descartar partidos sin propuestas sobre educ sexual, métodos anticonceptivos y aborto en su plan de gobierno
               `
-            "
-          ></v-checkbox>
-          <v-checkbox
-            v-model="f4"
-            :label="
+              "
+            ></v-checkbox>
+            <v-checkbox
+              v-model="f6"
+              :label="
+                `
+              Descartar partidos sin propuestas para enfrentar la violencia de género en su plan de gobierno
               `
+              "
+            ></v-checkbox>
+            <v-checkbox
+              v-model="f4"
+              :label="
+                `
               Descartar partidos cuyas primarias fueron por delegados y no por voto universal-directo
               `
-            "
-          ></v-checkbox>
+              "
+            ></v-checkbox>
           </div>
           <v-btn form="check-presidentes" type="submit" color="primary">
             Ver partidos
@@ -107,7 +123,8 @@ export default {
       f2: false,
       f3: false,
       f4: false,
-      f5: false
+      f5: false,
+      f6: false
     };
   },
   methods: {
@@ -120,6 +137,7 @@ export default {
           f3: this.f3,
           f4: this.f4,
           f5: this.f5,
+          f6: this.f6,
           candidatos: this.candidatosFavs.join(",")
         }
       });
