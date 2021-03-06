@@ -1,7 +1,24 @@
 <template>
   <div class="grid-presidencial">
-    <form @submit.prevent="filterPresidentesClicked" id="check-presidentes">
+    <v-form @submit.prevent="filterPresidentesClicked" id="check-presidentes">
       <v-stepper v-model="e6" vertical>
+        <v-row justify="end">
+          <v-spacer></v-spacer>
+          <v-col class="text-right mr-3">
+            <v-btn
+              small
+              color="primary"
+              @click="
+                e6 = 1;
+                $emit('close-stepper');
+              "
+            >
+              <v-icon small>
+                mdi-close
+              </v-icon>
+            </v-btn>
+          </v-col>
+        </v-row>
         <v-stepper-step :complete="e6 > 1" step="1">
           Elige a tus candidatos
           <small>¿Cuáles son l@s candidatos que más te interesan?</small>
@@ -98,7 +115,7 @@
           </v-btn>
         </v-stepper-content>
       </v-stepper>
-    </form>
+    </v-form>
   </div>
 </template>
 

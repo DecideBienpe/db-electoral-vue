@@ -195,8 +195,8 @@
           >
             <v-expansion-panel>
               <v-expansion-panel-header
-                >Filtro: sentenciados, deudores,
-                golondrinos, vacunagate</v-expansion-panel-header
+                >Filtro: sentenciados, deudores, golondrinos,
+                vacunagate</v-expansion-panel-header
               >
               <v-expansion-panel-content>
                 <v-row>
@@ -325,7 +325,10 @@
                       "
                     ></v-checkbox>
                     <small
-                      >Fuente: <a https="https://porlalibreinformacion.org/">porlalibreinformacion.org</a></small
+                      >Fuente:
+                      <a https="https://porlalibreinformacion.org/"
+                        >porlalibreinformacion.org</a
+                      ></small
                     >
                   </v-col>
                 </v-row>
@@ -340,7 +343,10 @@
                       "
                     ></v-checkbox>
                     <small
-                      >Fuente: <a https="https://porlalibreinformacion.org/">porlalibreinformacion.org</a></small
+                      >Fuente:
+                      <a https="https://porlalibreinformacion.org/"
+                        >porlalibreinformacion.org</a
+                      ></small
                     >
                   </v-col>
                 </v-row>
@@ -607,7 +613,7 @@ export default {
         this.f9 === true ||
         this.f9 === false ||
         this.f10 === true ||
-        this.f10 === false 
+        this.f10 === false
       ) {
         // TODO: refactorizar para evitar el error. Baja prioridad.
         // .push bota un error en el console cuando se trata ir al mismo route existente,

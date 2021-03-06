@@ -169,7 +169,8 @@
                       "
                     ></v-checkbox>
                     <small
-                      >Fuente:votación de bancada y postura de candidato P</small
+                      >Fuente:votación de bancada y postura de candidato
+                      P</small
                     >
                   </v-col>
                 </v-row>
@@ -186,7 +187,10 @@
                       "
                     ></v-checkbox>
                     <small
-                      >Fuente: <a https="https://porlalibreinformacion.org/">porlalibreinformacion.org</a></small
+                      >Fuente:
+                      <a https="https://porlalibreinformacion.org/"
+                        >porlalibreinformacion.org</a
+                      ></small
                     >
                   </v-col>
                 </v-row>
@@ -201,7 +205,10 @@
                       "
                     ></v-checkbox>
                     <small
-                      >Fuente: <a https="https://porlalibreinformacion.org/">porlalibreinformacion.org</a></small
+                      >Fuente:
+                      <a https="https://porlalibreinformacion.org/"
+                        >porlalibreinformacion.org</a
+                      ></small
                     >
                   </v-col>
                 </v-row>
@@ -409,6 +416,7 @@ export default {
       headers2: [
         { text: "Partido", value: "Partido" },
         { text: "Candidato", value: "Nombre" },
+        { text: "Cargo", value: "Cargo" },
         { text: "Sexo", value: "Sexo" },
         { text: "Edad", value: "Edad" },
         { text: "Con Sentencia", value: "Sentencia" },
@@ -470,10 +478,7 @@ export default {
       }
     },
     listas() {
-      return filter(this.$store.state.presidentes, [
-        "Cargo",
-        "PRESIDENTE DE LA REPÚBLICA"
-      ]);
+      return this.$store.state.presidentes;
     },
     candidatesFavs() {
       let favs = this.$route.query.candidatos.split(",");
@@ -502,16 +507,17 @@ export default {
       });
     },
     listasFiltered() {
-      return this.uniqueFilter(
-        this.listas
-          .filter(this.presidenteFilter1)
-          .filter(this.presidenteFilter2)
-          .filter(this.presidenteFilter3)
-          .filter(this.presidenteFilter4)
-          .filter(this.presidenteFilter5)
-          .filter(this.presidenteFilter6),
-        "Partido"
-      );
+      return this.listas;
+      // return this.uniqueFilter(
+      //   this.listas
+      //     .filter(this.presidenteFilter1)
+      //     .filter(this.presidenteFilter2)
+      //     .filter(this.presidenteFilter3)
+      //     .filter(this.presidenteFilter4)
+      //     .filter(this.presidenteFilter5)
+      //     .filter(this.presidenteFilter6),
+      //   "Partido"
+      // );
     },
     filtroTabla1() {
       let favs = this.$route.query.candidatos.split(",");
