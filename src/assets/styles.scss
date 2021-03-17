@@ -425,3 +425,85 @@ html, body {
     color: #bb0723;
   }
 }
+
+.partido-name {
+  font-size: 16px;
+  font-weight: 600;
+  min-height: 45px;
+  line-height: 1.2em;
+}
+
+.partido-ranking {
+  position: relative;
+
+  .partido {
+    display: inline-block;
+    width: 100%;
+    max-width: 240px;
+    min-height: 400px;
+  }
+
+  .graph .graph-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 10px;
+
+    &.active {
+      background: #e6dcff;
+    }
+
+    label {
+      width: 80px;
+      max-width: 90px;
+      font-size: 12px;
+      line-height: 10px;
+    }
+
+    div {
+      position: relative;
+      width: 150px;
+      background: #e0e0e0;
+      font-size: 11px;
+    }
+
+    span {
+      display: block;
+      position: absolute;
+      right: 0;
+      padding: 0 2px;
+      text-shadow: 1px 1px 1px #fff;
+      z-index: 9;
+    }
+
+    .percent {
+      background: #bb0723;
+      width: 100%;
+      height: 15px;
+
+      &.promedio-edad {
+        background: #14666f;
+      }
+
+      &.joven {
+        background: #5c8488;
+      }
+
+      &.mayor {
+        background: #9fdce2;
+      }
+
+      &.ingresos {
+        background: #3e9840a6;
+      }
+
+      &.estudios {
+        background: #c77885;
+      }
+
+      &.experiencia {
+        background: #bb9d07;
+      }
+    }
+  }
+}
