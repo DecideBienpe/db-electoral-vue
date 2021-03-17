@@ -102,22 +102,22 @@
             class="ma-2"
             close
             @click:close="
-              f4 = false;
+              f5 = false;
               updateURLQuery();
             "
           >
-            <v-icon left>mdi-alert</v-icon>EducSexual
+            <v-icon left>mdi-alert</v-icon>EduSexual
           </v-chip>
           <v-chip
             v-if="f6"
             class="ma-2"
             close
             @click:close="
-              f4 = false;
+              f6 = false;
               updateURLQuery();
             "
           >
-            <v-icon left>mdi-alert</v-icon>EducSexual
+            <v-icon left>mdi-alert</v-icon>VDeGenero
           </v-chip>
           <v-divider v-show="!$vuetify.breakpoint.xsOnly" />
           <h4
@@ -188,8 +188,8 @@
                     ></v-checkbox>
                     <small
                       >Fuente:
-                      <a https="https://porlalibreinformacion.org/"
-                        >porlalibreinformacion.org</a
+                      <a href="https://porlalibreinformacion.org/"
+                        target="_blank" rel="noopener noreferrer">porlalibreinformacion.org</a
                       ></small
                     >
                   </v-col>
@@ -206,8 +206,8 @@
                     ></v-checkbox>
                     <small
                       >Fuente:
-                      <a https="https://porlalibreinformacion.org/"
-                        >porlalibreinformacion.org</a
+                      <a href="https://porlalibreinformacion.org/"
+                        target="_blank" rel="noopener noreferrer">porlalibreinformacion.org</a
                       ></small
                     >
                   </v-col>
@@ -458,8 +458,12 @@ export default {
       }
     },
     listas() {
-      return this.$store.state.presidentes;
+      return filter(this.$store.state.presidentes, [
+        "Cargo",
+        "PRESIDENTE DE LA REPÚBLICA"
+      ]);
     },
+
     candidatesFavs() {
       let favs = this.$route.query.candidatos.split(",");
       return filter(this.listas, item => {
@@ -487,17 +491,22 @@ export default {
       });
     },
     listasFiltered() {
-      return this.listas;
-      // return this.uniqueFilter(
-      //   this.listas
-      //     .filter(this.presidenteFilter1)
-      //     .filter(this.presidenteFilter2)
-      //     .filter(this.presidenteFilter3)
-      //     .filter(this.presidenteFilter4)
-      //     .filter(this.presidenteFilter5)
-      //     .filter(this.presidenteFilter6),
-      //   "Partido"
-      // );
+      return this.listas
+          .filter(this.presidenteFilter1)
+          .filter(this.presidenteFilter2)
+          .filter(this.presidenteFilter3)
+          .filter(this.presidenteFilter4)
+          .filter(this.presidenteFilter5)
+          .filter(this.presidenteFilter6)
+    },
+    listasDetallesFiltered() {
+      return this.$store.state.presidentes
+          .filter(this.presidenteFilter1)
+          .filter(this.presidenteFilter2)
+          .filter(this.presidenteFilter3)
+          .filter(this.presidenteFilter4)
+          .filter(this.presidenteFilter5)
+          .filter(this.presidenteFilter6)
     },
     filtroTabla1() {
       let favs = this.$route.query.candidatos.split(",");
@@ -506,7 +515,7 @@ export default {
       });
     },
     filtroTablaDetalles() {
-      return filter(this.listasFiltered, item => {
+      return filter(this.listasDetallesFiltered, item => {
         return item;
       });
     },
