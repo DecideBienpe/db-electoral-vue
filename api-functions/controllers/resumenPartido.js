@@ -14,7 +14,13 @@ exports.getAllResumenPartido = async (req, res, next) => {
       "Joven",
       "Mayor",
       "Vacancia",
-      "TipoDemocracia"
+      "TipoDemocracia",
+      "Sentencia",
+      "DeudoresSunat",
+      "Golondrinos",
+      "Vacunado",
+      "IDPartido",
+      "Imagen"
     ]
   });
   res.status(200).send(allResumenes);
