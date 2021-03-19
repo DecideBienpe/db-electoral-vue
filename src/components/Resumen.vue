@@ -14,32 +14,60 @@
 
       <v-btn-toggle
         v-model="field"
-        tile
+        mandatory
         color="deep-purple accent-3"
         group
       >
-        <v-btn value="PromedioIngr">
-          Los que ganan más
+        <v-btn value="Sentencia">
+          Con más candidatos con sentencias
         </v-btn>
 
-        <v-btn value="PExperiencia">
-          Con más experiencia
+        <v-btn value="DeudoresSunat">
+          Con más deudores a SUNAT
+        </v-btn>
+
+        <v-btn value="Vacunado">
+          Con más vacunados
+        </v-btn>
+
+        <v-btn value="Golondrinos">
+          Con más golondrinos
         </v-btn>
 
         <v-btn value="PEstudios">
           Con más estudios superiores
         </v-btn>
 
+        <v-btn value="PromedioIngr">
+          Con más ingresos
+        </v-btn>
+
         <v-btn value="PromedioEdad">
-          Los más jovenes
+          Por edad
         </v-btn>
       </v-btn-toggle>
     </v-col>
 
     </div>
+    
     <div class="partido-ranking">
       <div class="partido" v-for="partido in graph_data" :key="partido.name">
-        <div class="partido-name">{{ partido.Partido }}</div>
+
+
+
+        <div class="partido-name text-center">
+          <a class="text-center" :href="`#/partidos/${render_logo(partido.Partido)}`">
+              <v-img contain
+              :src="require(`../assets/partidos/${partido.Imagen}`)"
+              class="text-right pa-2"
+              width="95px"
+            >
+          </v-img>
+          </a>
+          <a class="text-center" :href="`#/partidos/${render_logo(partido.Partido)}`">
+            <h3>{{ partido.Partido }}</h3>
+          </a>
+        </div>
         <div class="graph">
           <div class="graph-item" :class="{'active': field == 'PromedioEdad'}">
             <label>Promedio de edad</label>
@@ -63,14 +91,9 @@
             <label>Ingresos promedio anual</label>
             <div>
             <span>S/. {{ partido.PromedioIngr.toFixed(0) }} soles</span>
-            <div class="percent ingresos" :style="`width: ${calcScale(partido.PromedioIngr, 'PromedioIngr', 500000, 150)}px`"></div></div>
+            <div class="percent ingresos" :style="`width: ${calcScale(partido.PromedioIngr, 'PromedioIngr', 550000, 150)}px`"></div></div>
           </div>
-          <div class="graph-item" :class="{'active': field == 'Pmujeres'}">
-            <label>Lista de mujeres </label>
-            <div>
-              <span>{{ partido.Pmujeres}}%</span>
-              <div class="percent mujeres" :style="`width: ${calcScale(partido.Pmujeres, 'Pmujeres', 100, 100)}%`"></div></div>
-          </div>
+
           <div class="graph-item" :class="{'active': field == 'PEstudios'}">
             <label>Estudios superiores</label><div>
               <span>{{ partido.PEstudios }}%</span>
@@ -81,6 +104,38 @@
               <span>{{ partido.PExperiencia }}%</span>
               <div class="percent experiencia" :style="`width: ${calcScale(partido.PExperiencia, 'PExperiencia', 100, 100)}%`"></div></div>
           </div>
+
+          <div class="graph-item" :class="{'active': field == 'Sentencia'}">
+            <label>Sentencias</label><div>
+              <span>{{ partido.DeudoresSunat }} {{ partido.DeudoresSunat != 1 ? `sentenciados` : `sentenciado`}}</span>
+              <div class="percent sentencias" :style="`width: ${calcScale(partido.Sentencia, 'Sentencia', 25, 150)}px`"></div></div>
+          </div>
+
+          <div class="graph-item" :class="{'active': field == 'DeudoresSunat'}">
+            <label>Deudores de la sunat</label><div>
+              <span>{{ partido.DeudoresSunat }} {{ partido.DeudoresSunat != 1 ? `deudores` : `deudor`}}</span>
+              <div class="percent deudores" :style="`width: ${calcScale(partido.DeudoresSunat, 'DeudoresSunat', 20, 150)}px`"></div></div>
+          </div>
+
+          <div class="graph-item" :class="{'active': field == 'Golondrinos'}">
+            <label>Golondrinos</label><div>
+              <span>{{ partido.Golondrinos }} {{ partido.Golondrinos != 1 ? `golondrinos` : `golondrino`}}</span>
+              <div class="percent golondrinos" :style="`width: ${calcScale(partido.Golondrinos, 'Golondrinos', 75, 150)}px`"></div></div>
+          </div>
+
+          <div class="graph-item" :class="{'active': field == 'Vacunado'}">
+            <label>Vacunados</label><div>
+              <span>{{ partido.Vacunado }} {{ partido.Vacunado > 1 ? `vacunados` : `vacunado`}}</span>
+              <div class="percent golondrinos" :style="`width: ${calcScale(partido.Vacunado, 'Vacunado', 10, 150)}px`"></div></div>
+          </div>
+
+          <div class="graph-item" :class="{'active': field == 'Pmujeres'}">
+            <label>Lista de mujeres </label>
+            <div>
+              <span>{{ partido.Pmujeres}}%</span>
+              <div class="percent mujeres" :style="`width: ${calcScale(partido.Pmujeres, 'Pmujeres', 100, 100)}%`"></div></div>
+          </div>
+
           <div class="graph-item" :class="{'active': field == 'Vacancia'}">
             <label>Vacancia</label><div>{{ partido.Vacancia}}</div>
           </div>

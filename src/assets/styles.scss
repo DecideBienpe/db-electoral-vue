@@ -66,6 +66,15 @@ html, body {
   }
 }
 
+.btn-comparar {
+  color: #fff !important;
+  background-color: $red !important;
+
+  .mdi-checkbox-marked-circle-outline::before {
+    color: #fff;
+  }
+}
+
 .v-overlay__content {
   position: relative;
 }
@@ -427,10 +436,41 @@ html, body {
 }
 
 .partido-name {
+  display: flex;
+  align-items: center;
   font-size: 16px;
   font-weight: 600;
   min-height: 45px;
   line-height: 1.2em;
+
+  a {
+    color: #333 !important;
+  }
+
+  h3 {
+    text-align: left;
+    font-size: 16px;
+  }
+}
+
+.partido-ranking-container {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  text-align: center;
+
+  .v-item-group {
+    flex-wrap: nowrap;
+    display: block;
+    max-width: 720px;
+    margin: 25px auto;
+  }
+
+  .v-btn.v-size--default {
+    font-size: 12px !important;
+    padding: 3px 5px !important;
+    height: 35px !important;
+  }
 }
 
 .partido-ranking {
@@ -503,6 +543,10 @@ html, body {
 
       &.experiencia {
         background: #bb9d07;
+      }
+
+      &.mujeres {
+        background: #0798bb;
       }
     }
   }
