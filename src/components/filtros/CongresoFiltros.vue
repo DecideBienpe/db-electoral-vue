@@ -326,8 +326,11 @@
                     ></v-checkbox>
                     <small
                       >Fuente:
-                      <a href="https://porlalibreinformacion.org/"
-                        target="_blank" rel="noopener noreferrer">porlalibreinformacion.org</a
+                      <a
+                        href="https://porlalibreinformacion.org/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >porlalibreinformacion.org</a
                       ></small
                     >
                   </v-col>
@@ -344,8 +347,11 @@
                     ></v-checkbox>
                     <small
                       >Fuente:
-                      <a href="https://porlalibreinformacion.org/"
-                        target="_blank" rel="noopener noreferrer">porlalibreinformacion.org</a
+                      <a
+                        href="https://porlalibreinformacion.org/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >porlalibreinformacion.org</a
                       ></small
                     >
                   </v-col>
