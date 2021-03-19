@@ -8,7 +8,7 @@
     </h3>
     <div class="text-center mt-3 mb-3">
       <a
-        :href="`/#/resumen`"
+        :href="`#/resumen`"
         class="btn-comparar v-btn v-btn--is-elevated v-btn--has-bg theme--light v-size--default"
       >
         <v-icon left> mdi-checkbox-marked-circle-outline</v-icon> Comparar
