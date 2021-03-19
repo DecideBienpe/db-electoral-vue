@@ -26,6 +26,14 @@ html, body {
   }
 }
 
+#app > div > header {
+  z-index: 999 !important;
+}
+
+#app > div.v-application--wrap > nav {
+  z-index: 99 !important;
+}
+
 .decidebien-content {
   background: #333;
 
