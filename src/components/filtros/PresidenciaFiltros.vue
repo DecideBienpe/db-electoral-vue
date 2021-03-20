@@ -188,8 +188,11 @@
                     ></v-checkbox>
                     <small
                       >Fuente:
-                      <a href="https://porlalibreinformacion.org/"
-                        target="_blank" rel="noopener noreferrer">porlalibreinformacion.org</a
+                      <a
+                        href="https://porlalibreinformacion.org/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >porlalibreinformacion.org</a
                       ></small
                     >
                   </v-col>
@@ -206,8 +209,11 @@
                     ></v-checkbox>
                     <small
                       >Fuente:
-                      <a href="https://porlalibreinformacion.org/"
-                        target="_blank" rel="noopener noreferrer">porlalibreinformacion.org</a
+                      <a
+                        href="https://porlalibreinformacion.org/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >porlalibreinformacion.org</a
                       ></small
                     >
                   </v-col>
@@ -249,8 +255,14 @@
               <v-row class="mb-5">
                 <v-col
                   v-for="(candidato, i) in candidatesFavs"
-                  :key="i" cols="6" lg="2" md="4">
-                  <h2 class="candidato-name text-center">{{ candidato.Nombre }}</h2>
+                  :key="i"
+                  cols="6"
+                  lg="2"
+                  md="4"
+                >
+                  <h2 class="candidato-name text-center">
+                    {{ candidato.Nombre }}
+                  </h2>
                   <h4
                     class="candidato-filter text-center my-3 py-1"
                     :class="`filter-${candidato.filter}`"
@@ -266,7 +278,8 @@
                       }}
                     </v-icon>
                   </h4>
-                  <v-img contain
+                  <v-img
+                    contain
                     :src="
                       require(`../../assets/presidenciales/${candidato.ID}.png`)
                     "
@@ -274,7 +287,8 @@
                     class="text-right pa-2"
                   >
                   </v-img>
-                  <v-img contain
+                  <v-img
+                    contain
                     :src="
                       require(`../../assets/partidos/${candidato.idOrgPol}.png`)
                     "
@@ -290,9 +304,16 @@
               <v-row class="mb-5">
                 <v-col
                   v-for="(candidato, i) in filtroTabla1"
-                  :key="i" cols="6" lg="2" md="4">
-                  <h2 class="candidato-name text-center">{{ candidato.Nombre }}</h2>
-                  <v-img contain
+                  :key="i"
+                  cols="6"
+                  lg="2"
+                  md="4"
+                >
+                  <h2 class="candidato-name text-center">
+                    {{ candidato.Nombre }}
+                  </h2>
+                  <v-img
+                    contain
                     :src="
                       require(`../../assets/presidenciales/${candidato.ID}.png`)
                     "
@@ -300,7 +321,8 @@
                     class="text-right pa-2"
                   >
                   </v-img>
-                  <v-img contain
+                  <v-img
+                    contain
                     :src="
                       require(`../../assets/partidos/${candidato.idOrgPol}.png`)
                     "
@@ -314,9 +336,16 @@
               <v-row>
                 <v-col
                   v-for="(candidato, i) in others"
-                  :key="i" cols="6" lg="2" md="4">
-                  <h2 class="candidato-name text-center">{{ candidato.Nombre }}</h2>
-                  <v-img contain
+                  :key="i"
+                  cols="6"
+                  lg="2"
+                  md="4"
+                >
+                  <h2 class="candidato-name text-center">
+                    {{ candidato.Nombre }}
+                  </h2>
+                  <v-img
+                    contain
                     :src="
                       require(`../../assets/presidenciales/${candidato.ID}.png`)
                     "
@@ -324,7 +353,8 @@
                     class="text-right pa-2"
                   >
                   </v-img>
-                  <v-img contain 
+                  <v-img
+                    contain
                     :src="
                       require(`../../assets/partidos/${candidato.idOrgPol}.png`)
                     "
@@ -492,21 +522,21 @@ export default {
     },
     listasFiltered() {
       return this.listas
-          .filter(this.presidenteFilter1)
-          .filter(this.presidenteFilter2)
-          .filter(this.presidenteFilter3)
-          .filter(this.presidenteFilter4)
-          .filter(this.presidenteFilter5)
-          .filter(this.presidenteFilter6)
+        .filter(this.presidenteFilter1)
+        .filter(this.presidenteFilter2)
+        .filter(this.presidenteFilter3)
+        .filter(this.presidenteFilter4)
+        .filter(this.presidenteFilter5)
+        .filter(this.presidenteFilter6);
     },
     listasDetallesFiltered() {
       return this.$store.state.presidentes
-          .filter(this.presidenteFilter1)
-          .filter(this.presidenteFilter2)
-          .filter(this.presidenteFilter3)
-          .filter(this.presidenteFilter4)
-          .filter(this.presidenteFilter5)
-          .filter(this.presidenteFilter6)
+        .filter(this.presidenteFilter1)
+        .filter(this.presidenteFilter2)
+        .filter(this.presidenteFilter3)
+        .filter(this.presidenteFilter4)
+        .filter(this.presidenteFilter5)
+        .filter(this.presidenteFilter6);
     },
     filtroTabla1() {
       let favs = this.$route.query.candidatos.split(",");
