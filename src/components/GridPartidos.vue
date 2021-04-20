@@ -45,9 +45,7 @@ export default {
       partidosFavoritos: []
     };
   },
-  created() {
-    this.$store.dispatch("getPartidos");
-  },
+  created() {},
   computed: {
     partidos() {
       return this.$store.state.partidos;

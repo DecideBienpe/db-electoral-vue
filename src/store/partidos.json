@@ -1,0 +1,42 @@
+[
+  { "IDPartido": 4, "Partido": "ACCION POPULAR", "Imagen": "4.png" },
+  {
+    "IDPartido": 1257,
+    "Partido": "ALIANZA PARA EL PROGRESO",
+    "Imagen": "1257.png"
+  },
+  { "IDPartido": 2173, "Partido": "AVANZA PAIS", "Imagen": "2173.png" },
+  { "IDPartido": 2191, "Partido": "DEMOCRACIA DIRECTA", "Imagen": "2191.png" },
+  { "IDPartido": 2160, "Partido": "FRENTE AMPLIO", "Imagen": "2160.png" },
+  { "IDPartido": 2646, "Partido": "FREPAP", "Imagen": "2646.png" },
+  { "IDPartido": 1366, "Partido": "FUERZA POPULAR", "Imagen": "1366.png" },
+  { "IDPartido": 1264, "Partido": "JUNTOS POR EL PERU", "Imagen": "1264.png" },
+  { "IDPartido": 2840, "Partido": "PARTIDO MORADO", "Imagen": "2840.png" },
+  {
+    "IDPartido": 179,
+    "Partido": "PARTIDO NACIONALISTA PERUANO",
+    "Imagen": "179.png"
+  },
+  {
+    "IDPartido": 2235,
+    "Partido": "PARTIDO POLÍTICO CONTIGO",
+    "Imagen": "2235.png"
+  },
+  {
+    "IDPartido": 15,
+    "Partido": "PARTIDO POPULAR CRISTIANO - PPC",
+    "Imagen": "15.png"
+  },
+  { "IDPartido": 2218, "Partido": "PERU LIBRE", "Imagen": "2218.png" },
+  { "IDPartido": 55, "Partido": "PERU PATRIA SEGURA", "Imagen": "55.png" },
+  { "IDPartido": 2731, "Partido": "PODEMOS PERU", "Imagen": "2731.png" },
+  {
+    "IDPartido": 5,
+    "Partido": "RENACIMIENTO UNIDO NACIONAL",
+    "Imagen": "5.png"
+  },
+  { "IDPartido": 22, "Partido": "RENOVACION POPULAR", "Imagen": "22.png" },
+  { "IDPartido": 14, "Partido": "SOMOS PERU", "Imagen": "14.png" },
+  { "IDPartido": 47, "Partido": "UNION POR EL PERU", "Imagen": "47.png" },
+  { "IDPartido": 21, "Partido": "VICTORIA NACIONAL", "Imagen": "21.png" }
+]

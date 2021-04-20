@@ -41,13 +41,7 @@ export default {
   components: {
     Enlace
   },
-  created() {
-    this.$store.dispatch("getPartidos");
-    this.$store.dispatch("getRegiones");
-    this.$store.dispatch("getListas");
-    this.$store.dispatch("getPresidentes");
-    this.$store.dispatch("getResumen");
-  },
+  created() {},
   methods: {
     filterChanged() {
       EventBus.$emit("filter-change");

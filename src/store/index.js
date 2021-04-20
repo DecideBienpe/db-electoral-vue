@@ -1,27 +1,22 @@
 // import dependency to handle HTTP request to our back end
-import axios from "axios";
-import Vuex from "vuex";
 import Vue from "vue";
-// import regiones from "./regiones.json"; // copia backup local para debugging
-import t1 from "./t1.json";
-import t2 from "./t2.json";
-import t3 from "./t3.json";
-import t4 from "./t4.json";
+import Vuex from "vuex";
+import listas from "./candidatos-congreso.json";
+import presidencia from "./candidatos-presidencia.json";
+import partidos from "./partidos.json";
+import regiones from "./regiones.json";
+import resumen from "./resumen.json";
 
 //load Vuex
 Vue.use(Vuex);
 
 //to handle state
 const state = {
-  listas: [],
-  presidentes: [],
-  partidos: [],
-  regiones: [],
-  resumen: [],
-  t1: t1,
-  t2: t2,
-  t3: t3,
-  t4: t4,
+  listas: listas,
+  presidentes: presidencia,
+  partidos: partidos,
+  regiones: regiones,
+  resumen: resumen,
   filtros: {
     f1: false,
     f2: false,
@@ -41,53 +36,7 @@ const state = {
 const getters = {};
 
 //to handle actions
-const actions = {
-  getResumen({ commit }) {
-    axios
-      .get(
-        "https://us-central1-zettai-tools.cloudfunctions.net/decidebien-api/resumen-partido"
-      )
-      .then(response => {
-        commit("SET_RESUMEN", response.data);
-      });
-  },
-  getRegiones({ commit }) {
-    axios
-      .get(
-        "https://us-central1-zettai-tools.cloudfunctions.net/decidebien-api/regiones"
-      )
-      .then(response => {
-        commit("SET_REGIONES", response.data);
-      });
-  },
-  getPartidos({ commit }) {
-    axios
-      .get(
-        "https://us-central1-zettai-tools.cloudfunctions.net/decidebien-api/partidos"
-      )
-      .then(response => {
-        commit("SET_PARTIDOS", response.data);
-      });
-  },
-  getListas({ commit }) {
-    axios
-      .get(
-        "https://us-central1-zettai-tools.cloudfunctions.net/decidebien-api/congreso/candidatos"
-      )
-      .then(response => {
-        commit("SET_LISTAS", response.data);
-      });
-  },
-  getPresidentes({ commit }) {
-    axios
-      .get(
-        "https://us-central1-zettai-tools.cloudfunctions.net/decidebien-api/presidente/candidatos"
-      )
-      .then(response => {
-        commit("SET_PRESIDENTES", response.data);
-      });
-  }
-};
+const actions = {};
 
 //to handle mutations
 const mutations = {

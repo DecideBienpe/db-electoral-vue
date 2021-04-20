@@ -3,9 +3,7 @@
     <h2 class="text-center">
       Compara a los partidos que participan en las Elecciones 2021
     </h2>
-    <h3 class="text-center">
-      Ordenalos por tus intereses
-    </h3>
+    <h3 class="text-center">Ordenalos por tus intereses</h3>
     <div class="row mb-5">
       <v-col cols="12" class="py-2">
         <v-btn-toggle
@@ -14,33 +12,19 @@
           color="deep-purple accent-3"
           group
         >
-          <v-btn value="Sentencia">
-            Con más candidatos con sentencias
-          </v-btn>
+          <v-btn value="Sentencia"> Con más candidatos con sentencias </v-btn>
 
-          <v-btn value="DeudoresSunat">
-            Con más deudores a SUNAT
-          </v-btn>
+          <v-btn value="DeudoresSunat"> Con más deudores a SUNAT </v-btn>
 
-          <v-btn value="Vacunado">
-            Con más vacunados
-          </v-btn>
+          <v-btn value="Vacunado"> Con más vacunados </v-btn>
 
-          <v-btn value="Golondrinos">
-            Con más golondrinos
-          </v-btn>
+          <v-btn value="Golondrinos"> Con más golondrinos </v-btn>
 
-          <v-btn value="PEstudios">
-            Con más estudios superiores
-          </v-btn>
+          <v-btn value="PEstudios"> Con más estudios superiores </v-btn>
 
-          <v-btn value="PromedioIngr">
-            Con más ingresos
-          </v-btn>
+          <v-btn value="PromedioIngr"> Con más ingresos </v-btn>
 
-          <v-btn value="PromedioEdad">
-            Por edad
-          </v-btn>
+          <v-btn value="PromedioEdad"> Por edad </v-btn>
         </v-btn-toggle>
       </v-col>
     </div>
@@ -282,10 +266,7 @@ import { orderBy } from "lodash";
 
 export default {
   name: "Partidos",
-  created() {
-    this.$store.dispatch("getPartidos");
-    this.$store.dispatch("getResumen");
-  },
+  created() {},
   data() {
     return {
       field: "ingresos"
