@@ -400,7 +400,6 @@
 </template>
 
 <script>
-import axios from "axios";
 import Twitter from "../../components/Twitter.vue";
 import Vue from "vue";
 import { EventBus } from "../../eventbus";
@@ -701,19 +700,7 @@ export default {
     EventBus.$on("filter-change", () => {
       this.updateURLQuery();
     });
-    // TODO: Discutir que tiene mas sentido, elegir un dpto por default o no:
-    // Si seleccionamos una region automaticamente, los analytics reportaran esa region mucho mas que las demas
-    // LLamada al API para tener las regiones, actualizar el store y luego restaurar la tabla de filtros.
-    // Problema original es que esta funcion se llama antes que el store termine de conseguir la data de los partidos.
-    // TODO: quizas hay manera de remover esta llamada.
-    axios
-      .get(
-        "https://us-central1-zettai-tools.cloudfunctions.net/decidebien-api/regiones"
-      )
-      .then(response => {
-        this.$store.commit("SET_REGIONES", response.data);
-        this.restoreTablesValues();
-      });
+    this.restoreTablesValues();
   }
 };
 </script>
